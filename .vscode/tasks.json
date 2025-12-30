@@ -13,6 +13,78 @@
 				"Copy-Item -Force \"src\\assets\\logo_p.png\" \"public\\favicon.png\"; Copy-Item -Force \"src\\assets\\logo_p.png\" \"public\\apple-touch-icon.png\""
 			],
 			"isBackground": false
+		},
+		{
+			"label": "Git status",
+			"type": "shell",
+			"command": "powershell",
+			"args": [
+				"-NoProfile",
+				"-ExecutionPolicy",
+				"Bypass",
+				"-Command",
+				"git status"
+			],
+			"isBackground": false
+		},
+		{
+			"label": "Git remotes",
+			"type": "shell",
+			"command": "powershell",
+			"args": [
+				"-NoProfile",
+				"-ExecutionPolicy",
+				"Bypass",
+				"-Command",
+				"git remote -v; git remote"
+			],
+			"isBackground": false
+		},
+		{
+			"label": "Fix git remote name",
+			"type": "shell",
+			"command": "powershell",
+			"args": [
+				"-NoProfile",
+				"-ExecutionPolicy",
+				"Bypass",
+				"-Command",
+				"git remote rename \"moscmm'\" origin; git remote -v"
+			],
+			"isBackground": false
+		},
+		{
+			"label": "Commit and push",
+			"type": "shell",
+			"command": "powershell",
+			"args": [
+				"-NoProfile",
+				"-ExecutionPolicy",
+				"Bypass",
+				"-Command",
+				"git add -A; git status --porcelain; git commit -m \"Initial website\"; git branch -M main; git push -u origin main"
+			],
+			"isBackground": false
+		},
+		{
+			"label": "Rename remote to origin",
+			"type": "shell",
+			"command": "cmd",
+			"args": [
+				"/c",
+				"cd /d \"c:\\Files\\CreatoXD\\Works\\eye hospital\" & git remote rename \"moscmm'\" origin & git remote -v"
+			],
+			"isBackground": false
+		},
+		{
+			"label": "Stage all (respect .gitignore)",
+			"type": "shell",
+			"command": "cmd",
+			"args": [
+				"/c",
+				"cd /d \"c:\\Files\\CreatoXD\\Works\\eye hospital\" & git add -A & git status --porcelain"
+			],
+			"isBackground": false
 		}
 	]
 }
