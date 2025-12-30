@@ -101,8 +101,8 @@ const Home = () => {
               </div>
               <div className="hero__contact">
                 <Phone size={18} />
-                <span>Emergency Helpline: </span>
-                <a href="tel:+914936202030">+91 4936 202030</a>
+                <span>Phone: </span>
+                <a href="tel:+914936247274">04936 247 274</a>
               </div>
             </div>
           </div>
@@ -117,14 +117,14 @@ const Home = () => {
               <Clock size={24} />
               <div>
                 <h4>OPD Timings</h4>
-                <p>Mon - Sat: 9:00 AM - 5:00 PM</p>
+                <p>Mon - Sat: 8:45 AM - 4:30 PM</p>
               </div>
             </div>
             <div className="quick-info__item">
               <Phone size={24} />
               <div>
                 <h4>Contact Us</h4>
-                <p>+91 4936 202030</p>
+                <p>04936 247 274</p>
               </div>
             </div>
             <div className="quick-info__item">
@@ -275,40 +275,40 @@ const Home = () => {
             <div className="doctor-card">
               <div className="doctor-card__image">
                 <img 
-                  src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=300&h=300&fit=crop" 
-                  alt="Dr. Thomas Varghese"
+                  src="https://lh3.googleusercontent.com/sitesv/AAzXCke_fOFhxq0onDqnNW4N70fMU17DJ3S0NcegOYLS6PKmKDZsUeIVgYGvvfmwBDpWePM7nTFdmWAaStQ7JEbLERaY0FT_L1RroS2GbPYzjmwX5DUAbAENrbxDDHhuVAa1AYV82vEEKAhuAITXOCtGo6izVJOl-5jSEbva2jJD1q1_zE6G-ZovCdS70J-BemyrAED14rfswa7GysoGXVZW7paaabKERaLO8aaoNuA=w1280" 
+                  alt="Dr. Rajan Cyriac"
                 />
               </div>
               <div className="doctor-card__content">
-                <h3 className="doctor-card__name">Dr. Thomas Varghese</h3>
-                <p className="doctor-card__specialty">Chief Medical Officer & Senior Consultant</p>
-                <p className="doctor-card__qualification">MS (Ophthalmology), FRCS</p>
+                <h3 className="doctor-card__name">Dr. Rajan Cyriac</h3>
+                <p className="doctor-card__specialty">Medical Director & Chief Consultant</p>
+                <p className="doctor-card__qualification">M.B.B.S., M.S.(Ophthal.), D.O.M.S</p>
               </div>
             </div>
             <div className="doctor-card">
               <div className="doctor-card__image">
                 <img 
-                  src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=300&h=300&fit=crop" 
-                  alt="Dr. Mary Philip"
+                  src="https://lh3.googleusercontent.com/sitesv/AAzXCkfQhUadXSk7qazp7Wpi9eptoJB8JS2u4BqJqRNTfZAN3Eu39E6jFFARrlYbDu0WuXpKYC9yifgUI-6zcr6nUXu6uxruBgakM_9Rpaitzgjg8np88B_g0USNzMAJ_PzMAKyGqjSspCT87HRwFvvwRtZDmCYnkpwyMCFagSO8nbenj0hxHQZ5U9brK8VwUwbvVYe1qBUwXs3pV3N3xXFc6fhKDSqfZp8ssDhu=w1280" 
+                  alt="Dr. Joel Varghese Kuruvilla"
                 />
               </div>
               <div className="doctor-card__content">
-                <h3 className="doctor-card__name">Dr. Mary Philip</h3>
-                <p className="doctor-card__specialty">Consultant Ophthalmologist</p>
-                <p className="doctor-card__qualification">MBBS, DO, DNB (Ophthalmology)</p>
+                <h3 className="doctor-card__name">Dr. Joel Varghese Kuruvilla</h3>
+                <p className="doctor-card__specialty">Associate Consultant</p>
+                <p className="doctor-card__qualification">M.B.B.S., M.S.(Ophthal)</p>
               </div>
             </div>
             <div className="doctor-card">
               <div className="doctor-card__image">
                 <img 
-                  src="https://images.unsplash.com/photo-1537368910025-700350fe46c7?w=300&h=300&fit=crop" 
-                  alt="Dr. John Mathew"
+                  src="https://lh3.googleusercontent.com/sitesv/AAzXCkdZl8qM8S--qv5TcM9zOUzDE9GAcwXB3hiv1VLy3AAJPgi3fkiMDb0O5Bcuj6_UsnepgGx0qvKWjBxSiHWceNgRZM_OBFk8pQqTos8e56u9DDTesY0iFnl_dnkWcvAsxAf_u-qf7B2igk-clXigXJH_EjETL7cONf9a7mTmm5S01ISJAGAmt5aZ4waydFkR1IJUmh72I66_qUfWxCC-Wp74MDuvgIArH6SeYUI=w1280" 
+                  alt="Dr. Jithendranath"
                 />
               </div>
               <div className="doctor-card__content">
-                <h3 className="doctor-card__name">Dr. John Mathew</h3>
-                <p className="doctor-card__specialty">Retina Specialist</p>
-                <p className="doctor-card__qualification">MS, DNB, FVRS (Retina)</p>
+                <h3 className="doctor-card__name">Dr. Jithendranath</h3>
+                <p className="doctor-card__specialty">Anaesthetist</p>
+                <p className="doctor-card__qualification">B.Sc., M.B.B.S., D.A</p>
               </div>
             </div>
           </div>
@@ -388,7 +388,7 @@ const Home = () => {
                 <Calendar size={20} />
                 Book Appointment
               </Link>
-              <a href="tel:+914936202030" className="btn btn-outline btn-lg">
+              <a href="tel:04936247274" className="btn btn-outline btn-lg">
                 <Phone size={20} />
                 Call Now
               </a>

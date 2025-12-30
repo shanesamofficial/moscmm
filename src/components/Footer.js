@@ -44,7 +44,7 @@ const Footer = () => {
                 and rural communities of Wayanad, Kerala.
               </p>
               <div className="footer__social">
-                <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+                <a href="https://www.facebook.com/moscmm.kariambady" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
                   <Facebook size={20} />
                 </a>
                 <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
@@ -103,8 +103,7 @@ const Footer = () => {
                 <li>
                   <Phone size={18} />
                   <div>
-                    <a href="tel:+914936202030">+91 4936 202030</a><br />
-                    <a href="tel:+914936202031">+91 4936 202031</a>
+                    <a href="tel:+914936247274">04936 247 274</a>
                   </div>
                 </li>
                 <li>
@@ -116,8 +115,8 @@ const Footer = () => {
                 <li>
                   <Clock size={18} />
                   <span>
-                    Mon - Sat: 9:00 AM - 5:00 PM<br />
-                    Sunday: Closed (Emergency Only)
+                    Mon - Sat: 8:45 AM - 4:30 PM<br />
+                    Sunday: Closed
                   </span>
                 </li>
               </ul>

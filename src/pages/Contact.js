@@ -6,11 +6,14 @@ import {
   Mail, 
   Clock, 
   Send,
+  Car,
+  Bus,
+  Plane,
+  Train,
   Facebook,
   Twitter,
   Instagram,
-  Youtube,
-  MessageCircle
+  Youtube
 } from 'lucide-react';
 import './Contact.css';
 
@@ -49,18 +52,18 @@ const Contact = () => {
       title: 'Our Location',
       details: [
         'MOSCMM Kariambady Eye Hospital',
-        'Kariambady P.O., Mananthavady',
-        'Wayanad District, Kerala - 670645',
-        'India'
-      ]
+        'Kenichira Karimbadi Rd, Kariampady, Kerala 673591'
+      ],
+      action: {
+        label: 'Open in Google Maps',
+        href: 'https://www.google.com/maps?q=M4JM%2BW8%20Kariampady%2C%20Kerala'
+      }
     },
     {
       icon: <Phone size={24} />,
       title: 'Phone Numbers',
       details: [
-        'Reception: +91 4936 202030',
-        'Appointment: +91 4936 202031',
-        'Emergency: +91 4936 202030'
+        'Phone: 04936 247 274'
       ],
       isLink: 'tel'
     },
@@ -77,9 +80,13 @@ const Contact = () => {
       icon: <Clock size={24} />,
       title: 'Working Hours',
       details: [
-        'Monday - Friday: 9:00 AM - 5:00 PM',
-        'Saturday: 9:00 AM - 2:00 PM',
-        'Sunday: Emergency Only'
+        'Monday: 8:45 AM - 4:30 PM',
+        'Tuesday: 8:45 AM - 4:30 PM',
+        'Wednesday: 8:45 AM - 4:30 PM',
+        'Thursday: 8:45 AM - 4:30 PM',
+        'Friday: 8:45 AM - 4:30 PM',
+        'Saturday: 8:45 AM - 4:30 PM',
+        'Sunday: Closed'
       ]
     }
   ];
@@ -109,17 +116,30 @@ const Contact = () => {
             {contactInfo.map((info, index) => (
               <div key={index} className="contact-info-card">
                 <div className="contact-info-card__icon">{info.icon}</div>
-                <h3 className="contact-info-card__title">{info.title}</h3>
-                <div className="contact-info-card__details">
-                  {info.details.map((detail, idx) => (
-                    info.isLink ? (
-                      <a key={idx} href={`${info.isLink}:${detail.replace(/[^0-9+@.a-zA-Z]/g, '')}`}>
-                        {detail}
-                      </a>
-                    ) : (
-                      <p key={idx}>{detail}</p>
-                    )
-                  ))}
+                <div className="contact-info-card__content">
+                  <h3 className="contact-info-card__title">{info.title}</h3>
+                  <div className="contact-info-card__details">
+                    {info.details.map((detail, idx) => (
+                      info.isLink ? (
+                        <a key={idx} href={`${info.isLink}:${detail.replace(/[^0-9+@.a-zA-Z]/g, '')}`}>
+                          {detail}
+                        </a>
+                      ) : (
+                        <p key={idx}>{detail}</p>
+                      )
+                    ))}
+                  </div>
+
+                  {info.action && (
+                    <a
+                      href={info.action.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="contact-info-card__action"
+                    >
+                      {info.action.label}
+                    </a>
+                  )}
                 </div>
               </div>
             ))}
@@ -230,7 +250,7 @@ const Contact = () => {
                 <h3>Find Us On Map</h3>
                 <div className="contact-map__embed">
                   <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3901.8765!2d76.0041!3d11.8015!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTHCsDQ4JzA1LjQiTiA3NsKwMDAnMTQuOCJF!5e0!3m2!1sen!2sin!4v1600000000000!5m2!1sen!2sin"
+                    src="https://www.google.com/maps?q=M4JM%2BW8%20Kariampady%2C%20Kerala&output=embed"
                     width="100%"
                     height="300"
                     style={{ border: 0 }}
@@ -241,7 +261,7 @@ const Contact = () => {
                   ></iframe>
                 </div>
                 <a 
-                  href="https://goo.gl/maps/wayanad-kariambady" 
+                  href="https://www.google.com/maps?q=M4JM%2BW8%20Kariampady%2C%20Kerala" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="btn btn-secondary contact-map__directions"
@@ -255,7 +275,7 @@ const Contact = () => {
                 <h3>Connect With Us</h3>
                 <p>Follow us on social media for updates and health tips</p>
                 <div className="contact-social__links">
-                  <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+                  <a href="https://www.facebook.com/moscmm.kariambady" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
                     <Facebook size={22} />
                   </a>
                   <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
@@ -267,22 +287,7 @@ const Contact = () => {
                   <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
                     <Youtube size={22} />
                   </a>
-                  <a href="https://wa.me/914936202030" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
-                    <MessageCircle size={22} />
-                  </a>
                 </div>
-              </div>
-
-              <div className="contact-emergency">
-                <h3>Emergency Contact</h3>
-                <p>For eye emergencies outside regular hours:</p>
-                <a href="tel:+914936202030" className="contact-emergency__number">
-                  +91 4936 202030
-                </a>
-                <p className="contact-emergency__note">
-                  Available 24/7 for genuine emergencies such as eye injuries, 
-                  sudden vision loss, or severe eye pain.
-                </p>
               </div>
             </div>
           </div>
@@ -300,7 +305,7 @@ const Contact = () => {
           </div>
           <div className="directions-grid">
             <div className="direction-card">
-              <div className="direction-card__icon">🚗</div>
+              <div className="direction-card__icon" aria-hidden="true"><Car size={28} /></div>
               <h3>By Road</h3>
               <p>
                 From Mananthavady town center, take the Thirunelly Road. The hospital is 
@@ -309,7 +314,7 @@ const Contact = () => {
               </p>
             </div>
             <div className="direction-card">
-              <div className="direction-card__icon">🚌</div>
+              <div className="direction-card__icon" aria-hidden="true"><Bus size={28} /></div>
               <h3>By Bus</h3>
               <p>
                 Regular KSRTC and private buses are available from Kalpetta, Sultan Bathery, 
@@ -318,7 +323,7 @@ const Contact = () => {
               </p>
             </div>
             <div className="direction-card">
-              <div className="direction-card__icon">✈️</div>
+              <div className="direction-card__icon" aria-hidden="true"><Plane size={28} /></div>
               <h3>Nearest Airport</h3>
               <p>
                 Calicut International Airport (CCJ) is the nearest airport, approximately 
@@ -327,7 +332,7 @@ const Contact = () => {
               </p>
             </div>
             <div className="direction-card">
-              <div className="direction-card__icon">🚂</div>
+              <div className="direction-card__icon" aria-hidden="true"><Train size={28} /></div>
               <h3>Nearest Railway</h3>
               <p>
                 Kozhikode (Calicut) Railway Station is the nearest major railway station, 
@@ -349,18 +354,9 @@ const Contact = () => {
               other queries. Don't hesitate to reach out.
             </p>
             <div className="contact-cta__buttons">
-              <a href="tel:+914936202030" className="btn btn-primary btn-lg">
+              <a href="tel:04936247274" className="btn btn-primary btn-lg">
                 <Phone size={20} />
                 Call Us Now
-              </a>
-              <a 
-                href="https://wa.me/914936202030" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="btn btn-outline btn-lg"
-              >
-                <MessageCircle size={20} />
-                WhatsApp Us
               </a>
             </div>
           </div>

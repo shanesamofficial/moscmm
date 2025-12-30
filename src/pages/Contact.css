@@ -9,10 +9,10 @@
 .contact-info-grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 1.5rem;
+  gap: 1.75rem;
 }
 
-@media (min-width: 640px) {
+@media (min-width: 768px) {
   .contact-info-grid {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -20,7 +20,7 @@
 
 @media (min-width: 1024px) {
   .contact-info-grid {
-    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
   }
 }
 
@@ -29,7 +29,10 @@
   padding: 2rem;
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-lg);
-  text-align: center;
+  display: flex;
+  gap: 1.25rem;
+  align-items: flex-start;
+  text-align: left;
   transition: all var(--transition-base);
 }
 
@@ -42,19 +45,24 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 56px;
-  height: 56px;
+  width: 52px;
+  height: 52px;
   background: var(--primary-50);
   color: var(--primary-600);
   border-radius: var(--radius-full);
-  margin-bottom: 1rem;
+  flex: 0 0 auto;
+}
+
+.contact-info-card__content {
+  min-width: 0;
+  flex: 1 1 auto;
 }
 
 .contact-info-card__title {
   font-family: var(--font-sans);
   font-size: 1rem;
   font-weight: 600;
-  margin-bottom: 0.75rem;
+  margin: 0.1rem 0 0.75rem;
   color: var(--gray-900);
 }
 
@@ -63,7 +71,7 @@
   display: block;
   font-size: 0.9375rem;
   color: var(--text-secondary);
-  margin: 0.25rem 0;
+  margin: 0.35rem 0;
   line-height: 1.5;
 }
 
@@ -74,6 +82,19 @@
 
 .contact-info-card__details a:hover {
   color: var(--primary-700);
+}
+
+.contact-info-card__action {
+  display: inline-flex;
+  align-items: center;
+  margin-top: 0.75rem;
+  font-size: 0.9375rem;
+  font-weight: 500;
+  color: var(--primary-700);
+}
+
+.contact-info-card__action:hover {
+  color: var(--primary-800);
 }
 
 /* Contact Main Section */
@@ -248,7 +269,14 @@
 }
 
 .direction-card__icon {
-  font-size: 2.5rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  background: var(--primary-50);
+  color: var(--primary-600);
+  border-radius: var(--radius-full);
   margin-bottom: 1rem;
 }
 

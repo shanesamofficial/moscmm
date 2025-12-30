@@ -288,7 +288,7 @@ const Services = () => {
                 <Clock size={28} />
               </div>
               <h3>Convenient Timings</h3>
-              <p>Extended OPD hours and emergency services for your convenience</p>
+              <p>OP consultations available Monday through Saturday</p>
             </div>
           </div>
         </div>
@@ -310,9 +310,9 @@ const Services = () => {
                 <Calendar size={20} />
                 Book Appointment
               </Link>
-              <a href="tel:+914936202030" className="btn btn-outline btn-lg">
+              <a href="tel:+914936247274" className="btn btn-outline btn-lg">
                 <Phone size={20} />
-                Call: +91 4936 202030
+                Call: 04936 247 274
               </a>
             </div>
           </div>

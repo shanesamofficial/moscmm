@@ -46,13 +46,13 @@ const PatientInfo = () => {
   };
 
   const opTimings = [
-    { day: 'Monday', time: '9:00 AM - 5:00 PM', status: 'open' },
-    { day: 'Tuesday', time: '9:00 AM - 5:00 PM', status: 'open' },
-    { day: 'Wednesday', time: '9:00 AM - 5:00 PM', status: 'open' },
-    { day: 'Thursday', time: '9:00 AM - 5:00 PM', status: 'open' },
-    { day: 'Friday', time: '9:00 AM - 5:00 PM', status: 'open' },
-    { day: 'Saturday', time: '9:00 AM - 2:00 PM', status: 'open' },
-    { day: 'Sunday', time: 'Emergency Only', status: 'emergency' }
+    { day: 'Monday', time: '8:45 AM - 4:30 PM', status: 'open' },
+    { day: 'Tuesday', time: '8:45 AM - 4:30 PM', status: 'open' },
+    { day: 'Wednesday', time: '8:45 AM - 4:30 PM', status: 'open' },
+    { day: 'Thursday', time: '8:45 AM - 4:30 PM', status: 'open' },
+    { day: 'Friday', time: '8:45 AM - 4:30 PM', status: 'open' },
+    { day: 'Saturday', time: '8:45 AM - 4:30 PM', status: 'open' },
+    { day: 'Sunday', time: 'Closed', status: 'closed' }
   ];
 
   const departments = [
@@ -79,9 +79,8 @@ const PatientInfo = () => {
     {
       question: 'Do I need to book an appointment before visiting?',
       answer: `While we accept walk-in patients, we highly recommend booking an appointment to 
-        minimize your waiting time. You can book an appointment by calling us at +91 4936 202030 
-        or by filling out the appointment form on this page. Emergency cases are attended to 
-        immediately without prior appointment.`
+        minimize your waiting time. You can book an appointment by calling us at 04936 247 274 
+        or by filling out the appointment form on this page.`
     },
     {
       question: 'What should I bring for my first visit?',
@@ -128,8 +127,8 @@ const PatientInfo = () => {
       question: 'Do you offer emergency eye care services?',
       answer: `Yes, we provide emergency eye care services for conditions such as eye injuries, 
         sudden vision loss, severe eye pain, or infections. For emergencies outside regular 
-        hours, please call our emergency number: +91 4936 202030. Emergency cases are 
-        prioritized and attended to immediately.`
+        consultation hours, please call us at 04936 247 274. Emergency cases are prioritized 
+        and attended to as quickly as possible.`
     }
   ];
 
@@ -317,11 +316,11 @@ const PatientInfo = () => {
               <div className="appointment-info__card">
                 <h3><Phone size={20} /> Book by Phone</h3>
                 <p>Prefer to speak with us directly? Call our appointment desk:</p>
-                <a href="tel:+914936202030" className="appointment-info__phone">
-                  +91 4936 202030
+                <a href="tel:04936247274" className="appointment-info__phone">
+                  04936 247 274
                 </a>
                 <p className="appointment-info__hours">
-                  Available Mon-Sat: 8:00 AM - 6:00 PM
+                  Available Mon - Sat: 8:45 AM - 4:30 PM
                 </p>
               </div>
 
@@ -334,14 +333,13 @@ const PatientInfo = () => {
                 </p>
               </div>
 
-              <div className="appointment-info__card appointment-info__card--highlight">
-                <h3><AlertCircle size={20} /> Emergency Cases</h3>
+              <div className="appointment-info__card">
+                <h3><AlertCircle size={20} /> Urgent Concerns</h3>
                 <p>
-                  For eye emergencies (injuries, sudden vision loss, severe pain), 
-                  please come directly to the hospital or call:
+                  For urgent eye concerns, please call us and we will guide you on the next steps.
                 </p>
-                <a href="tel:+914936202030" className="appointment-info__emergency">
-                  Emergency: +91 4936 202030
+                <a href="tel:04936247274" className="appointment-info__phone">
+                  04936 247 274
                 </a>
               </div>
             </div>
@@ -375,7 +373,7 @@ const PatientInfo = () => {
                       <td>{timing.time}</td>
                       <td>
                         <span className={`status-badge status-badge--${timing.status}`}>
-                          {timing.status === 'open' ? 'Open' : 'Emergency Only'}
+                          {timing.status === 'open' ? 'Open' : 'Closed'}
                         </span>
                       </td>
                     </tr>
@@ -545,7 +543,7 @@ const PatientInfo = () => {
             <h2>Have More Questions?</h2>
             <p>Our team is here to help you with any queries about your visit or treatment.</p>
             <div className="patient-cta__buttons">
-              <a href="tel:+914936202030" className="btn btn-primary btn-lg">
+              <a href="tel:04936247274" className="btn btn-primary btn-lg">
                 <Phone size={20} />
                 Call Us Now
               </a>

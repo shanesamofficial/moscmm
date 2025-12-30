@@ -22,7 +22,7 @@
 
 .header__top-content {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
 }
 
@@ -30,6 +30,8 @@
   display: flex;
   flex-wrap: wrap;
   gap: 0.75rem;
+  justify-content: center;
+  width: 100%;
 }
 
 .header__top-item {

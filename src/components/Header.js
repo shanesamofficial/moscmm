@@ -31,13 +31,13 @@ const Header = () => {
         <div className="container">
           <div className="header__top-content">
             <div className="header__top-info">
-              <a href="tel:+914936202030" className="header__top-item">
+              <a href="tel:04936247274" className="header__top-item">
                 <Phone size={14} />
-                <span>+91 4936 202030</span>
+                <span>04936 247 274</span>
               </a>
               <span className="header__top-item">
                 <Clock size={14} />
-                <span>Mon - Sat: 9:00 AM - 5:00 PM</span>
+                <span>Mon - Sat: 8:45 AM - 4:30 PM</span>
               </span>
               <span className="header__top-item header__top-item--hide-mobile">
                 <MapPin size={14} />

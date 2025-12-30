@@ -85,6 +85,16 @@
 				"cd /d \"c:\\Files\\CreatoXD\\Works\\eye hospital\" & git add -A & git status --porcelain"
 			],
 			"isBackground": false
+		},
+		{
+			"label": "Commit and push to GitHub",
+			"type": "shell",
+			"command": "cmd",
+			"args": [
+				"/c",
+				"cd /d \"c:\\Files\\CreatoXD\\Works\\eye hospital\" & git commit -m \"Initial website\" & git branch -M main & git push -u origin main"
+			],
+			"isBackground": false
 		}
 	]
 }
