@@ -1,0 +1,18 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "Copy favicon assets",
+			"type": "shell",
+			"command": "powershell",
+			"args": [
+				"-NoProfile",
+				"-ExecutionPolicy",
+				"Bypass",
+				"-Command",
+				"Copy-Item -Force \"src\\assets\\logo_p.png\" \"public\\favicon.png\"; Copy-Item -Force \"src\\assets\\logo_p.png\" \"public\\apple-touch-icon.png\""
+			],
+			"isBackground": false
+		}
+	]
+}
