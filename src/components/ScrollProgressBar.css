@@ -1,0 +1,23 @@
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  z-index: 1200;
+  background: var(--primary-100);
+  pointer-events: none;
+}
+
+.scroll-progress__bar {
+  height: 100%;
+  width: 0%;
+  background: var(--primary-600);
+  will-change: width;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scroll-progress__bar {
+    transition: none;
+  }
+}
