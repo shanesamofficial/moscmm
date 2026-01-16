@@ -16,6 +16,7 @@ import {
 import './PatientInfo.css';
 
 const PatientInfo = () => {
+  const isAppointmentFormComingSoon = true;
   const [activeAccordion, setActiveAccordion] = useState(null);
   const [formData, setFormData] = useState({
     name: '',
@@ -41,6 +42,7 @@ const PatientInfo = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    if (isAppointmentFormComingSoon) return;
     // Handle form submission
     alert('Thank you for your appointment request! We will contact you shortly to confirm.');
   };
@@ -104,7 +106,7 @@ const PatientInfo = () => {
     },
     {
       question: 'What are the payment options available?',
-      answer: `We accept cash, debit cards, credit cards, and UPI payments. For patients with 
+      answer: `We accept cash, UPI payments, and bank transfer. For patients with 
         government health insurance schemes like KASP (Karunya Arogya Suraksha Padhathi), we 
         provide cashless treatment for covered procedures. EMI options may be available for 
         higher-cost procedures.`
@@ -136,11 +138,7 @@ const PatientInfo = () => {
     'KASP (Karunya Arogya Suraksha Padhathi)',
     'Ayushman Bharat PMJAY',
     'ESI (Employee State Insurance)',
-    'CGHS (Central Government Health Scheme)',
-    'Star Health Insurance',
-    'ICICI Lombard',
-    'Max Bupa Health Insurance',
-    'Religare Health Insurance'
+    'Star Health Insurance'
   ];
 
   return (
@@ -193,122 +191,135 @@ const PatientInfo = () => {
       <section id="appointment" className="appointment-section section">
         <div className="container">
           <div className="appointment-grid">
-            <div className="appointment-form-container">
+            <div className={`appointment-form-container ${isAppointmentFormComingSoon ? 'appointment-form-container--disabled' : ''}`}>
               <h2>Book an Appointment</h2>
               <p>Fill out the form below and we will contact you to confirm your appointment.</p>
+
+              {isAppointmentFormComingSoon && (
+                <div className="appointment-form-overlay" role="status" aria-live="polite">
+                  <div className="appointment-form-overlay__content">
+                    <p className="appointment-form-overlay__title">Coming Soon</p>
+                    <p className="appointment-form-overlay__text">
+                      Online appointment requests will be enabled soon. For now, please call us to book.
+                    </p>
+                  </div>
+                </div>
+              )}
               
               <form className="appointment-form" onSubmit={handleSubmit}>
-                <div className="form-row">
-                  <div className="form-group">
-                    <label className="form-label" htmlFor="name">Full Name *</label>
-                    <input
-                      type="text"
-                      id="name"
-                      name="name"
-                      className="form-input"
-                      value={formData.name}
-                      onChange={handleInputChange}
-                      required
-                      placeholder="Enter your full name"
-                    />
+                <fieldset disabled={isAppointmentFormComingSoon} className="appointment-form__fieldset">
+                  <div className="form-row">
+                    <div className="form-group">
+                      <label className="form-label" htmlFor="name">Full Name *</label>
+                      <input
+                        type="text"
+                        id="name"
+                        name="name"
+                        className="form-input"
+                        value={formData.name}
+                        onChange={handleInputChange}
+                        required
+                        placeholder="Enter your full name"
+                      />
+                    </div>
+                    <div className="form-group">
+                      <label className="form-label" htmlFor="phone">Phone Number *</label>
+                      <input
+                        type="tel"
+                        id="phone"
+                        name="phone"
+                        className="form-input"
+                        value={formData.phone}
+                        onChange={handleInputChange}
+                        required
+                        placeholder="Enter your phone number"
+                      />
+                    </div>
                   </div>
-                  <div className="form-group">
-                    <label className="form-label" htmlFor="phone">Phone Number *</label>
-                    <input
-                      type="tel"
-                      id="phone"
-                      name="phone"
-                      className="form-input"
-                      value={formData.phone}
-                      onChange={handleInputChange}
-                      required
-                      placeholder="Enter your phone number"
-                    />
-                  </div>
-                </div>
 
-                <div className="form-group">
-                  <label className="form-label" htmlFor="email">Email Address</label>
-                  <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    className="form-input"
-                    value={formData.email}
-                    onChange={handleInputChange}
-                    placeholder="Enter your email address"
-                  />
-                </div>
-
-                <div className="form-row">
                   <div className="form-group">
-                    <label className="form-label" htmlFor="date">Preferred Date *</label>
+                    <label className="form-label" htmlFor="email">Email Address</label>
                     <input
-                      type="date"
-                      id="date"
-                      name="date"
+                      type="email"
+                      id="email"
+                      name="email"
                       className="form-input"
-                      value={formData.date}
+                      value={formData.email}
                       onChange={handleInputChange}
-                      required
+                      placeholder="Enter your email address"
                     />
                   </div>
+
+                  <div className="form-row">
+                    <div className="form-group">
+                      <label className="form-label" htmlFor="date">Preferred Date *</label>
+                      <input
+                        type="date"
+                        id="date"
+                        name="date"
+                        className="form-input"
+                        value={formData.date}
+                        onChange={handleInputChange}
+                        required
+                      />
+                    </div>
+                    <div className="form-group">
+                      <label className="form-label" htmlFor="time">Preferred Time *</label>
+                      <select
+                        id="time"
+                        name="time"
+                        className="form-select"
+                        value={formData.time}
+                        onChange={handleInputChange}
+                        required
+                      >
+                        <option value="">Select time slot</option>
+                        <option value="09:00">9:00 AM - 10:00 AM</option>
+                        <option value="10:00">10:00 AM - 11:00 AM</option>
+                        <option value="11:00">11:00 AM - 12:00 PM</option>
+                        <option value="12:00">12:00 PM - 1:00 PM</option>
+                        <option value="14:00">2:00 PM - 3:00 PM</option>
+                        <option value="15:00">3:00 PM - 4:00 PM</option>
+                        <option value="16:00">4:00 PM - 5:00 PM</option>
+                      </select>
+                    </div>
+                  </div>
+
                   <div className="form-group">
-                    <label className="form-label" htmlFor="time">Preferred Time *</label>
+                    <label className="form-label" htmlFor="department">Department *</label>
                     <select
-                      id="time"
-                      name="time"
+                      id="department"
+                      name="department"
                       className="form-select"
-                      value={formData.time}
+                      value={formData.department}
                       onChange={handleInputChange}
                       required
                     >
-                      <option value="">Select time slot</option>
-                      <option value="09:00">9:00 AM - 10:00 AM</option>
-                      <option value="10:00">10:00 AM - 11:00 AM</option>
-                      <option value="11:00">11:00 AM - 12:00 PM</option>
-                      <option value="12:00">12:00 PM - 1:00 PM</option>
-                      <option value="14:00">2:00 PM - 3:00 PM</option>
-                      <option value="15:00">3:00 PM - 4:00 PM</option>
-                      <option value="16:00">4:00 PM - 5:00 PM</option>
+                      <option value="">Select department</option>
+                      {departments.map((dept, index) => (
+                        <option key={index} value={dept}>{dept}</option>
+                      ))}
                     </select>
                   </div>
-                </div>
 
-                <div className="form-group">
-                  <label className="form-label" htmlFor="department">Department *</label>
-                  <select
-                    id="department"
-                    name="department"
-                    className="form-select"
-                    value={formData.department}
-                    onChange={handleInputChange}
-                    required
-                  >
-                    <option value="">Select department</option>
-                    {departments.map((dept, index) => (
-                      <option key={index} value={dept}>{dept}</option>
-                    ))}
-                  </select>
-                </div>
+                  <div className="form-group">
+                    <label className="form-label" htmlFor="message">Additional Information</label>
+                    <textarea
+                      id="message"
+                      name="message"
+                      className="form-textarea"
+                      value={formData.message}
+                      onChange={handleInputChange}
+                      placeholder="Describe your symptoms or any specific concerns"
+                      rows="4"
+                    ></textarea>
+                  </div>
 
-                <div className="form-group">
-                  <label className="form-label" htmlFor="message">Additional Information</label>
-                  <textarea
-                    id="message"
-                    name="message"
-                    className="form-textarea"
-                    value={formData.message}
-                    onChange={handleInputChange}
-                    placeholder="Describe your symptoms or any specific concerns"
-                    rows="4"
-                  ></textarea>
-                </div>
-
-                <button type="submit" className="btn btn-primary btn-lg appointment-form__submit">
-                  <Calendar size={20} />
-                  Request Appointment
-                </button>
+                  <button type="submit" className="btn btn-primary btn-lg appointment-form__submit">
+                    <Calendar size={20} />
+                    Request Appointment
+                  </button>
+                </fieldset>
               </form>
             </div>
 
@@ -485,7 +496,6 @@ const PatientInfo = () => {
               <h3>Payment Options</h3>
               <ul>
                 <li>Cash payment</li>
-                <li>Debit / Credit cards</li>
                 <li>UPI (Google Pay, PhonePe, Paytm)</li>
                 <li>Bank transfer</li>
                 <li>Cashless insurance claims</li>

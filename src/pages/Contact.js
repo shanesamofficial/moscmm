@@ -71,8 +71,7 @@ const Contact = () => {
       icon: <Mail size={24} />,
       title: 'Email Address',
       details: [
-        'info@moscmmkariambadyeyehospital.com',
-        'appointments@moscmmkariambadyeyehospital.com'
+        'mosceyecare@gmail.com'
       ],
       isLink: 'mailto'
     },
@@ -91,6 +90,32 @@ const Contact = () => {
     }
   ];
 
+  const branches = [
+    {
+      name: 'Kalpetta Branch',
+      address: 'J3JP+2QP, Civil Station, Madathumpadi, Kalpetta, Kerala 673122',
+      mapHref: 'https://www.google.com/maps?q=J3JP%2B2QP%2C%20Kalpetta%2C%20Kerala%20673122',
+      hours: [
+        'Wednesday: 3–6 pm',
+        'Thursday: Closed',
+        'Friday: 3–6 pm',
+        'Saturday: Closed',
+        'Sunday: Closed',
+        'Monday: 3–6 pm',
+        'Tuesday: Closed'
+      ]
+    },
+    {
+      name: 'Mananthavady Branch',
+      address: 'R235+493, Mananthavady, Kerala 670645',
+      mapHref: 'https://www.google.com/maps?q=R235%2B493%2C%20Mananthavady%2C%20Kerala%20670645'
+    },
+    {
+      name: 'Sulthan Bathery Branch',
+      address: 'Branch available in Sulthan Bathery (not listed on Google Maps). Please contact us for exact location details.'
+    }
+  ];
+
   return (
     <div className="contact-page">
       {/* Page Header */}
@@ -105,6 +130,54 @@ const Contact = () => {
               <span>/</span>
               <span>Contact</span>
             </nav>
+          </div>
+        </div>
+      </section>
+
+      {/* Branches Section */}
+      <section className="branches-section section">
+        <div className="container">
+          <div className="section-header">
+            <h2 className="section-title">Branches</h2>
+          </div>
+          <div className="branches-grid">
+            {branches.map((branch) => (
+              <div key={branch.name} className="branch-card">
+                <div className="branch-card__header">
+                  <div className="branch-card__icon" aria-hidden="true">
+                    <MapPin size={24} />
+                  </div>
+                  <h3 className="branch-card__title">{branch.name}</h3>
+                </div>
+
+                <p className="branch-card__address">{branch.address}</p>
+
+                {branch.hours && (
+                  <div className="branch-hours">
+                    <div className="branch-hours__title">
+                      <Clock size={18} aria-hidden="true" />
+                      <span>Working Hours</span>
+                    </div>
+                    <ul className="branch-hours__list">
+                      {branch.hours.map((line) => (
+                        <li key={line}>{line}</li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+
+                {branch.mapHref && (
+                  <a
+                    href={branch.mapHref}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="branch-card__action"
+                  >
+                    Open in Google Maps
+                  </a>
+                )}
+              </div>
+            ))}
           </div>
         </div>
       </section>

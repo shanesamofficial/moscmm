@@ -238,7 +238,7 @@ const Doctors = () => {
                 <Calendar size={20} />
                 Book Appointment
               </Link>
-              <a href="tel:+914936247274" className="btn btn-outline btn-lg">
+              <a href="tel:04936247274" className="btn btn-outline btn-lg">
                 <Phone size={20} />
                 Call: 04936 247 274
               </a>

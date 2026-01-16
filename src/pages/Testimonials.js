@@ -126,8 +126,8 @@ const Testimonials = () => {
 
   const stats = [
     { number: '98%', label: 'Patient Satisfaction' },
-    { number: '50,000+', label: 'Patients Treated' },
-    { number: '15,000+', label: 'Successful Surgeries' },
+    { number: '100,000+', label: 'Patients Treated' },
+    { number: '20,000+', label: 'Successful Surgeries' },
     { number: '4.9/5', label: 'Average Rating' }
   ];
 

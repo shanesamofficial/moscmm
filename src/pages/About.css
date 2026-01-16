@@ -482,6 +482,71 @@
   line-height: 1.6;
 }
 
+/* Equipment cards */
+.equipment-grid {
+  display: grid;
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+@media (min-width: 640px) {
+  .equipment-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.25rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .equipment-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.5rem;
+  }
+}
+
+.equipment-card {
+  background: white;
+  border: 1px solid var(--gray-200);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  transition: transform 200ms ease, box-shadow 200ms ease, border-color 200ms ease;
+}
+
+.equipment-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+  border-color: rgba(37, 99, 235, 0.25);
+}
+
+.equipment-card__image {
+  aspect-ratio: 16 / 10;
+  background: var(--gray-100);
+}
+
+.equipment-card__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.equipment-card__body {
+  padding: 1rem 1rem 1.1rem;
+}
+
+.equipment-card__title {
+  margin: 0;
+  font-size: 1.05rem;
+  color: var(--gray-900);
+}
+
+.equipment-card__subtitle {
+  margin: 0.5rem 0 0;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  font-size: 0.9375rem;
+}
+
 /* About CTA */
 .about-cta {
   background: linear-gradient(135deg, var(--primary-700) 0%, var(--primary-800) 100%);

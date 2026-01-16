@@ -1,0 +1,178 @@
+.facilities-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+}
+
+@media (min-width: 960px) {
+  .facilities-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+  }
+}
+
+.facilities-card {
+  background: white;
+  border: 1px solid var(--gray-200);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  padding: 1.25rem;
+}
+
+.facilities-card__head {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  margin-bottom: 0.75rem;
+}
+
+.facilities-card__head svg {
+  color: var(--primary-700);
+}
+
+.facilities-card__head h2 {
+  margin: 0;
+  font-size: 1.25rem;
+}
+
+.facilities-list {
+  list-style: none;
+  padding: 0;
+  margin: 0.75rem 0 0;
+}
+
+.facilities-list li {
+  display: flex;
+  gap: 0.75rem;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid var(--gray-200);
+}
+
+.facilities-list li:last-child {
+  border-bottom: none;
+}
+
+.facilities-list svg {
+  color: var(--success);
+  flex-shrink: 0;
+  margin-top: 0.125rem;
+}
+
+.facilities-list span {
+  color: var(--gray-700);
+  line-height: 1.6;
+}
+
+.equipment-grid {
+  display: grid;
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+@media (min-width: 640px) {
+  .equipment-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.25rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .equipment-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.5rem;
+  }
+}
+
+.equipment-card {
+  background: white;
+  border: 1px solid var(--gray-200);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  transition: transform 200ms ease, box-shadow 200ms ease, border-color 200ms ease;
+}
+
+.equipment-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+  border-color: rgba(37, 99, 235, 0.25);
+}
+
+.equipment-card__image {
+  aspect-ratio: 16 / 10;
+  background: linear-gradient(135deg, rgba(37, 99, 235, 0.06) 0%, rgba(99, 102, 241, 0.06) 100%);
+}
+
+.equipment-card__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.equipment-card__body {
+  padding: 1rem;
+}
+
+.equipment-card__titleRow {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.equipment-card__titleRow svg {
+  color: var(--primary-700);
+}
+
+.equipment-card__title {
+  margin: 0;
+  font-size: 1.05rem;
+  color: var(--gray-900);
+  line-height: 1.3;
+}
+
+.equipment-card__features {
+  margin: 0.75rem 0 0;
+  padding-left: 1.05rem;
+  color: var(--gray-700);
+}
+
+.equipment-card__features li {
+  margin: 0.25rem 0;
+  line-height: 1.55;
+  font-size: 0.9375rem;
+}
+
+.facilities-note {
+  margin-top: 1.5rem;
+  display: flex;
+  gap: 0.75rem;
+  align-items: flex-start;
+  padding: 1rem;
+  border-radius: var(--radius-lg);
+  background: rgba(37, 99, 235, 0.06);
+  border: 1px solid rgba(37, 99, 235, 0.15);
+}
+
+.facilities-note svg {
+  color: var(--primary-700);
+  flex-shrink: 0;
+  margin-top: 0.1rem;
+}
+
+.facilities-note p {
+  margin: 0;
+  color: var(--gray-700);
+  line-height: 1.6;
+}
+
+.facilities-label {
+  display: inline-block;
+  padding: 0.35rem 0.75rem;
+  border-radius: 999px;
+  background: rgba(37, 99, 235, 0.1);
+  color: var(--primary-700);
+  font-weight: 600;
+  font-size: 0.875rem;
+  margin-bottom: 0.75rem;
+}

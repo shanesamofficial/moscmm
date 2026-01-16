@@ -8,6 +8,7 @@ import Services from './pages/Services';
 import Doctors from './pages/Doctors';
 import PatientInfo from './pages/PatientInfo';
 import Gallery from './pages/Gallery';
+import Facilities from './pages/Facilities';
 import Testimonials from './pages/Testimonials';
 import Contact from './pages/Contact';
 import ScrollToTop from './components/ScrollToTop';
@@ -105,6 +106,7 @@ function App() {
           <Route path="/doctors" element={<Doctors />} />
           <Route path="/patient-info" element={<PatientInfo />} />
           <Route path="/gallery" element={<Gallery />} />
+          <Route path="/facilities" element={<Facilities />} />
           <Route path="/testimonials" element={<Testimonials />} />
           <Route path="/contact" element={<Contact />} />
         </Routes>

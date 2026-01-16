@@ -53,10 +53,10 @@ const Home = () => {
   ];
 
   const stats = [
-    { number: '50,000+', label: 'Patients Treated', icon: <UserCheck size={24} /> },
-    { number: '15,000+', label: 'Surgeries Performed', icon: <Activity size={24} /> },
-    { number: '200+', label: 'Eye Camps Conducted', icon: <Building size={24} /> },
-    { number: '25+', label: 'Years of Service', icon: <Award size={24} /> }
+    { number: '100,000+', label: 'Patients Treated', icon: <UserCheck size={24} /> },
+    { number: '20,000+', label: 'Surgeries Performed', icon: <Activity size={24} /> },
+    { number: '1,000+', label: 'Eye Camps Conducted', icon: <Building size={24} /> },
+    { number: '40+', label: 'Years of Service', icon: <Award size={24} /> }
   ];
 
   const features = [
@@ -78,7 +78,7 @@ const Home = () => {
             <div className="hero__text">
               <div className="hero__badge">
                 <Heart size={16} />
-                <span>Charitable Eye Care Since 1998</span>
+                <span>Charitable Eye Care Since 1986</span>
               </div>
               <h1 className="hero__title">
                 Compassionate Eye Care <span>for All</span>
@@ -102,7 +102,7 @@ const Home = () => {
               <div className="hero__contact">
                 <Phone size={18} />
                 <span>Phone: </span>
-                <a href="tel:+914936247274">04936 247 274</a>
+                <a href="tel:04936247274">04936 247 274</a>
               </div>
             </div>
           </div>
@@ -156,7 +156,7 @@ const Home = () => {
                 />
               </div>
               <div className="about-preview__experience">
-                <span className="about-preview__experience-number">25+</span>
+                <span className="about-preview__experience-number">40+</span>
                 <span className="about-preview__experience-text">Years of Excellence</span>
               </div>
             </div>
@@ -321,51 +321,49 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Testimonials Preview */}
+      {/* Facilities Preview */}
       <section className="testimonials-preview section bg-accent">
         <div className="container">
           <div className="section-header">
-            <span className="testimonials-preview__label">Patient Stories</span>
-            <h2 className="section-title">What Our Patients Say</h2>
+            <span className="testimonials-preview__label">Facilities</span>
+            <h2 className="section-title">Main Surgeries & Key Equipment</h2>
           </div>
           <div className="testimonials-preview__grid">
             <div className="testimonial-card">
               <div className="testimonial-card__content">
                 <p>
-                  "After my cataract surgery at MOSCMM Kariambady Eye Hospital, I can see 
-                  the world clearly again. The doctors and staff were incredibly kind and 
-                  caring. Being from a tribal community, I never thought I could afford 
-                  such treatment, but their charitable mission made it possible."
+                  Cataract Surgery, Occuloplasty, Trabeculectomy, Squint correction, Probing,
+                  Pterygium, and DCT (Dacryocystectomy).
                 </p>
               </div>
               <div className="testimonial-card__author">
-                <div className="testimonial-card__avatar">VK</div>
+                <div className="testimonial-card__avatar">OT</div>
                 <div>
-                  <h4>Velayudhan Kunhi</h4>
-                  <span>Paniya Tribal Community, Wayanad</span>
+                  <h4>Main Surgeries</h4>
+                  <span>Comprehensive surgical care</span>
                 </div>
               </div>
             </div>
             <div className="testimonial-card">
               <div className="testimonial-card__content">
                 <p>
-                  "The eye camp organized in our village was a blessing. Many elderly 
-                  people who had lost hope of ever seeing properly again received free 
-                  treatment. The hospital's outreach program is truly serving God's purpose."
+                  Diode green laser, Fundus camera, Slit lamp microscope, Operating microscope,
+                  Auto refractometer, Auto keratometer, YAG laser, Field analyser, A-Scan,
+                  Phacoemulsification, and Applanation tonometer.
                 </p>
               </div>
               <div className="testimonial-card__author">
-                <div className="testimonial-card__avatar">SM</div>
+                <div className="testimonial-card__avatar">EQ</div>
                 <div>
-                  <h4>Santha Madhavan</h4>
-                  <span>Anganwadi Worker, Thirunelly</span>
+                  <h4>Equipment</h4>
+                  <span>Diagnostic & surgical setup</span>
                 </div>
               </div>
             </div>
           </div>
           <div className="text-center" style={{ marginTop: '2rem' }}>
-            <Link to="/testimonials" className="btn btn-primary">
-              Read More Stories
+            <Link to="/facilities" className="btn btn-primary">
+              View Facilities
               <ArrowRight size={18} />
             </Link>
           </div>

@@ -69,7 +69,7 @@ const Footer = () => {
                 <li><Link to="/doctors">Our Doctors</Link></li>
                 <li><Link to="/patient-info">Patient Information</Link></li>
                 <li><Link to="/gallery">Gallery</Link></li>
-                <li><Link to="/testimonials">Testimonials</Link></li>
+                <li><Link to="/facilities">Facilities</Link></li>
                 <li><Link to="/contact">Contact Us</Link></li>
               </ul>
             </div>
@@ -80,11 +80,12 @@ const Footer = () => {
               <ul className="footer__links">
                 <li><Link to="/services">General Ophthalmology</Link></li>
                 <li><Link to="/services">Cataract Surgery</Link></li>
-                <li><Link to="/services">Glaucoma Care</Link></li>
-                <li><Link to="/services">Retina Services</Link></li>
-                <li><Link to="/services">Pediatric Eye Care</Link></li>
-                <li><Link to="/services">Contact Lens Clinic</Link></li>
-                <li><Link to="/services">Community Eye Camps</Link></li>
+                <li><Link to="/services">Glaucoma Services</Link></li>
+                <li><Link to="/services">Lacrimal System Services</Link></li>
+                <li><Link to="/services">Strabismus (Squint) Services</Link></li>
+                <li><Link to="/services">Diagnostic &amp; Laser Services</Link></li>
+                <li><Link to="/services">Optical Dispensary</Link></li>
+                <li><Link to="/services">Pharmacy</Link></li>
               </ul>
             </div>
 
@@ -103,13 +104,13 @@ const Footer = () => {
                 <li>
                   <Phone size={18} />
                   <div>
-                    <a href="tel:+914936247274">04936 247 274</a>
+                    <a href="tel:04936247274">04936 247 274</a>
                   </div>
                 </li>
                 <li>
                   <Mail size={18} />
-                  <a href="mailto:info@moscmmkariambadyeyehospital.com">
-                    info@moscmmkariambadyeyehospital.com
+                  <a href="mailto:mosceyecare@gmail.com">
+                    mosceyecare@gmail.com
                   </a>
                 </li>
                 <li>

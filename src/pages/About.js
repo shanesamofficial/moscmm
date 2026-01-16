@@ -38,12 +38,9 @@ const About = () => {
   ];
 
   const milestones = [
-    { year: '1998', title: 'Foundation', description: 'MOSCMM Kariambady Eye Hospital established under the Malankara Orthodox Syrian Church Medical Mission.' },
-    { year: '2003', title: 'First Eye Camp', description: 'Launched community eye screening camps reaching remote tribal settlements in Wayanad.' },
-    { year: '2008', title: 'Surgical Expansion', description: 'Upgraded facilities with modern phacoemulsification equipment for advanced cataract surgery.' },
-    { year: '2012', title: '10,000 Surgeries', description: 'Milestone of 10,000 successful eye surgeries performed, majority for underprivileged patients.' },
-    { year: '2018', title: '20th Anniversary', description: 'Celebrated two decades of service with expansion of specialty clinics and diagnostic services.' },
-    { year: '2023', title: 'Digital Transformation', description: 'Implementation of digital health records and telemedicine services for follow-up care.' }
+    { year: '1986', title: 'Established', description: 'MOSC Medical Mission Kariambady Eye Hospital started as a charitable mission hospital in Kariambady, Wayanad.' },
+    { year: '1990', title: 'Local Society Formed', description: 'For better administration and care, the hospital was transferred to a local society formed in Kariambady (registered under the Societies Registration Act XXI of 1860).' },
+    { year: 'Today', title: 'Modern Facilities', description: 'Developed into a leading eye hospital in Wayanad with almost all modern facilities, serving rural and tribal communities through decades of continuous service.' }
   ];
 
   return (
@@ -70,27 +67,19 @@ const About = () => {
           <div className="about-intro__grid">
             <div className="about-intro__content">
               <span className="about-intro__label">Who We Are</span>
-              <h2>A Legacy of Compassionate Care</h2>
+              <h2>A Charitable Mission Hospital Established in 1986</h2>
               <p>
-                <strong>MOSCMM Kariambady Eye Hospital</strong> is a charitable eye care institution 
-                established under the auspices of the <strong>Malankara Orthodox Syrian Church Medical Mission 
-                (MOSCMM)</strong>. Located in Kariambady, in the heart of Wayanad district, Kerala, 
-                our hospital has been serving the tribal and rural communities of this region for 
-                over two decades.
+                <strong>MOSC Medical Mission Kariambady Eye Hospital</strong> is a charitable mission hospital
+                established in <strong>1986</strong> and run by the <strong>Malankara Orthodox Syrian Church</strong>.
+                This is a leading eye hospital in Wayanad with almost all modern facilities.
               </p>
               <p>
-                Wayanad, known for its lush landscapes and diverse tribal population, has historically 
-                faced significant healthcare challenges due to its remote location and economic constraints 
-                faced by its residents. Recognizing this need, the Malankara Orthodox Syrian Church 
-                established this eye hospital as part of its medical mission to bring healing and hope 
-                to those who need it most.
+                The hospital has played a vital role in providing eye care for the rural population of Wayanad
+                for the last decades, especially in underserved areas.
               </p>
               <p>
-                Our hospital combines modern medical technology with the ancient Christian values of 
-                compassion, service, and healing. We believe that quality eye care should be accessible 
-                to all, regardless of their financial circumstances. This guiding principle has enabled 
-                us to treat thousands of patients, many of whom would otherwise have no access to 
-                specialized eye care.
+                Kariambady eye hospital is a unit of the healing mission of Malankara Orthodox Syrian Church and
+                it is dedicated to the service of the poor people of Wayanad.
               </p>
             </div>
             <div className="about-intro__image">
@@ -99,7 +88,7 @@ const About = () => {
                 alt="MOSCMM Kariambady Eye Hospital Building"
               />
               <div className="about-intro__badge">
-                <span className="about-intro__badge-number">25+</span>
+                <span className="about-intro__badge-number">40+</span>
                 <span className="about-intro__badge-text">Years of Service</span>
               </div>
             </div>
@@ -157,23 +146,27 @@ const About = () => {
           <div className="church-section__content">
             <div className="church-section__text">
               <span className="church-section__label">Our Foundation</span>
-              <h2>Malankara Orthodox Syrian Church Medical Mission</h2>
+              <h2>Malankara Orthodox Syrian Church Medical Mission Kariambady Eye Hospital</h2>
               <p>
-                The Malankara Orthodox Syrian Church, one of the oldest Christian churches in India 
-                with a history dating back to the arrival of St. Thomas the Apostle in 52 AD, has a 
-                long tradition of service to humanity. The Medical Mission of the Church was established 
-                to extend the healing ministry of Christ to all people, especially the poor and marginalized.
+                Kariambady eye hospital is a unit of the healing mission of Malankara Orthodox Syrian Church and
+                it is dedicated to the service of the poor people of Wayanad. The hospital started in 1986 at
+                the village Kariambady, situated 5 km away from Meenangady which is on the Kozhikode - Mysore Highway.
+                By the Grace of God it has grown to its present status with all modern facilities.
               </p>
               <p>
-                MOSCMM operates several hospitals, clinics, and healthcare initiatives across Kerala 
-                and other parts of India. The Kariambady Eye Hospital is a key part of this mission, 
-                specifically focused on addressing the eye care needs of the tribal communities of 
-                Wayanad who have historically been underserved.
+                Wayanad is a hilly region. According to the recent census the population is 8 lakhs.
+                There are two lakhs of tribals in 600 colonies. It is estimated that 60% of the population is
+                below the poverty line.
               </p>
               <p>
-                Our hospital operates on the principle that healthcare is a fundamental right, not a 
-                privilege. We provide subsidized and free treatment to those who cannot afford to pay, 
-                while maintaining the same high standards of care for all patients.
+                Christofel Blinden Mission (CBM), an organisation in Germany, works to eradicate curable blindness
+                in partnership with charitable hospitals in developing countries. In response to the call to serve
+                villages with limited medical facilities, the Eye department of MOSC Medical Mission Hospital, Kolenchery
+                decided to start a peripheral hospital in North Kerala, and Wayanad was identified as a most deserving place.
+              </p>
+              <p>
+                For better administration and care the hospital was transferred to a local society formed in Kariambady in 1990.
+                The management of the institution is now vested on the Malankara Orthodox Syrian Church Medical Mission Kariambady.
               </p>
             </div>
             <div className="church-section__image">
@@ -182,6 +175,25 @@ const About = () => {
                 alt="Orthodox Church Symbol"
               />
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Facilities CTA */}
+      <section className="about-facilities section bg-light">
+        <div className="container">
+          <div className="section-header">
+            <span className="history-section__label">Facilities</span>
+            <h2 className="section-title">Main Surgeries & Equipment</h2>
+            <p className="section-subtitle">
+              Explore our key facilities, major surgeries, and diagnostic/surgical equipment.
+            </p>
+          </div>
+          <div style={{ display: 'flex', justifyContent: 'center' }}>
+            <Link to="/facilities" className="btn btn-primary btn-lg">
+              View Facilities
+              <ArrowRight size={18} />
+            </Link>
           </div>
         </div>
       </section>
@@ -215,7 +227,7 @@ const About = () => {
             <span className="history-section__label">Our Journey</span>
             <h2 className="section-title">Milestones in Our History</h2>
             <p className="section-subtitle">
-              A timeline of our growth and achievements in serving the community
+              Key milestones in the development of the hospital
             </p>
           </div>
           <div className="timeline">
