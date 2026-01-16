@@ -27,3 +27,9 @@ pnpm-debug.log*
 
 # OS
 Thumbs.db
+
+# temporary
+.tmp/
+
+# Office temporary files
+~$*.docx

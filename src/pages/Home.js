@@ -18,7 +18,32 @@ import {
 } from 'lucide-react';
 import './Home.css';
 
+import drRajan from '../assets/drrajan.webp';
+import drAparna from '../assets/Aparna R.jpg';
+import drSravani from '../assets/Dr.Sravani S.webp';
+
 const Home = () => {
+  const previewDoctors = [
+    {
+      name: 'Dr. Rajan Cyriac',
+      designation: 'Medical Director & Chief Consultant',
+      qualifications: 'M.B.B.S., M.S. (Ophthal), D.O.M.S (Ophthal)',
+      image: drRajan
+    },
+    {
+      name: 'Dr. Aparna R.',
+      designation: 'Consultant Ophthalmologist',
+      qualifications: 'M.B.B.S., M.S. (Ophthal), FAEH',
+      image: drAparna
+    },
+    {
+      name: 'Dr. S. Sravani',
+      designation: 'Consultant Ophthalmologist',
+      qualifications: 'M.B.B.S (Hons), M.S. (Ophthal)',
+      image: drSravani
+    }
+  ];
+
   const services = [
     {
       icon: <Eye size={32} />,
@@ -272,45 +297,18 @@ const Home = () => {
             </p>
           </div>
           <div className="doctors-preview__grid">
-            <div className="doctor-card">
-              <div className="doctor-card__image">
-                <img 
-                  src="https://lh3.googleusercontent.com/sitesv/AAzXCke_fOFhxq0onDqnNW4N70fMU17DJ3S0NcegOYLS6PKmKDZsUeIVgYGvvfmwBDpWePM7nTFdmWAaStQ7JEbLERaY0FT_L1RroS2GbPYzjmwX5DUAbAENrbxDDHhuVAa1AYV82vEEKAhuAITXOCtGo6izVJOl-5jSEbva2jJD1q1_zE6G-ZovCdS70J-BemyrAED14rfswa7GysoGXVZW7paaabKERaLO8aaoNuA=w1280" 
-                  alt="Dr. Rajan Cyriac"
-                />
+            {previewDoctors.map((doctor) => (
+              <div key={doctor.name} className="doctor-card">
+                <div className="doctor-card__image">
+                  <img src={doctor.image} alt={doctor.name} />
+                </div>
+                <div className="doctor-card__content">
+                  <h3 className="doctor-card__name">{doctor.name}</h3>
+                  <p className="doctor-card__specialty">{doctor.designation}</p>
+                  <p className="doctor-card__qualification">{doctor.qualifications}</p>
+                </div>
               </div>
-              <div className="doctor-card__content">
-                <h3 className="doctor-card__name">Dr. Rajan Cyriac</h3>
-                <p className="doctor-card__specialty">Medical Director & Chief Consultant</p>
-                <p className="doctor-card__qualification">M.B.B.S., M.S.(Ophthal.), D.O.M.S</p>
-              </div>
-            </div>
-            <div className="doctor-card">
-              <div className="doctor-card__image">
-                <img 
-                  src="https://lh3.googleusercontent.com/sitesv/AAzXCkfQhUadXSk7qazp7Wpi9eptoJB8JS2u4BqJqRNTfZAN3Eu39E6jFFARrlYbDu0WuXpKYC9yifgUI-6zcr6nUXu6uxruBgakM_9Rpaitzgjg8np88B_g0USNzMAJ_PzMAKyGqjSspCT87HRwFvvwRtZDmCYnkpwyMCFagSO8nbenj0hxHQZ5U9brK8VwUwbvVYe1qBUwXs3pV3N3xXFc6fhKDSqfZp8ssDhu=w1280" 
-                  alt="Dr. Joel Varghese Kuruvilla"
-                />
-              </div>
-              <div className="doctor-card__content">
-                <h3 className="doctor-card__name">Dr. Joel Varghese Kuruvilla</h3>
-                <p className="doctor-card__specialty">Associate Consultant</p>
-                <p className="doctor-card__qualification">M.B.B.S., M.S.(Ophthal)</p>
-              </div>
-            </div>
-            <div className="doctor-card">
-              <div className="doctor-card__image">
-                <img 
-                  src="https://lh3.googleusercontent.com/sitesv/AAzXCkdZl8qM8S--qv5TcM9zOUzDE9GAcwXB3hiv1VLy3AAJPgi3fkiMDb0O5Bcuj6_UsnepgGx0qvKWjBxSiHWceNgRZM_OBFk8pQqTos8e56u9DDTesY0iFnl_dnkWcvAsxAf_u-qf7B2igk-clXigXJH_EjETL7cONf9a7mTmm5S01ISJAGAmt5aZ4waydFkR1IJUmh72I66_qUfWxCC-Wp74MDuvgIArH6SeYUI=w1280" 
-                  alt="Dr. Jithendranath"
-                />
-              </div>
-              <div className="doctor-card__content">
-                <h3 className="doctor-card__name">Dr. Jithendranath</h3>
-                <p className="doctor-card__specialty">Anaesthetist</p>
-                <p className="doctor-card__qualification">B.Sc., M.B.B.S., D.A</p>
-              </div>
-            </div>
+            ))}
           </div>
           <div className="text-center" style={{ marginTop: '2.5rem' }}>
             <Link to="/doctors" className="btn btn-secondary">

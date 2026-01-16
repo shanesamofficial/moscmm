@@ -58,19 +58,19 @@ const Facilities = () => {
     },
     {
       id: 'computerized-refracto-kerato',
-      title: 'Computerized auto refrato + kerato meter',
+      title: 'Computerized Auto Refracto + Kerato Meter',
       image: refractoKeratometerImg,
       features: ['Objective refraction assessment', 'Measures corneal curvature (keratometry)']
     },
     {
       id: 'yag-laser',
-      title: 'Yag laser',
+      title: 'Yag Laser',
       image: yagLaserImg,
       features: ['Used for laser procedures such as iridotomy', 'Supports glaucoma-related laser treatment']
     },
     {
       id: 'computerized-field-analyser',
-      title: 'Computerized filed analyser',
+      title: 'Computerized Field Analyser',
       image: fieldAnalyserImg,
       features: ['Visual field testing', 'Important for glaucoma evaluation and follow-up']
     },
@@ -88,7 +88,7 @@ const Facilities = () => {
     },
     {
       id: 'applanation-tono-meter',
-      title: 'Applanation Tono meter',
+      title: 'Applanation Tono Meter',
       image: tonometryImg,
       features: ['Measures intraocular pressure (IOP)', 'Core test for glaucoma screening']
     }

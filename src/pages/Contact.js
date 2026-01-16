@@ -90,29 +90,30 @@ const Contact = () => {
     }
   ];
 
-  const branches = [
+  const clinics = [
     {
-      name: 'Kalpetta Branch',
-      address: 'J3JP+2QP, Civil Station, Madathumpadi, Kalpetta, Kerala 673122',
-      mapHref: 'https://www.google.com/maps?q=J3JP%2B2QP%2C%20Kalpetta%2C%20Kerala%20673122',
-      hours: [
-        'Wednesday: 3–6 pm',
-        'Thursday: Closed',
-        'Friday: 3–6 pm',
-        'Saturday: Closed',
-        'Sunday: Closed',
-        'Monday: 3–6 pm',
-        'Tuesday: Closed'
+      name: 'Kalpetta Clinic',
+      address: "St.Mary’s Arcade, Rest House Road (S.P.Office Road), Near Civil Station, Kalpetta – 673122",
+      phones: [
+        { label: 'Phone', display: '04936 247204', value: '04936247204' },
+        { label: 'Mob', display: '9496222991', value: '9496222991' }
+      ],
+      timings: [
+        'Staff available: Monday to Saturday – 9.30am to 5.30pm',
+        'Doctor available: Monday, Wednesday, Friday – 3 to 5pm'
       ]
     },
     {
-      name: 'Mananthavady Branch',
-      address: 'R235+493, Mananthavady, Kerala 670645',
-      mapHref: 'https://www.google.com/maps?q=R235%2B493%2C%20Mananthavady%2C%20Kerala%20670645'
+      name: 'Sulthan Bathery Clinic',
+      address: 'Jayagiri building, Opposite Assumption hospital, Sulthan Bathery - 673592',
+      phones: [{ label: 'Phone', display: '9496222991', value: '9496222991' }],
+      timings: ['Tuesday & Saturday : 3pm to 5pm']
     },
     {
-      name: 'Sulthan Bathery Branch',
-      address: 'Branch available in Sulthan Bathery (not listed on Google Maps). Please contact us for exact location details.'
+      name: 'Pulpally Clinic',
+      address: 'Lions club, Pulpally',
+      phones: [{ label: 'Phone', display: '9496222991', value: '9496222991' }],
+      timings: ['Wednesday : 9.30am to 1pm']
     }
   ];
 
@@ -134,57 +135,12 @@ const Contact = () => {
         </div>
       </section>
 
-      {/* Branches Section */}
-      <section className="branches-section section">
+      {/* Main Hospital */}
+      <section className="contact-info-section" aria-label="Main Hospital">
         <div className="container">
           <div className="section-header">
-            <h2 className="section-title">Branches</h2>
+            <h2 className="section-title">Main Hospital (Kariambady)</h2>
           </div>
-          <div className="branches-grid">
-            {branches.map((branch) => (
-              <div key={branch.name} className="branch-card">
-                <div className="branch-card__header">
-                  <div className="branch-card__icon" aria-hidden="true">
-                    <MapPin size={24} />
-                  </div>
-                  <h3 className="branch-card__title">{branch.name}</h3>
-                </div>
-
-                <p className="branch-card__address">{branch.address}</p>
-
-                {branch.hours && (
-                  <div className="branch-hours">
-                    <div className="branch-hours__title">
-                      <Clock size={18} aria-hidden="true" />
-                      <span>Working Hours</span>
-                    </div>
-                    <ul className="branch-hours__list">
-                      {branch.hours.map((line) => (
-                        <li key={line}>{line}</li>
-                      ))}
-                    </ul>
-                  </div>
-                )}
-
-                {branch.mapHref && (
-                  <a
-                    href={branch.mapHref}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="branch-card__action"
-                  >
-                    Open in Google Maps
-                  </a>
-                )}
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Contact Info Cards */}
-      <section className="contact-info-section">
-        <div className="container">
           <div className="contact-info-grid">
             {contactInfo.map((info, index) => (
               <div key={index} className="contact-info-card">
@@ -213,6 +169,56 @@ const Contact = () => {
                       {info.action.label}
                     </a>
                   )}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Clinics Section */}
+      <section className="branches-section section" aria-label="Clinics">
+        <div className="container">
+          <div className="section-header">
+            <h2 className="section-title">Clinics</h2>
+          </div>
+          <div className="branches-grid">
+            {clinics.map((clinic) => (
+              <div key={clinic.name} className="branch-card">
+                <div className="branch-card__header">
+                  <div className="branch-card__icon" aria-hidden="true">
+                    <MapPin size={24} />
+                  </div>
+                  <h3 className="branch-card__title">{clinic.name}</h3>
+                </div>
+
+                <p className="branch-card__address">{clinic.address}</p>
+
+                <div className="branch-hours">
+                  <div className="branch-hours__title">
+                    <Phone size={18} aria-hidden="true" />
+                    <span>Phone</span>
+                  </div>
+                  <ul className="branch-hours__list">
+                    {clinic.phones.map((p) => (
+                      <li key={p.value}>
+                        <strong>{p.label}:</strong>{' '}
+                        <a href={`tel:${p.value}`}>{p.display}</a>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                <div className="branch-hours">
+                  <div className="branch-hours__title">
+                    <Clock size={18} aria-hidden="true" />
+                    <span>Timing</span>
+                  </div>
+                  <ul className="branch-hours__list">
+                    {clinic.timings.map((line) => (
+                      <li key={line}>{line}</li>
+                    ))}
+                  </ul>
                 </div>
               </div>
             ))}

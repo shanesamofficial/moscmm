@@ -13,151 +13,114 @@ import './Gallery.css';
 const Gallery = () => {
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const [currentImage, setCurrentImage] = useState(0);
-  const [activeCategory, setActiveCategory] = useState('all');
 
-  const categories = [
-    { id: 'all', name: 'All Photos' },
-    { id: 'facility', name: 'Hospital Facility' },
-    { id: 'camps', name: 'Eye Camps' },
-    { id: 'surgeries', name: 'Surgeries' },
-    { id: 'outreach', name: 'Community Outreach' },
-    { id: 'events', name: 'Events' }
-  ];
+  const galleryContext = require.context(
+    '../assets/gallery',
+    false,
+    /\.(png|jpe?g|webp)$/i
+  );
 
-  const galleryImages = [
-    {
-      id: 1,
-      src: 'https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=800&h=600&fit=crop',
-      thumb: 'https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=400&h=300&fit=crop',
-      title: 'Hospital Main Building',
-      description: 'The main building of MOSCMM Kariambady Eye Hospital',
-      category: 'facility'
-    },
-    {
-      id: 2,
-      src: 'https://images.unsplash.com/photo-1551884170-09fb70a3a2ed?w=800&h=600&fit=crop',
-      thumb: 'https://images.unsplash.com/photo-1551884170-09fb70a3a2ed?w=400&h=300&fit=crop',
-      title: 'Eye Examination',
-      description: 'Comprehensive eye examination using modern equipment',
-      category: 'facility'
-    },
-    {
-      id: 3,
-      src: 'https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=800&h=600&fit=crop',
-      thumb: 'https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=400&h=300&fit=crop',
-      title: 'Community Eye Camp',
-      description: 'Free eye screening camp in a tribal village',
-      category: 'camps'
-    },
-    {
-      id: 4,
-      src: 'https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=800&h=600&fit=crop',
-      thumb: 'https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=400&h=300&fit=crop',
-      title: 'Operation Theatre',
-      description: 'State-of-the-art operation theatre for eye surgeries',
-      category: 'surgeries'
-    },
-    {
-      id: 5,
-      src: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?w=800&h=600&fit=crop',
-      thumb: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?w=400&h=300&fit=crop',
-      title: 'Village Screening Camp',
-      description: 'Eye screening at a remote tribal settlement',
-      category: 'outreach'
-    },
-    {
-      id: 6,
-      src: 'https://images.unsplash.com/photo-1559757175-5700dde675bc?w=800&h=600&fit=crop',
-      thumb: 'https://images.unsplash.com/photo-1559757175-5700dde675bc?w=400&h=300&fit=crop',
-      title: 'Diagnostic Equipment',
-      description: 'Advanced diagnostic equipment for accurate diagnosis',
-      category: 'facility'
-    },
-    {
-      id: 7,
-      src: 'https://images.unsplash.com/photo-1582719471137-c3967ffb1c42?w=800&h=600&fit=crop',
-      thumb: 'https://images.unsplash.com/photo-1582719471137-c3967ffb1c42?w=400&h=300&fit=crop',
-      title: 'Patient Care',
-      description: 'Compassionate care for patients from rural communities',
-      category: 'outreach'
-    },
-    {
-      id: 8,
-      src: 'https://images.unsplash.com/photo-1581594693702-fbdc51b2763b?w=800&h=600&fit=crop',
-      thumb: 'https://images.unsplash.com/photo-1581594693702-fbdc51b2763b?w=400&h=300&fit=crop',
-      title: 'School Screening Program',
-      description: 'Vision screening at a tribal school',
-      category: 'camps'
-    },
-    {
-      id: 9,
-      src: 'https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=800&h=600&fit=crop',
-      thumb: 'https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=400&h=300&fit=crop',
-      title: 'Slit Lamp Examination',
-      description: 'Detailed eye examination using slit lamp',
-      category: 'facility'
-    },
-    {
-      id: 10,
-      src: 'https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=800&h=600&fit=crop',
-      thumb: 'https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=400&h=300&fit=crop',
-      title: 'Medical Team',
-      description: 'Our dedicated medical team at work',
-      category: 'events'
-    },
-    {
-      id: 11,
-      src: 'https://images.unsplash.com/photo-1574258495973-f010dfbb5371?w=800&h=600&fit=crop',
-      thumb: 'https://images.unsplash.com/photo-1574258495973-f010dfbb5371?w=400&h=300&fit=crop',
-      title: 'Contact Lens Clinic',
-      description: 'Expert fitting of contact lenses',
-      category: 'facility'
-    },
-    {
-      id: 12,
-      src: 'https://images.unsplash.com/photo-1584467735867-4297ae2ebcee?w=800&h=600&fit=crop',
-      thumb: 'https://images.unsplash.com/photo-1584467735867-4297ae2ebcee?w=400&h=300&fit=crop',
-      title: 'Cataract Surgery Camp',
-      description: 'Free cataract surgery camp for underprivileged patients',
-      category: 'surgeries'
-    },
-    {
-      id: 13,
-      src: 'https://images.unsplash.com/photo-1538108149393-fbbd81895907?w=800&h=600&fit=crop',
-      thumb: 'https://images.unsplash.com/photo-1538108149393-fbbd81895907?w=400&h=300&fit=crop',
-      title: 'Patient Waiting Area',
-      description: 'Comfortable waiting area for patients',
-      category: 'facility'
-    },
-    {
-      id: 14,
-      src: 'https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=800&h=600&fit=crop',
-      thumb: 'https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=400&h=300&fit=crop',
-      title: 'Doctor Consultation',
-      description: 'One-on-one consultation with our specialists',
-      category: 'facility'
-    },
-    {
-      id: 15,
-      src: 'https://images.unsplash.com/photo-1631217868264-e5b90bb7e133?w=800&h=600&fit=crop',
-      thumb: 'https://images.unsplash.com/photo-1631217868264-e5b90bb7e133?w=400&h=300&fit=crop',
-      title: 'Hospital Anniversary Event',
-      description: 'Celebrating years of service to the community',
-      category: 'events'
-    },
-    {
-      id: 16,
-      src: 'https://images.unsplash.com/photo-1504813184591-01572f98c85f?w=800&h=600&fit=crop',
-      thumb: 'https://images.unsplash.com/photo-1504813184591-01572f98c85f?w=400&h=300&fit=crop',
-      title: 'Spectacle Distribution',
-      description: 'Free distribution of spectacles at eye camp',
-      category: 'outreach'
-    }
-  ];
+  const pinnedFirst = ['inau.jpg', 'first.jpg', '3 001.jpg'];
+  const collator = new Intl.Collator(undefined, { numeric: true, sensitivity: 'base' });
 
-  const filteredImages = activeCategory === 'all' 
-    ? galleryImages 
-    : galleryImages.filter(img => img.category === activeCategory);
+  const galleryImages = galleryContext
+    .keys()
+    .map((key) => {
+      const fileName = key.replace(/^\.\//, '');
+      const fileNameLower = fileName.toLowerCase();
+      const baseName = fileName.replace(/\.[^.]+$/, '');
+      let title = baseName.replace(/[_-]+/g, ' ').replace(/\s+/g, ' ').trim();
+      let description = '';
+
+      const captionsByFile = {
+        'eyecamp3.jpg': 'Free eye camp conducted in Chatigadha tribal colony, Wayanad',
+        'cataract.jpg': 'A view of Cataract IOL Surgery in Eye hospital AC operation theatre',
+        'diodelaser.jpg': 'Installation ceremony of Diode Laser conducted by H.G. Dr. Abraham Mar Epiphanios Thirumeni',
+        'gallery-02.jpeg': 'A view of 1000 free spectacle frames distribution in connection with Silver Jubilee Celebration of MOSC Medical Mission',
+        'skmj.jpg': 'Students free eye screening camp at SKMJ LP & UP School, Kalpetta',
+        'skmj2.jpg': 'Students free eye screening camp at SKMJ LP & UP School, Kalpetta',
+        'skmj3.jpg': 'Students free eye screening camp at SKMJ LP & UP School, Kalpetta',
+        'mobileclininc.jpg': "State Bank of India donated fully equipped Mobile Eye Clinic unit. Inauguration ceremony — SBI General Manager Mr. Antonio Jose D'zoza handed over the key.",
+        'mobileclinic.jpg': "State Bank of India donated fully equipped Mobile Eye Clinic unit. Inauguration ceremony — SBI General Manager Mr. Antonio Jose D'zoza handed over the key.",
+        'nethra.jpg': 'Nethrapakshacharana Samapana Sammelanam in the presence of Wayanad District Collector Mr. S. Suhas, I.A.S. Welcome speech — Secretary',
+        'nethra1.jpg': 'Participants of Nethrapakshacharana Samapana Sammelanam',
+        'kalpetta.jpg': 'District Collector Mr. V. Kesevendrakumar, I.A.S. inaugurated the evening clinic at District Headquarters, Kalpetta',
+        'specs.jpg': 'A view of 1000 free spectacle frames distribution in connection with Silver Jubilee Celebration of MOSC Medical Mission',
+        'laser.jpg': 'YAG laser switch-on ceremony by His Excellency Abraham Mar Epiphanios (Bishop of Sultan Bathery Diocese), in the presence of Kalpetta MLA Shri. T. Siddique',
+        'inau.jpg': 'Rain water harvesting project inauguration',
+        'first.jpg': 'A cherished old memory — early eye testing at our hospital',
+        '3 001.jpg': 'A legacy of care — eye treatment provided for 22 people (old photo)'
+      };
+
+      if (captionsByFile[fileNameLower]) {
+        title = captionsByFile[fileNameLower];
+        description = captionsByFile[fileNameLower];
+      }
+
+      if (!description) {
+        if (fileNameLower.startsWith('eyecamp')) {
+          title = 'Chettiyamparambu free eye camp';
+          description = 'Chettiyamparambu free eye camp';
+        }
+
+        if (fileNameLower.startsWith('visit')) {
+          title = 'Our Patron & President H.H. Bava Thirumeni visit — Kalpetta Evening Clinic';
+          description = 'Our Patron & President H.H. Bava Thirumeni with Vice President Epiphanios Thirumeni visit Kalpetta Evening Clinic near Civil Station, Kalpetta.';
+        }
+
+        if (fileNameLower.startsWith("bava's visit")) {
+          title = "Bava's Visit";
+          description = "Bava's Visit";
+        }
+      }
+
+      return {
+        fileName,
+        src: galleryContext(key),
+        title: title || baseName,
+        description
+      };
+    })
+    .sort((a, b) => {
+      const aLower = a.fileName.toLowerCase();
+      const bLower = b.fileName.toLowerCase();
+
+      const aPinnedIndex = pinnedFirst.indexOf(aLower);
+      const bPinnedIndex = pinnedFirst.indexOf(bLower);
+
+      if (aPinnedIndex !== -1 || bPinnedIndex !== -1) {
+        if (aPinnedIndex === -1) return 1;
+        if (bPinnedIndex === -1) return -1;
+        return aPinnedIndex - bPinnedIndex;
+      }
+
+      const aIsDiode = aLower === 'diodelaser.jpg';
+      const bIsDiode = bLower === 'diodelaser.jpg';
+
+      const aIsVisit = aLower.startsWith('visit') || aLower.startsWith("bava's visit");
+      const bIsVisit = bLower.startsWith('visit') || bLower.startsWith("bava's visit");
+
+      // Place visit photos immediately after diode laser
+      if (aIsDiode !== bIsDiode) return aIsDiode ? -1 : 1;
+      if (aIsVisit !== bIsVisit) {
+        // Visit group should come right after diode laser, before other images.
+        return aIsVisit ? -1 : 1;
+      }
+
+      return collator.compare(a.fileName, b.fileName);
+    })
+    .map((img, idx) => ({
+      id: idx + 1,
+      src: img.src,
+      thumb: img.src,
+      title: img.title,
+      description: img.description,
+      category: 'all'
+    }));
+
+  const categories = [{ id: 'all', name: 'All Photos' }];
+
+  const filteredImages = galleryImages;
 
   const openLightbox = (index) => {
     setCurrentImage(index);
@@ -210,17 +173,19 @@ const Gallery = () => {
           </div>
 
           {/* Category Filter */}
-          <div className="gallery-filter">
-            {categories.map(category => (
-              <button
-                key={category.id}
-                className={`gallery-filter__btn ${activeCategory === category.id ? 'gallery-filter__btn--active' : ''}`}
-                onClick={() => setActiveCategory(category.id)}
-              >
-                {category.name}
-              </button>
-            ))}
-          </div>
+          {categories.length > 1 && (
+            <div className="gallery-filter">
+              {categories.map(category => (
+                <button
+                  key={category.id}
+                  className={`gallery-filter__btn ${activeCategory === category.id ? 'gallery-filter__btn--active' : ''}`}
+                  onClick={() => setActiveCategory(category.id)}
+                >
+                  {category.name}
+                </button>
+              ))}
+            </div>
+          )}
 
           {/* Gallery Grid */}
           <div className="gallery-grid">
@@ -277,53 +242,6 @@ const Gallery = () => {
           </div>
         </div>
       )}
-
-      {/* Video Section */}
-      <section className="video-section section bg-light">
-        <div className="container">
-          <div className="section-header">
-            <h2 className="section-title">Watch Our Story</h2>
-            <p className="section-subtitle">
-              Learn more about our mission and the impact of our work through these videos
-            </p>
-          </div>
-          <div className="video-grid">
-            <div className="video-card">
-              <div className="video-card__thumbnail">
-                <img 
-                  src="https://images.unsplash.com/photo-1551884170-09fb70a3a2ed?w=600&h=340&fit=crop" 
-                  alt="Hospital introduction video"
-                />
-                <div className="video-card__play">▶</div>
-              </div>
-              <h3>About MOSCMM Kariambady Eye Hospital</h3>
-              <p>A brief introduction to our hospital, mission, and services</p>
-            </div>
-            <div className="video-card">
-              <div className="video-card__thumbnail">
-                <img 
-                  src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=600&h=340&fit=crop" 
-                  alt="Eye camp video"
-                />
-                <div className="video-card__play">▶</div>
-              </div>
-              <h3>Community Eye Camp Documentary</h3>
-              <p>See how our outreach programs bring eye care to remote areas</p>
-            </div>
-            <div className="video-card">
-              <div className="video-card__thumbnail">
-                <img 
-                  src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=600&h=340&fit=crop" 
-                  alt="Patient testimonial video"
-                />
-                <div className="video-card__play">▶</div>
-              </div>
-              <h3>Patient Success Stories</h3>
-              <p>Hear from patients whose lives were transformed through our care</p>
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* CTA Section */}
       <section className="gallery-cta">
