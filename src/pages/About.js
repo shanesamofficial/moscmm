@@ -20,6 +20,8 @@ import abrahamMathewImg from '../assets/Rev. Abraham Mathew Cor-Episcopa Adayaka
 import thomasUzhunnungalImg from '../assets/Thomas M. Uzhunnungal.webp';
 import officerPlaceholderImg from '../assets/officer-placeholder.svg';
 
+import eyeCampImg from '../assets/gallery/eyecamp1.jpg';
+
 const About = () => {
   const officers = [
     {
@@ -322,7 +324,7 @@ const About = () => {
           <div className="community-section__grid">
             <div className="community-section__images">
               <img 
-                src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?w=400&h=300&fit=crop" 
+                src={eyeCampImg}
                 alt="Community eye camp"
                 className="community-section__image community-section__image--1"
               />
