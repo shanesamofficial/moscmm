@@ -10,7 +10,6 @@ import {
   Shield,
   Award,
   Clock,
-  CheckCircle,
   Stethoscope,
   Activity,
   UserCheck,
@@ -21,6 +20,7 @@ import './Home.css';
 import drRajan from '../assets/drrajan.webp';
 import drAparna from '../assets/Aparna R.jpg';
 import drSravani from '../assets/Dr.Sravani S.webp';
+import moscImage from '../assets/mosc.webp';
 
 const Home = () => {
   const previewDoctors = [
@@ -82,15 +82,6 @@ const Home = () => {
     { number: '20,000+', label: 'Surgeries Performed', icon: <Activity size={24} /> },
     { number: '1,000+', label: 'Eye Camps Conducted', icon: <Building size={24} /> },
     { number: '40+', label: 'Years of Service', icon: <Award size={24} /> }
-  ];
-
-  const features = [
-    'State-of-the-art diagnostic equipment',
-    'Experienced and compassionate medical team',
-    'Affordable and subsidized treatments',
-    'Focus on tribal and rural communities',
-    'Modern operation theatre facilities',
-    'Post-operative care and follow-up'
   ];
 
   return (
@@ -170,14 +161,8 @@ const Home = () => {
             <div className="about-preview__image">
               <div className="about-preview__image-main">
                 <img 
-                  src="https://images.unsplash.com/photo-1551884170-09fb70a3a2ed?w=600&h=400&fit=crop" 
-                  alt="Eye examination at MOSCMM Kariambady Eye Hospital"
-                />
-              </div>
-              <div className="about-preview__image-secondary">
-                <img 
-                  src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=300&h=200&fit=crop" 
-                  alt="Modern eye care equipment"
+                  src={moscImage}
+                  alt="MOSCMM Kariambady Eye Hospital"
                 />
               </div>
               <div className="about-preview__experience">
@@ -202,14 +187,6 @@ const Home = () => {
                 healing, ensuring that financial constraints never prevent anyone from 
                 receiving the care they deserve.
               </p>
-              <ul className="about-preview__features">
-                {features.map((feature, index) => (
-                  <li key={index}>
-                    <CheckCircle size={18} />
-                    <span>{feature}</span>
-                  </li>
-                ))}
-              </ul>
               <Link to="/about" className="btn btn-primary">
                 Learn More About Us
                 <ArrowRight size={18} />

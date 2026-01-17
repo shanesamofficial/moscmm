@@ -13,7 +13,54 @@ import {
 } from 'lucide-react';
 import './About.css';
 
+import bavaThirumeniImg from '../assets/BAVA THIRUMENI.webp';
+import marBarnabasImg from '../assets/H.G.DR.GEEVARGHESE MAR BARNABAS  .webp';
+import marPachomiosImg from '../assets/H.G.GEEVARGHESE MAR PACHOMIOS.webp';
+import abrahamMathewImg from '../assets/Rev. Abraham Mathew Cor-Episcopa Adayakattu.webp';
+import thomasUzhunnungalImg from '../assets/Thomas M. Uzhunnungal.webp';
+import officerPlaceholderImg from '../assets/officer-placeholder.svg';
+
 const About = () => {
+  const officers = [
+    {
+      role: 'President & Patron',
+      name: 'Bava Thirumeni',
+      image: bavaThirumeniImg
+    },
+    {
+      role: 'Ex-officio Vice President',
+      name: 'H.G. Dr. Geevarghese Mar Barnabas',
+      note: 'Metropolitan of Sulthan Bathery Diocese',
+      image: marBarnabasImg
+    },
+    {
+      role: 'Vice President',
+      name: 'H.G. Geevarghese Mar Pachomios',
+      note: 'Metropolitan of Malabar Diocese',
+      image: marPachomiosImg
+    },
+    {
+      role: 'Vice President',
+      name: 'Rev. Fr. A. D. Geevargheese',
+      image: officerPlaceholderImg
+    },
+    {
+      role: 'Vice President',
+      name: 'K. O. Peter Master Kuchupurackal',
+      image: officerPlaceholderImg
+    },
+    {
+      role: 'Secretary',
+      name: 'Rev. Abraham Mathew Cor-Episcopa Adayakattu',
+      image: abrahamMathewImg
+    },
+    {
+      role: 'Treasurer',
+      name: 'Thomas M. Uzhunnungal',
+      image: thomasUzhunnungalImg
+    }
+  ];
+
   const values = [
     {
       icon: <Heart size={28} />,
@@ -92,6 +139,31 @@ const About = () => {
                 <span className="about-intro__badge-text">Years of Service</span>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Officers Section */}
+      <section className="officers-section section">
+        <div className="container">
+          <div className="section-header">
+            <span className="officers-section__label">OUR BOARD MEMBERS</span>
+            <h2 className="section-title">OFFICERS</h2>
+          </div>
+
+          <div className="officers-grid">
+            {officers.map((officer) => (
+              <div key={`${officer.role}-${officer.name}`} className="officer-card">
+                <div className="officer-card__image">
+                  <img src={officer.image} alt={officer.name} loading="lazy" />
+                </div>
+                <div className="officer-card__content">
+                  <div className="officer-card__role">{officer.role}</div>
+                  <div className="officer-card__name">{officer.name}</div>
+                  {officer.note ? <div className="officer-card__note">{officer.note}</div> : null}
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
