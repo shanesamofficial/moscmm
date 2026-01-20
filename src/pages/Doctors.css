@@ -182,57 +182,6 @@
   margin-bottom: 1.5rem;
 }
 
-/* Support Staff */
-.support-staff__grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 1.5rem;
-}
-
-@media (min-width: 640px) {
-  .support-staff__grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (min-width: 1024px) {
-  .support-staff__grid {
-    grid-template-columns: repeat(4, 1fr);
-  }
-}
-
-.support-staff__item {
-  text-align: center;
-  padding: 2rem 1.5rem;
-  background: var(--bg-secondary);
-  border-radius: var(--radius-lg);
-  transition: all var(--transition-base);
-}
-
-.support-staff__item:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-lg);
-}
-
-.support-staff__icon {
-  font-size: 3rem;
-  margin-bottom: 1rem;
-}
-
-.support-staff__item h3 {
-  font-family: var(--font-sans);
-  font-size: 1.125rem;
-  margin-bottom: 0.75rem;
-  color: var(--gray-900);
-}
-
-.support-staff__item p {
-  color: var(--text-secondary);
-  font-size: 0.9375rem;
-  line-height: 1.6;
-  margin: 0;
-}
-
 /* Doctors CTA */
 .doctors-cta {
   background: linear-gradient(135deg, var(--primary-700) 0%, var(--primary-800) 100%);

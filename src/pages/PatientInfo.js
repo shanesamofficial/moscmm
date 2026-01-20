@@ -48,12 +48,12 @@ const PatientInfo = () => {
   };
 
   const opTimings = [
-    { day: 'Monday', time: '8:45 AM - 4:30 PM', status: 'open' },
-    { day: 'Tuesday', time: '8:45 AM - 4:30 PM', status: 'open' },
-    { day: 'Wednesday', time: '8:45 AM - 4:30 PM', status: 'open' },
-    { day: 'Thursday', time: '8:45 AM - 4:30 PM', status: 'open' },
-    { day: 'Friday', time: '8:45 AM - 4:30 PM', status: 'open' },
-    { day: 'Saturday', time: '8:45 AM - 4:30 PM', status: 'open' },
+    { day: 'Monday', time: '8:30 AM - 5:00 PM', status: 'open' },
+    { day: 'Tuesday', time: '8:30 AM - 5:00 PM', status: 'open' },
+    { day: 'Wednesday', time: '8:30 AM - 5:00 PM', status: 'open' },
+    { day: 'Thursday', time: '8:30 AM - 5:00 PM', status: 'open' },
+    { day: 'Friday', time: '8:30 AM - 5:00 PM', status: 'open' },
+    { day: 'Saturday', time: '8:30 AM - 5:00 PM', status: 'open' },
     { day: 'Sunday', time: 'Closed', status: 'closed' }
   ];
 
@@ -331,7 +331,7 @@ const PatientInfo = () => {
                   04936 247 274
                 </a>
                 <p className="appointment-info__hours">
-                  Available Mon - Sat: 8:45 AM - 4:30 PM
+                  Available Mon - Sat: 8:30 AM - 5:00 PM
                 </p>
               </div>
 

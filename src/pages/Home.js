@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback, useEffect, useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { 
   Eye, 
@@ -7,6 +7,8 @@ import {
   Calendar,
   Phone,
   ArrowRight,
+  ChevronLeft,
+  ChevronRight,
   Shield,
   Award,
   Clock,
@@ -23,6 +25,77 @@ import drSravani from '../assets/Dr.Sravani S.webp';
 import moscImage from '../assets/mosc.webp';
 
 const Home = () => {
+  const heroSlides = useMemo(
+    () => [
+      {
+        badge: 'Charitable Eye Care Since 1986',
+        title: 'Compassionate Eye Care',
+        highlight: 'for All',
+        subtitle:
+          'MOSCMM Kariambady Eye Hospital provides quality, affordable care for rural and tribal communities across Wayanad—guided by service, dignity, and compassion.',
+        image:
+          'https://images.unsplash.com/photo-1551884170-09fb70a3a2ed?w=1920&h=1080&fit=crop&auto=format&fm=jpg&q=80'
+      },
+      {
+        badge: 'Modern Diagnostics & Lasers',
+        title: 'Accurate Diagnosis',
+        highlight: 'Better Vision',
+        subtitle:
+          'From detailed eye examinations to advanced diagnostics, we focus on clear evaluation and confident treatment plans—so you get the right care at the right time.',
+        image:
+          'https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=1920&h=1080&fit=crop&auto=format&fm=jpg&q=80'
+      },
+      {
+        badge: 'Surgery, Care & Follow-up',
+        title: 'Trusted Treatment',
+        highlight: 'Close to Home',
+        subtitle:
+          'Our team supports you through consultation, procedures, and follow-up—with patient-first care designed to be accessible, safe, and reliable.',
+        image:
+          'https://images.unsplash.com/photo-1559757175-5700dde675bc?w=1920&h=1080&fit=crop&auto=format&fm=jpg&q=80'
+      }
+    ],
+    []
+  );
+
+  const [activeHeroIndex, setActiveHeroIndex] = useState(0);
+  const [isHeroPaused, setIsHeroPaused] = useState(false);
+
+  const goToHeroSlide = useCallback(
+    (index) => {
+      const safeIndex = ((index % heroSlides.length) + heroSlides.length) % heroSlides.length;
+      setActiveHeroIndex(safeIndex);
+    },
+    [heroSlides.length]
+  );
+
+  const nextHeroSlide = useCallback(() => {
+    goToHeroSlide(activeHeroIndex + 1);
+  }, [activeHeroIndex, goToHeroSlide]);
+
+  const prevHeroSlide = useCallback(() => {
+    goToHeroSlide(activeHeroIndex - 1);
+  }, [activeHeroIndex, goToHeroSlide]);
+
+  useEffect(() => {
+    if (isHeroPaused) return;
+
+    const prefersReducedMotion =
+      typeof window !== 'undefined' &&
+      window.matchMedia &&
+      window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    if (prefersReducedMotion) return;
+
+    const id = window.setInterval(() => {
+      setActiveHeroIndex((current) => (current + 1) % heroSlides.length);
+    }, 6500);
+
+    return () => window.clearInterval(id);
+  }, [heroSlides.length, isHeroPaused]);
+
+  const activeHero = heroSlides[activeHeroIndex];
+
   const previewDoctors = [
     {
       name: 'Dr. Rajan Cyriac',
@@ -87,24 +160,38 @@ const Home = () => {
   return (
     <div className="home">
       {/* Hero Section */}
-      <section className="hero">
+      <section
+        className="hero hero-carousel"
+        onMouseEnter={() => setIsHeroPaused(true)}
+        onMouseLeave={() => setIsHeroPaused(false)}
+        onFocusCapture={() => setIsHeroPaused(true)}
+        onBlurCapture={() => setIsHeroPaused(false)}
+        aria-label="Homepage hero carousel"
+      >
+        <div className="hero-carousel__slides" aria-hidden="true">
+          {heroSlides.map((slide, idx) => (
+            <div
+              key={slide.badge}
+              className={`hero-carousel__slide ${idx === activeHeroIndex ? 'is-active' : ''}`}
+              style={{ backgroundImage: `url(${slide.image})` }}
+            />
+          ))}
+        </div>
+
         <div className="hero__overlay"></div>
+
         <div className="hero__content">
           <div className="container">
             <div className="hero__text">
               <div className="hero__badge">
                 <Heart size={16} />
-                <span>Charitable Eye Care Since 1986</span>
+                <span>{activeHero.badge}</span>
               </div>
               <h1 className="hero__title">
-                Compassionate Eye Care <span>for All</span>
+                {activeHero.title} <span>{activeHero.highlight}</span>
               </h1>
-              <p className="hero__subtitle">
-                MOSCMM Kariambady Eye Hospital is dedicated to providing quality, affordable 
-                eye care to the tribal and rural communities of Wayanad, Kerala. Under the 
-                Malankara Orthodox Syrian Church Medical Mission, we bring light to lives 
-                through compassionate care.
-              </p>
+              <p className="hero__subtitle">{activeHero.subtitle}</p>
+
               <div className="hero__cta">
                 <Link to="/patient-info" className="btn btn-primary btn-lg">
                   <Calendar size={20} />
@@ -115,6 +202,7 @@ const Home = () => {
                   <ArrowRight size={20} />
                 </Link>
               </div>
+
               <div className="hero__contact">
                 <Phone size={18} />
                 <span>Phone: </span>
@@ -123,6 +211,42 @@ const Home = () => {
             </div>
           </div>
         </div>
+
+        <div className="hero-carousel__controls" aria-label="Hero carousel controls">
+          <div className="container hero-carousel__controls-inner">
+            <div className="hero-carousel__dots" role="tablist" aria-label="Choose hero slide">
+              {heroSlides.map((slide, idx) => (
+                <button
+                  key={slide.badge}
+                  type="button"
+                  className={`hero-carousel__dot ${idx === activeHeroIndex ? 'is-active' : ''}`}
+                  onClick={() => goToHeroSlide(idx)}
+                  aria-label={`Go to slide ${idx + 1}`}
+                  aria-current={idx === activeHeroIndex ? 'true' : 'false'}
+                />
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* Desktop Arrows */}
+        <button
+          type="button"
+          className="hero-carousel__nav hero-carousel__nav--prev"
+          onClick={prevHeroSlide}
+          aria-label="Previous slide"
+        >
+          <ChevronLeft size={22} aria-hidden="true" />
+        </button>
+
+        <button
+          type="button"
+          className="hero-carousel__nav hero-carousel__nav--next"
+          onClick={nextHeroSlide}
+          aria-label="Next slide"
+        >
+          <ChevronRight size={22} aria-hidden="true" />
+        </button>
       </section>
 
       {/* Quick Info Bar */}
@@ -133,7 +257,7 @@ const Home = () => {
               <Clock size={24} />
               <div>
                 <h4>OPD Timings</h4>
-                <p>Mon - Sat: 8:45 AM - 4:30 PM</p>
+                <p>Mon - Sat: 8:30 AM - 5:00 PM</p>
               </div>
             </div>
             <div className="quick-info__item">

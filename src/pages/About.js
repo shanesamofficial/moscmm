@@ -87,8 +87,8 @@ const About = () => {
   ];
 
   const milestones = [
-    { year: '1986', title: 'Established', description: 'MOSC Medical Mission Kariambady Eye Hospital started as a charitable mission hospital in Kariambady, Wayanad.' },
-    { year: '1990', title: 'Local Society Formed', description: 'For better administration and care, the hospital was transferred to a local society formed in Kariambady (registered under the Societies Registration Act XXI of 1860).' },
+    { year: '17 Jan 1986', title: 'Peripheral Eye Hospital Began', description: 'The Peripheral Eye Hospital was started at Kariambady on behalf of MOSC Medical College, Kolenchery.' },
+    { year: '1 Jan 1990', title: 'MOSC Medical Mission Established', description: 'MOSC Medical Mission was established on 1 January 1990, strengthening the foundation for continued charitable eye care services.' },
     { year: 'Today', title: 'Modern Facilities', description: 'Developed into a leading eye hospital in Wayanad with almost all modern facilities, serving rural and tribal communities through decades of continuous service.' }
   ];
 

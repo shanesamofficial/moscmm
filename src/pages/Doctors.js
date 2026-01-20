@@ -157,41 +157,6 @@ const Doctors = () => {
         </div>
       </section>
 
-      {/* Support Staff */}
-      <section className="support-staff section">
-        <div className="container">
-          <div className="section-header">
-            <h2 className="section-title">Our Support Team</h2>
-            <p className="section-subtitle">
-              Behind our doctors is a dedicated team of nurses, optometrists, technicians, 
-              and administrative staff who ensure smooth operations and excellent patient care.
-            </p>
-          </div>
-          <div className="support-staff__grid">
-            <div className="support-staff__item">
-              <div className="support-staff__icon">👩‍⚕️</div>
-              <h3>Nursing Staff</h3>
-              <p>12 trained ophthalmic nurses providing compassionate pre and post-operative care</p>
-            </div>
-            <div className="support-staff__item">
-              <div className="support-staff__icon">🔬</div>
-              <h3>Optometrists</h3>
-              <p>4 qualified optometrists for vision testing, refraction, and contact lens fitting</p>
-            </div>
-            <div className="support-staff__item">
-              <div className="support-staff__icon">💻</div>
-              <h3>Technicians</h3>
-              <p>6 trained technicians operating diagnostic equipment and assisting in surgeries</p>
-            </div>
-            <div className="support-staff__item">
-              <div className="support-staff__icon">📋</div>
-              <h3>Administrative Team</h3>
-              <p>Dedicated staff handling registrations, billing, and patient coordination</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* CTA Section */}
       <section className="doctors-cta">
         <div className="container">

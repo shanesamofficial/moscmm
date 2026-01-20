@@ -79,12 +79,12 @@ const Contact = () => {
       icon: <Clock size={24} />,
       title: 'Working Hours',
       details: [
-        'Monday: 8:45 AM - 4:30 PM',
-        'Tuesday: 8:45 AM - 4:30 PM',
-        'Wednesday: 8:45 AM - 4:30 PM',
-        'Thursday: 8:45 AM - 4:30 PM',
-        'Friday: 8:45 AM - 4:30 PM',
-        'Saturday: 8:45 AM - 4:30 PM',
+        'Monday: 8:30 AM - 5:00 PM',
+        'Tuesday: 8:30 AM - 5:00 PM',
+        'Wednesday: 8:30 AM - 5:00 PM',
+        'Thursday: 8:30 AM - 5:00 PM',
+        'Friday: 8:30 AM - 5:00 PM',
+        'Saturday: 8:30 AM - 5:00 PM',
         'Sunday: Closed'
       ]
     }
@@ -110,7 +110,7 @@ const Contact = () => {
       timings: ['Tuesday & Saturday : 3pm to 5pm']
     },
     {
-      name: 'Pulpally Clinic',
+      name: 'Mananthavady Clinic',
       address: 'Lions club, Pulpally',
       phones: [{ label: 'Phone', display: '9496222991', value: '9496222991' }],
       timings: ['Wednesday : 9.30am to 1pm']

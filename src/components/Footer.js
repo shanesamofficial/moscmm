@@ -116,7 +116,7 @@ const Footer = () => {
                 <li>
                   <Clock size={18} />
                   <span>
-                    Mon - Sat: 8:45 AM - 4:30 PM<br />
+                    Mon - Sat: 8:30 AM - 5:00 PM<br />
                     Sunday: Closed
                   </span>
                 </li>

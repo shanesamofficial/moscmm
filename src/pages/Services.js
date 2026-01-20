@@ -14,6 +14,7 @@ import {
   Shield,
   Stethoscope
 } from 'lucide-react';
+import pharmacyImage from '../assets/services/pharmacy.svg';
 import './Services.css';
 
 const Services = () => {
@@ -127,7 +128,8 @@ const Services = () => {
       shortDesc: 'On-site pharmacy support for prescribed medicines.',
       fullDesc: `A pharmacy facility is available to support patients with prescribed medicines
         as part of their treatment and follow-up care.`,
-      features: ['On-site pharmacy facility']
+      features: ['On-site pharmacy facility'],
+      image: pharmacyImage
     }
   ];
 
@@ -197,24 +199,29 @@ const Services = () => {
               </div>
               <div className="service-detail__image">
                 <img
-                  src={`https://images.unsplash.com/photo-${
-                    index === 0
-                      ? '1551884170-09fb70a3a2ed'
-                      : index === 1
-                        ? '1579684385127-1ef15d508118'
-                        : index === 2
-                          ? '1559757175-5700dde675bc'
-                          : index === 3
-                            ? '1576091160550-2173dba999ef'
-                            : index === 4
-                              ? '1581594693702-fbdc51b2763b'
-                              : index === 5
-                                ? '1559757148-5c350d0d3c56'
-                                : index === 6
-                                  ? '1574258495973-f010dfbb5371'
-                                  : '1576091160399-112ba8d25d1f'
-                  }?w=600&h=400&fit=crop`}
+                  src={
+                    service.image ??
+                    `https://images.unsplash.com/photo-${
+                      index === 0
+                        ? '1551884170-09fb70a3a2ed'
+                        : index === 1
+                          ? '1579684385127-1ef15d508118'
+                          : index === 2
+                            ? '1559757175-5700dde675bc'
+                            : index === 3
+                              ? '1576091160550-2173dba999ef'
+                              : index === 4
+                                ? '1581594693702-fbdc51b2763b'
+                                : index === 5
+                                  ? '1559757148-5c350d0d3c56'
+                                  : index === 6
+                                    ? '1574258495973-f010dfbb5371'
+                                    : '1576091160399-112ba8d25d1f'
+                    }?w=600&h=400&fit=crop`
+                  }
                   alt={service.title}
+                  loading="lazy"
+                  decoding="async"
                 />
               </div>
             </div>
@@ -266,7 +273,7 @@ const Services = () => {
             <div className="services-cta__text">
               <h2>Need an Eye Consultation?</h2>
               <p>
-                For appointments and enquiries, please call us. OP timings: Monday–Saturday 8:45 AM – 4:30 PM.
+                For appointments and enquiries, please call us. OP timings: Monday–Saturday 8:30 AM – 5:00 PM.
                 Sunday closed.
               </p>
             </div>

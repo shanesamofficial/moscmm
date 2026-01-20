@@ -37,7 +37,7 @@ const Header = () => {
               </a>
               <span className="header__top-item">
                 <Clock size={14} />
-                <span>Mon - Sat: 8:45 AM - 4:30 PM</span>
+                <span>Mon - Sat: 8:30 AM - 5:00 PM</span>
               </span>
               <span className="header__top-item header__top-item--hide-mobile">
                 <MapPin size={14} />
