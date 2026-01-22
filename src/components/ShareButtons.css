@@ -1,0 +1,25 @@
+.share-buttons {
+    margin-top: 3rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid #e2e8f0;
+}
+
+.share-buttons__label {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: #1e293b;
+}
+
+.share-buttons__list {
+    display: flex;
+    gap: 12px;
+}
+
+.share-buttons__list button {
+    transition: transform 0.2s;
+}
+
+.share-buttons__list button:hover {
+    transform: translateY(-2px);
+}

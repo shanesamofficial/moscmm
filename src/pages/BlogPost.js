@@ -1,7 +1,9 @@
 import React, { useEffect } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
-import { ArrowLeft, Calendar, User, Clock } from 'lucide-react';
+import { ArrowLeft, User, Calendar, Tag } from 'lucide-react';
 import SEO from '../components/SEO';
+import ShareButtons from '../components/ShareButtons';
+import { ArticleSchema } from '../components/SchemaData';
 import { blogPosts } from '../data/blogData';
 import './BlogPost.css';
 
@@ -34,11 +36,19 @@ const BlogPost = () => {
                 title={post.title}
                 description={post.excerpt}
                 keywords="eye care, health blog, ophthalmology"
-                url={`/blog/${post.slug}`}
+                url={`/ blog / ${post.slug} `}
                 image={post.image}
             />
+            <ArticleSchema
+                title={post.title}
+                description={post.excerpt}
+                author={post.author}
+                date={post.date}
+                image={post.image}
+                url={`https://kariambadieyehospital.com/blog/${post.slug}`}
+            />
 
-            <article className="section">
+            < article className="section" >
                 <div className="container">
                     <div className="blog-post">
                         <header className="blog-post__header">
@@ -49,7 +59,7 @@ const BlogPost = () => {
                                     {post.date}
                                 </span>
                                 <span className="flex items-center gap-sm">
-                                    <Clock size={16} />
+                                    <Tag size={16} />
                                     {readTime} min read
                                 </span>
                             </div>
@@ -71,6 +81,12 @@ const BlogPost = () => {
                         <div
                             className="blog-post__content"
                             dangerouslySetInnerHTML={{ __html: post.content }}
+                        ></div>
+
+                        <ShareButtons
+                            url={`https://kariambadieyehospital.com/blog/${post.slug}`}
+                            title={post.title}
+                            description={post.excerpt}
                         />
 
                         <div className="blog-post__back">
