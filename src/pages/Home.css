@@ -1,3 +1,42 @@
+/* Fade In Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in-section {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.fade-in-section.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.fade-in-section.delay-1 {
+  transition-delay: 0.1s;
+}
+
+.fade-in-section.delay-2 {
+  transition-delay: 0.2s;
+}
+
+.fade-in-section.delay-3 {
+  transition-delay: 0.3s;
+}
+
+.fade-in-section.delay-4 {
+  transition-delay: 0.4s;
+}
+
 /* Hero Section */
 .hero {
   position: relative;
@@ -659,6 +698,122 @@
   color: var(--text-secondary);
   font-size: 0.875rem;
   margin: 0;
+}
+
+/* Doctors Carousel (Home) */
+.doctors-carousel {
+  position: relative;
+}
+
+.doctors-carousel__track {
+  display: flex;
+  gap: 2rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-padding: 0.25rem;
+  padding: 0.25rem;
+  margin: -0.25rem;
+  -webkit-overflow-scrolling: touch;
+}
+
+.doctors-carousel__track::-webkit-scrollbar {
+  display: none;
+}
+
+.doctors-carousel__track {
+  scrollbar-width: none;
+}
+
+.doctors-carousel__card {
+  scroll-snap-align: start;
+  flex: 0 0 100%;
+}
+
+@media (min-width: 640px) {
+  .doctors-carousel__card {
+    flex-basis: calc((100% - 2rem) / 2);
+  }
+}
+
+@media (min-width: 1024px) {
+  .doctors-carousel__card {
+    flex-basis: calc((100% - 4rem) / 3);
+  }
+}
+
+.doctors-carousel__nav {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .doctors-carousel__nav {
+    display: inline-flex;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 2;
+    width: 44px;
+    height: 44px;
+    border-radius: var(--radius-full);
+    border: 1px solid rgba(17, 24, 39, 0.12);
+    background: rgba(255, 255, 255, 0.9);
+    color: var(--primary-800);
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: var(--shadow-md);
+    transition: transform var(--transition-fast), background var(--transition-fast), opacity var(--transition-fast);
+  }
+
+  .doctors-carousel__nav--prev {
+    left: -0.4rem;
+  }
+
+  .doctors-carousel__nav--next {
+    right: -0.4rem;
+  }
+
+  .doctors-carousel__nav:hover {
+    background: #ffffff;
+    transform: translateY(-50%) scale(1.04);
+  }
+
+  .doctors-carousel__nav:disabled {
+    opacity: 0.45;
+    cursor: not-allowed;
+  }
+
+  .doctors-carousel__nav:focus-visible {
+    outline: 2px solid var(--primary-200);
+    outline-offset: 4px;
+  }
+}
+
+.doctors-carousel__dots {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 1.25rem;
+}
+
+.doctors-carousel__dot {
+  width: 10px;
+  height: 10px;
+  border-radius: var(--radius-full);
+  border: 0;
+  background: rgba(17, 24, 39, 0.25);
+  cursor: pointer;
+  transition: transform var(--transition-fast), background var(--transition-fast), width var(--transition-fast);
+}
+
+.doctors-carousel__dot.is-active {
+  background: var(--primary-600);
+  width: 26px;
+}
+
+.doctors-carousel__dot:focus-visible {
+  outline: 2px solid var(--primary-200);
+  outline-offset: 3px;
 }
 
 /* Testimonials Preview */

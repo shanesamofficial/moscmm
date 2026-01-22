@@ -233,3 +233,62 @@
   font-size: 0.875rem;
   margin-bottom: 0.75rem;
 }
+
+/* Room Facilities Grid */
+.room-facilities-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  margin-top: 1.25rem;
+  justify-items: center;
+}
+
+@media (min-width: 640px) {
+  .room-facilities-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.75rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .room-facilities-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 2rem;
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+.room-facility-card {
+  background: white;
+  border: 1px solid var(--gray-200);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 4px 16px rgba(17, 24, 39, 0.08);
+  padding: 2rem 1.5rem;
+  min-height: 200px;
+  display: flex;
+  flex-direction: column;
+  transition: transform var(--transition-base), box-shadow var(--transition-base), border-color var(--transition-base);
+}
+
+.room-facility-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 28px rgba(17, 24, 39, 0.12);
+  border-color: rgba(37, 99, 235, 0.3);
+}
+
+.room-facility-card__title {
+  margin: 0 0 1rem 0;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--gray-900);
+  line-height: 1.3;
+}
+
+.room-facility-card__description {
+  margin: 0;
+  color: var(--gray-600);
+  line-height: 1.6;
+  font-size: 0.9375rem;
+}

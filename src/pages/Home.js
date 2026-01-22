@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useMemo, useState } from 'react';
+import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { 
   Eye, 
@@ -22,9 +22,46 @@ import './Home.css';
 import drRajan from '../assets/drrajan.webp';
 import drAparna from '../assets/Aparna R.jpg';
 import drSravani from '../assets/Dr.Sravani S.webp';
+import drVinny from '../assets/Dr.Vinny.webp';
+import drAmrutha from '../assets/Dr.Amrutha.webp';
 import moscImage from '../assets/mosc.webp';
 
 const Home = () => {
+  const doctorsTrackRef = useRef(null);
+  const doctorsScrollRafRef = useRef(0);
+  const [doctorsPerPage, setDoctorsPerPage] = useState(3);
+  const [activeDoctorsPage, setActiveDoctorsPage] = useState(0);
+  const [isLoaderComplete, setIsLoaderComplete] = useState(false);
+
+  // Wait for initial page load, then enable scroll animations
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsLoaderComplete(true);
+    }, 1500); // Wait for loader to complete
+    return () => clearTimeout(timer);
+  }, []);
+
+  // Intersection Observer for fade-in animations
+  useEffect(() => {
+    if (!isLoaderComplete) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+          }
+        });
+      },
+      { threshold: 0.1, rootMargin: '0px 0px -50px 0px' }
+    );
+
+    const elements = document.querySelectorAll('.fade-in-section');
+    elements.forEach((el) => observer.observe(el));
+
+    return () => observer.disconnect();
+  }, [isLoaderComplete]);
+
   const heroSlides = useMemo(
     () => [
       {
@@ -114,8 +151,69 @@ const Home = () => {
       designation: 'Consultant Ophthalmologist',
       qualifications: 'M.B.B.S (Hons), M.S. (Ophthal)',
       image: drSravani
+    },
+    {
+      name: 'Dr. Vinny Joy',
+      designation: 'Consultant Ophthalmologist',
+      qualifications: 'M.B.B.S., D.O, D.N.B (Ophthal)',
+      image: drVinny
+    },
+    {
+      name: 'Dr. Amrutha P. M.',
+      designation: 'Consultant Ophthalmologist',
+      qualifications: 'M.B.B.S., M.S. (Ophthal)',
+      image: drAmrutha
     }
   ];
+
+  useEffect(() => {
+    const computeDoctorsPerPage = () => {
+      if (window.matchMedia('(min-width: 1024px)').matches) return 3;
+      if (window.matchMedia('(min-width: 640px)').matches) return 2;
+      return 1;
+    };
+
+    const update = () => {
+      const next = computeDoctorsPerPage();
+      setDoctorsPerPage(next);
+      setActiveDoctorsPage(0);
+      if (doctorsTrackRef.current) doctorsTrackRef.current.scrollTo({ left: 0, behavior: 'auto' });
+    };
+
+    update();
+    window.addEventListener('resize', update);
+    return () => window.removeEventListener('resize', update);
+  }, []);
+
+  const doctorsPageCount = Math.max(1, Math.ceil(previewDoctors.length / doctorsPerPage));
+
+  const scrollDoctorsByPage = (direction) => {
+    const track = doctorsTrackRef.current;
+    if (!track) return;
+    const nextPage = Math.min(
+      Math.max(0, activeDoctorsPage + direction),
+      doctorsPageCount - 1
+    );
+    track.scrollTo({ left: nextPage * track.clientWidth, behavior: 'smooth' });
+  };
+
+  const goToDoctorsPage = (pageIndex) => {
+    const track = doctorsTrackRef.current;
+    if (!track) return;
+    const safe = Math.min(Math.max(0, pageIndex), doctorsPageCount - 1);
+    track.scrollTo({ left: safe * track.clientWidth, behavior: 'smooth' });
+  };
+
+  const handleDoctorsScroll = () => {
+    if (doctorsScrollRafRef.current) return;
+    doctorsScrollRafRef.current = window.requestAnimationFrame(() => {
+      doctorsScrollRafRef.current = 0;
+      const track = doctorsTrackRef.current;
+      if (!track) return;
+      const next = Math.round(track.scrollLeft / Math.max(1, track.clientWidth));
+      setActiveDoctorsPage(Math.min(Math.max(0, next), doctorsPageCount - 1));
+    });
+  };
 
   const services = [
     {
@@ -250,7 +348,7 @@ const Home = () => {
       </section>
 
       {/* Quick Info Bar */}
-      <section className="quick-info">
+      <section className="quick-info fade-in-section">
         <div className="container">
           <div className="quick-info__grid">
             <div className="quick-info__item">
@@ -279,7 +377,7 @@ const Home = () => {
       </section>
 
       {/* About Preview Section */}
-      <section className="about-preview section">
+      <section className="about-preview section fade-in-section">
         <div className="container">
           <div className="about-preview__grid">
             <div className="about-preview__image">
@@ -321,7 +419,7 @@ const Home = () => {
       </section>
 
       {/* Stats Section */}
-      <section className="stats">
+      <section className="stats fade-in-section">
         <div className="container">
           <div className="stats__grid">
             {stats.map((stat, index) => (
@@ -336,7 +434,7 @@ const Home = () => {
       </section>
 
       {/* Services Section */}
-      <section className="services-preview section bg-light">
+      <section className="services-preview section bg-light fade-in-section">
         <div className="container">
           <div className="section-header">
             <span className="services-preview__label">Treatments</span>
@@ -368,7 +466,7 @@ const Home = () => {
       </section>
 
       {/* Mission Banner */}
-      <section className="mission-banner">
+      <section className="mission-banner fade-in-section">
         <div className="mission-banner__overlay"></div>
         <div className="container">
           <div className="mission-banner__content">
@@ -387,7 +485,7 @@ const Home = () => {
       </section>
 
       {/* Doctors Preview */}
-      <section className="doctors-preview section">
+      <section className="doctors-preview section fade-in-section">
         <div className="container">
           <div className="section-header">
             <span className="doctors-preview__label">Our Team</span>
@@ -397,18 +495,58 @@ const Home = () => {
               to providing the best possible care for your eyes.
             </p>
           </div>
-          <div className="doctors-preview__grid">
-            {previewDoctors.map((doctor) => (
-              <div key={doctor.name} className="doctor-card">
-                <div className="doctor-card__image">
-                  <img src={doctor.image} alt={doctor.name} />
+
+          <div className="doctors-carousel" aria-label="Doctors carousel">
+            <button
+              type="button"
+              className="doctors-carousel__nav doctors-carousel__nav--prev"
+              onClick={() => scrollDoctorsByPage(-1)}
+              aria-label="Previous doctors"
+              disabled={activeDoctorsPage === 0}
+            >
+              <ChevronLeft size={22} aria-hidden="true" />
+            </button>
+
+            <div
+              className="doctors-carousel__track"
+              ref={doctorsTrackRef}
+              onScroll={handleDoctorsScroll}
+            >
+              {previewDoctors.map((doctor) => (
+                <div key={doctor.name} className="doctor-card doctors-carousel__card">
+                  <div className="doctor-card__image">
+                    <img src={doctor.image} alt={doctor.name} loading="lazy" decoding="async" />
+                  </div>
+                  <div className="doctor-card__content">
+                    <h3 className="doctor-card__name">{doctor.name}</h3>
+                    <p className="doctor-card__specialty">{doctor.designation}</p>
+                    <p className="doctor-card__qualification">{doctor.qualifications}</p>
+                  </div>
                 </div>
-                <div className="doctor-card__content">
-                  <h3 className="doctor-card__name">{doctor.name}</h3>
-                  <p className="doctor-card__specialty">{doctor.designation}</p>
-                  <p className="doctor-card__qualification">{doctor.qualifications}</p>
-                </div>
-              </div>
+              ))}
+            </div>
+
+            <button
+              type="button"
+              className="doctors-carousel__nav doctors-carousel__nav--next"
+              onClick={() => scrollDoctorsByPage(1)}
+              aria-label="Next doctors"
+              disabled={activeDoctorsPage >= doctorsPageCount - 1}
+            >
+              <ChevronRight size={22} aria-hidden="true" />
+            </button>
+          </div>
+
+          <div className="doctors-carousel__dots" aria-label="Doctors carousel pages">
+            {Array.from({ length: doctorsPageCount }).map((_, idx) => (
+              <button
+                key={idx}
+                type="button"
+                className={`doctors-carousel__dot ${idx === activeDoctorsPage ? 'is-active' : ''}`}
+                onClick={() => goToDoctorsPage(idx)}
+                aria-label={`Go to doctors page ${idx + 1}`}
+                aria-current={idx === activeDoctorsPage ? 'true' : undefined}
+              />
             ))}
           </div>
           <div className="text-center" style={{ marginTop: '2.5rem' }}>
@@ -421,7 +559,7 @@ const Home = () => {
       </section>
 
       {/* Facilities Preview */}
-      <section className="testimonials-preview section bg-accent">
+      <section className="testimonials-preview section bg-accent fade-in-section">
         <div className="container">
           <div className="section-header">
             <span className="testimonials-preview__label">Facilities</span>
@@ -470,7 +608,7 @@ const Home = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="cta-section">
+      <section className="cta-section fade-in-section">
         <div className="container">
           <div className="cta-section__content">
             <div className="cta-section__text">

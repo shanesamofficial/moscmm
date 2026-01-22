@@ -10,7 +10,15 @@ import {
   Shield,
   Heart,
   Users,
-  Stethoscope
+  Stethoscope,
+  Bed,
+  Wind,
+  Droplet,
+  Clock,
+  Tv,
+  Wifi,
+  Phone,
+  CheckCircle
 } from 'lucide-react';
 import './Facilities.css';
 
@@ -26,6 +34,24 @@ import tonometryImg from '../assets/tonometry.jpg';
 import yagLaserImg from '../assets/YAG-Laser.jpg';
 
 const Facilities = () => {
+  const roomFacilities = [
+    { 
+      id: 'general-ward-non-ac', 
+      title: 'General Ward (Non-AC)', 
+      description: 'Affordable accommodation option with basic amenities for patients requiring standard care.'
+    },
+    { 
+      id: 'single-room-non-ac', 
+      title: 'Single Room (Non-AC)', 
+      description: 'Private room offering personal space and comfort without air conditioning.'
+    },
+    { 
+      id: 'deluxe-elite-ac', 
+      title: 'Deluxe Room (AC) & Elite Room (AC)', 
+      description: 'Premium accommodations with enhanced amenities and air conditioning for a luxurious patient experience.'
+    }
+  ];
+
   const hospitalFacilities = [
     { id: 'ac-rooms', title: 'Airconditioned Rooms', icon: <Building size={24} /> },
     { id: 'advanced-equipment', title: 'Advanced Surgical Equipments', icon: <Microscope size={24} /> },
@@ -141,7 +167,28 @@ const Facilities = () => {
         </div>
       </section>
 
-      <section className="equipment-section section bg-light">
+      <section className="facilities-amenities section">
+        <div className="container">
+          <div className="section-header">
+            <span className="facilities-label">Room Types</span>
+            <h2 className="section-title">Patient Accommodation</h2>
+            <p className="section-subtitle">
+              Comfortable and well-equipped rooms for patient care and recovery.
+            </p>
+          </div>
+
+          <div className="room-facilities-grid" aria-label="Room facilities">
+            {roomFacilities.map((room) => (
+              <div key={room.id} className="room-facility-card">
+                <h3 className="room-facility-card__title">{room.title}</h3>
+                <p className="room-facility-card__description">{room.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="equipment-section section">
         <div className="container">
           <div className="section-header">
             <span className="facilities-label">Equipment</span>
