@@ -1,6 +1,7 @@
 export const blogPosts = [
   {
     id: 1,
+    slug: 'understanding-cataracts-symptoms-causes-treatment',
     title: 'Understanding Cataracts: Symptoms, Causes, and Treatment',
     excerpt: 'Cataracts are a common eye condition that affects millions. Learn about the early signs and modern treatment options available at our hospital.',
     content: `
@@ -27,6 +28,7 @@ export const blogPosts = [
   },
   {
     id: 2,
+    slug: 'importance-of-regular-eye-checkups',
     title: 'The Importance of Regular Eye Check-ups',
     excerpt: 'Many eye diseases have no early symptoms. Regular comprehensive eye exams are crucial for maintaining good vision and eye health.',
     content: `
@@ -51,6 +53,7 @@ export const blogPosts = [
   },
   {
     id: 3,
+    slug: 'digital-eye-strain-tips-modern-world',
     title: 'Digital Eye Strain: Tips for the Modern World',
     excerpt: 'With increasing screen time, digital eye strain has become a major concern. Here are practical tips to protect your eyes while using digital devices.',
     content: `
@@ -76,6 +79,7 @@ export const blogPosts = [
   },
   {
     id: 4,
+    slug: 'moscmm-kariambady-first-eye-hospital-malabar',
     title: 'MOSCMM Kariambady Eye Hospital: The First Eye Hospital in Malabar',
     excerpt: 'A legacy of vision and compassion. Discover the history of Malabar\'s first specialized eye hospital and its journey of serving the community.',
     content: `

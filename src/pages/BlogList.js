@@ -44,7 +44,7 @@ const BlogList = () => {
                                         </span>
                                     </div>
                                     <h2 className="blog-card__title">
-                                        <Link to={`/blog/${post.id}`}>{post.title}</Link>
+                                        <Link to={`/blog/${post.slug}`}>{post.title}</Link>
                                     </h2>
                                     <p className="blog-card__excerpt">
                                         {post.excerpt}
@@ -54,7 +54,7 @@ const BlogList = () => {
                                             <User size={14} />
                                             {post.author}
                                         </span>
-                                        <Link to={`/blog/${post.id}`} className="blog-card__link">
+                                        <Link to={`/blog/${post.slug}`} className="blog-card__link">
                                             Read More <ArrowRight size={16} />
                                         </Link>
                                     </div>

@@ -6,14 +6,14 @@ import { blogPosts } from '../data/blogData';
 import './BlogPost.css';
 
 const BlogPost = () => {
-    const { id } = useParams();
+    const { slug } = useParams();
     const navigate = useNavigate();
-    const post = blogPosts.find(p => p.id === parseInt(id));
+    const post = blogPosts.find(p => p.slug === slug);
 
     useEffect(() => {
         // Scroll to top when post loads
         window.scrollTo(0, 0);
-    }, [id]);
+    }, [slug]);
 
     if (!post) {
         return (
@@ -34,7 +34,7 @@ const BlogPost = () => {
                 title={post.title}
                 description={post.excerpt}
                 keywords="eye care, health blog, ophthalmology"
-                url={`/blog/${post.id}`}
+                url={`/blog/${post.slug}`}
                 image={post.image}
             />
 
