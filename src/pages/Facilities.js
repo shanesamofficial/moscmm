@@ -2,9 +2,14 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import {
   Activity,
-  CheckCircle,
+  Eye,
+  Glasses,
   Microscope,
+  Building,
+  Car,
   Shield,
+  Heart,
+  Users,
   Stethoscope
 } from 'lucide-react';
 import './Facilities.css';
@@ -21,14 +26,16 @@ import tonometryImg from '../assets/tonometry.jpg';
 import yagLaserImg from '../assets/YAG-Laser.jpg';
 
 const Facilities = () => {
-  const mainSurgeries = [
-    'Cataract Surgery',
-    'Occuloplasty',
-    'Trabeculectomy',
-    'Squint correction',
-    'Probing',
-    'Pterygium',
-    'DCT (Dacryocystectomy)'
+  const hospitalFacilities = [
+    { id: 'ac-rooms', title: 'Airconditioned Rooms', icon: <Building size={24} /> },
+    { id: 'advanced-equipment', title: 'Advanced Surgical Equipments', icon: <Microscope size={24} /> },
+    { id: 'operation-theatre', title: 'Operation Theatre', icon: <Activity size={24} /> },
+    { id: 'private-wards', title: 'Private Wards', icon: <Shield size={24} /> },
+    { id: 'service-staff', title: 'Service Staff', icon: <Users size={24} /> },
+    { id: 'vehicle-parking', title: 'Vehicle Parking', icon: <Car size={24} /> },
+    { id: 'pharmacy', title: 'Pharmacy', icon: <Stethoscope size={24} /> },
+    { id: 'opticals', title: 'Opticals', icon: <Glasses size={24} /> },
+    { id: 'fire-security-alarm', title: 'Fire Security Alarm', icon: <Eye size={24} /> }
   ];
 
   const equipment = [
@@ -101,7 +108,7 @@ const Facilities = () => {
         <div className="container">
           <div className="page-header__content">
             <h1>Facilities</h1>
-            <p>Our main surgeries and key diagnostic / surgical equipment</p>
+            <p>Hospital facilities and key diagnostic / surgical equipment</p>
             <nav className="breadcrumb">
               <Link to="/">Home</Link>
               <span>/</span>
@@ -113,42 +120,23 @@ const Facilities = () => {
 
       <section className="facilities-intro section">
         <div className="container">
-          <div className="facilities-grid">
-            <div className="facilities-card">
-              <div className="facilities-card__head">
-                <Activity size={22} />
-                <h2>Main Surgeries</h2>
-              </div>
-              <ul className="facilities-list">
-                {mainSurgeries.map((item) => (
-                  <li key={item}>
-                    <CheckCircle size={18} />
-                    <span>{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
+          <div className="section-header">
+            <span className="facilities-label">Facilities</span>
+            <h2 className="section-title">Hospital Facilities</h2>
+            <p className="section-subtitle">
+              Patient-friendly facilities to support comfortable care.
+            </p>
+          </div>
 
-            <div className="facilities-card">
-              <div className="facilities-card__head">
-                <Shield size={22} />
-                <h2>Hospital Facilities</h2>
+          <div className="facilities-amenities-grid" aria-label="Hospital facilities">
+            {hospitalFacilities.map((item) => (
+              <div key={item.id} className="facility-tile">
+                <span className="facility-tile__icon" aria-hidden="true">
+                  {item.icon}
+                </span>
+                <span className="facility-tile__title">{item.title}</span>
               </div>
-              <ul className="facilities-list">
-                {[
-                  '24 hour emergency service',
-                  'Pharmacy',
-                  'Optical dispensary',
-                  'Well equipped A/c operation theatre complex',
-                  'General wards and different kinds of special rooms'
-                ].map((item) => (
-                  <li key={item}>
-                    <CheckCircle size={18} />
-                    <span>{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
+            ))}
           </div>
         </div>
       </section>

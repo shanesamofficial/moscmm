@@ -65,7 +65,7 @@ const Footer = () => {
               <ul className="footer__links">
                 <li><Link to="/">Home</Link></li>
                 <li><Link to="/about">About Us</Link></li>
-                <li><Link to="/services">Our Services</Link></li>
+                <li><Link to="/services">Treatments</Link></li>
                 <li><Link to="/doctors">Our Doctors</Link></li>
                 <li><Link to="/patient-info">Patient Information</Link></li>
                 <li><Link to="/gallery">Gallery</Link></li>
@@ -74,13 +74,14 @@ const Footer = () => {
               </ul>
             </div>
 
-            {/* Services */}
+            {/* Treatments */}
             <div className="footer__column">
-              <h3 className="footer__title">Our Services</h3>
+              <h3 className="footer__title">Treatments</h3>
               <ul className="footer__links">
                 <li><Link to="/services">General Ophthalmology</Link></li>
                 <li><Link to="/services">Cataract Surgery</Link></li>
                 <li><Link to="/services">Glaucoma Services</Link></li>
+                <li><Link to="/services">Retina Services</Link></li>
                 <li><Link to="/services">Lacrimal System Services</Link></li>
                 <li><Link to="/services">Strabismus (Squint) Services</Link></li>
                 <li><Link to="/services">Diagnostic &amp; Laser Services</Link></li>

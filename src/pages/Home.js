@@ -198,7 +198,7 @@ const Home = () => {
                   Book Appointment
                 </Link>
                 <Link to="/services" className="btn btn-outline btn-lg">
-                  Our Services
+                  Treatments
                   <ArrowRight size={20} />
                 </Link>
               </div>
@@ -339,7 +339,7 @@ const Home = () => {
       <section className="services-preview section bg-light">
         <div className="container">
           <div className="section-header">
-            <span className="services-preview__label">Our Services</span>
+            <span className="services-preview__label">Treatments</span>
             <h2 className="section-title">Comprehensive Eye Care Services</h2>
             <p className="section-subtitle">
               We offer a complete range of eye care services, from routine examinations 
@@ -360,7 +360,7 @@ const Home = () => {
           </div>
           <div className="text-center" style={{ marginTop: '2.5rem' }}>
             <Link to="/services" className="btn btn-primary btn-lg">
-              View All Services
+              View All Treatments
               <ArrowRight size={20} />
             </Link>
           </div>

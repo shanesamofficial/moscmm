@@ -18,6 +18,34 @@ import pharmacyImage from '../assets/services/pharmacy.svg';
 import './Services.css';
 
 const Services = () => {
+  const mainSurgeries = [
+    { id: 'cataract-surgery', title: 'Cataract Surgery' },
+    { id: 'oculoplasty', title: 'Occuloplasty' },
+    { id: 'trabeculectomy', title: 'Trabeculectomy' },
+    { id: 'squint-correction', title: 'Squint Correction' },
+    { id: 'probing', title: 'Probing' },
+    { id: 'pterygium', title: 'Pterygium' },
+    { id: 'dct', title: 'DCT (Dacryocystectomy)' }
+  ];
+
+  const serviceImageById = {
+    'general-ophthalmology': '1551884170-09fb70a3a2ed',
+    'cataract-surgery': '1579684385127-1ef15d508118',
+    'glaucoma-services': '1559757175-5700dde675bc',
+    'retina-services': '1580281657527-47f249e8f1df',
+    'lacrimal-system': '1576091160550-2173dba999ef',
+    'strabismus-services': '1581594693702-fbdc51b2763b',
+    'diagnostic-services': '1559757148-5c350d0d3c56',
+    'optical-dispensary': '1574258495973-f010dfbb5371',
+    pharmacy: '1576091160399-112ba8d25d1f'
+  };
+
+  const getServiceImageUrl = (service) => {
+    if (service.image) return service.image;
+    const unsplashId = serviceImageById[service.id] ?? '1551884170-09fb70a3a2ed';
+    return `https://images.unsplash.com/photo-${unsplashId}?w=600&h=400&fit=crop`;
+  };
+
   const mainServices = [
     {
       id: 'general-ophthalmology',
@@ -63,6 +91,20 @@ const Services = () => {
         'Medical management',
         'Surgical management (Trabeculectomy)',
         'Yag Laser Iridotomy'
+      ]
+    },
+    {
+      id: 'retina-services',
+      icon: <Eye size={36} />,
+      title: 'Retina Specialist & Diabetic Retinopathy',
+      shortDesc: 'Evaluation and management of retina conditions, including diabetic retinopathy.',
+      fullDesc: `We provide retina specialist consultations and screening for diabetic retinopathy.
+        Early detection and timely management can help protect vision.`,
+      features: [
+        'Retina specialist consultation',
+        'Diabetic retinopathy screening and follow-up',
+        'Fundus evaluation and counselling',
+        'Treatment planning and referrals when needed'
       ]
     },
     {
@@ -139,12 +181,12 @@ const Services = () => {
         <div className="page-header__overlay"></div>
         <div className="container">
           <div className="page-header__content">
-            <h1>Our Services</h1>
-            <p>Comprehensive eye care services delivered with compassion and expertise</p>
+            <h1>Treatments</h1>
+            <p>Comprehensive eye care treatments delivered with compassion and expertise</p>
             <nav className="breadcrumb">
               <Link to="/">Home</Link>
               <span>/</span>
-              <span>Services</span>
+              <span>Treatments</span>
             </nav>
           </div>
         </div>
@@ -154,10 +196,10 @@ const Services = () => {
         <div className="container">
           <div className="section-header">
             <span className="services-overview__label">What We Offer</span>
-            <h2 className="section-title">Comprehensive Eye Care Services</h2>
+            <h2 className="section-title">Comprehensive Eye Care Treatments</h2>
             <p className="section-subtitle">
               From routine eye examinations to advanced surgical procedures, we provide a complete range of
-              eye care services. Our commitment to excellence ensures you receive the highest quality care.
+              eye care treatments and services. Our commitment to excellence ensures you receive the highest quality care.
             </p>
           </div>
 
@@ -199,26 +241,7 @@ const Services = () => {
               </div>
               <div className="service-detail__image">
                 <img
-                  src={
-                    service.image ??
-                    `https://images.unsplash.com/photo-${
-                      index === 0
-                        ? '1551884170-09fb70a3a2ed'
-                        : index === 1
-                          ? '1579684385127-1ef15d508118'
-                          : index === 2
-                            ? '1559757175-5700dde675bc'
-                            : index === 3
-                              ? '1576091160550-2173dba999ef'
-                              : index === 4
-                                ? '1581594693702-fbdc51b2763b'
-                                : index === 5
-                                  ? '1559757148-5c350d0d3c56'
-                                  : index === 6
-                                    ? '1574258495973-f010dfbb5371'
-                                    : '1576091160399-112ba8d25d1f'
-                    }?w=600&h=400&fit=crop`
-                  }
+                  src={getServiceImageUrl(service)}
                   alt={service.title}
                   loading="lazy"
                   decoding="async"
@@ -229,10 +252,31 @@ const Services = () => {
         </div>
       </section>
 
+      <section className="surgeries-section section">
+        <div className="container">
+          <div className="section-header">
+            <span className="services-overview__label">Surgery</span>
+            <h2 className="section-title">Main Surgeries</h2>
+            <p className="section-subtitle">Our key surgical services.</p>
+          </div>
+
+          <div className="surgeries-grid" aria-label="Main surgeries">
+            {mainSurgeries.map((item) => (
+              <div key={item.id} className="surgery-tile">
+                <span className="surgery-tile__icon" aria-hidden="true">
+                  <Activity size={24} />
+                </span>
+                <span className="surgery-tile__title">{item.title}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <section className="why-choose section">
         <div className="container">
           <div className="section-header">
-            <h2 className="section-title">Why Choose Our Eye Care Services?</h2>
+            <h2 className="section-title">Why Choose Our Eye Care Treatments?</h2>
           </div>
           <div className="why-choose__grid">
             <div className="why-choose__item">
@@ -260,8 +304,8 @@ const Services = () => {
               <div className="why-choose__icon">
                 <Clock size={28} />
               </div>
-              <h3>24-Hour Emergency</h3>
-              <p>Emergency services available 24 hours</p>
+              <h3>Emergency Care</h3>
+              <p>Emergency services available when needed</p>
             </div>
           </div>
         </div>

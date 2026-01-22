@@ -111,9 +111,9 @@ const Contact = () => {
     },
     {
       name: 'Mananthavady Clinic',
-      address: 'Lions club, Pulpally',
+      address: 'Near 3G Mobiles',
       phones: [{ label: 'Phone', display: '9496222991', value: '9496222991' }],
-      timings: ['Wednesday : 9.30am to 1pm']
+      timings: ['Wednesday : 9am to 6pm']
     }
   ];
 
@@ -293,7 +293,7 @@ const Contact = () => {
                     >
                       <option value="">Select subject</option>
                       <option value="appointment">Appointment Inquiry</option>
-                      <option value="services">Services Information</option>
+                      <option value="services">Treatment Information</option>
                       <option value="billing">Billing & Insurance</option>
                       <option value="feedback">Feedback</option>
                       <option value="donation">Donation Inquiry</option>

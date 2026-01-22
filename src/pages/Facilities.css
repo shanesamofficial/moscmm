@@ -63,6 +63,63 @@
   line-height: 1.6;
 }
 
+.facilities-amenities-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+  margin-top: 1.25rem;
+}
+
+@media (min-width: 640px) {
+  .facilities-amenities-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1024px) {
+  .facilities-amenities-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.facility-tile {
+  display: flex;
+  align-items: center;
+  gap: 1.05rem;
+  padding: 1.25rem 1.5rem;
+  min-height: 92px;
+  border-radius: 20px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.92) 0%, rgba(247, 250, 252, 0.92) 100%);
+  border: 1px solid rgba(17, 24, 39, 0.10);
+  box-shadow: 0 10px 24px rgba(17, 24, 39, 0.06);
+  transition: transform var(--transition-base), box-shadow var(--transition-base), border-color var(--transition-base);
+}
+
+.facility-tile:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 34px rgba(17, 24, 39, 0.10);
+  border-color: rgba(37, 99, 235, 0.22);
+}
+
+.facility-tile__icon {
+  width: 56px;
+  height: 56px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 16px;
+  background: rgba(37, 99, 235, 0.12);
+  color: var(--primary-800);
+  flex-shrink: 0;
+}
+
+.facility-tile__title {
+  color: var(--gray-800);
+  font-weight: 600;
+  font-size: 1.05rem;
+  line-height: 1.3;
+}
+
 .equipment-grid {
   display: grid;
   grid-template-columns: repeat(1, minmax(0, 1fr));

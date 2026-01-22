@@ -283,7 +283,7 @@ const Testimonials = () => {
                 Book Appointment
               </Link>
               <Link to="/services" className="btn btn-outline btn-lg">
-                View Services
+                View Treatments
                 <ArrowRight size={20} />
               </Link>
             </div>

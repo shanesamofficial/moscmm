@@ -20,6 +20,8 @@ import abrahamMathewImg from '../assets/Rev. Abraham Mathew Cor-Episcopa Adayaka
 import thomasUzhunnungalImg from '../assets/Thomas M. Uzhunnungal.webp';
 import officerPlaceholderImg from '../assets/officer-placeholder.svg';
 
+import healingBlindImg from '../assets/healing-blind.webp';
+
 import eyeCampImg from '../assets/gallery/eyecamp1.jpg';
 
 const About = () => {
@@ -245,8 +247,8 @@ const About = () => {
             </div>
             <div className="church-section__image">
               <img 
-                src="https://images.unsplash.com/photo-1438032005730-c779502df39b?w=500&h=600&fit=crop" 
-                alt="Orthodox Church Symbol"
+                src={healingBlindImg}
+                alt="Our Foundation"
               />
             </div>
           </div>
