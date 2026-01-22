@@ -90,7 +90,7 @@
   min-height: 92px;
   border-radius: 20px;
   background: linear-gradient(180deg, rgba(255, 255, 255, 0.92) 0%, rgba(247, 250, 252, 0.92) 100%);
-  border: 1px solid rgba(17, 24, 39, 0.10);
+  border: 1px solid var(--gray-300);
   box-shadow: 0 10px 24px rgba(17, 24, 39, 0.06);
   transition: transform var(--transition-base), box-shadow var(--transition-base), border-color var(--transition-base);
 }
@@ -142,7 +142,7 @@
 
 .equipment-card {
   background: white;
-  border: 1px solid var(--gray-200);
+  border: 1px solid var(--gray-300);
   border-radius: var(--radius-lg);
   overflow: hidden;
   box-shadow: var(--shadow-sm);
@@ -260,9 +260,10 @@
   }
 }
 
+
 .room-facility-card {
   background: white;
-  border: 1px solid var(--gray-200);
+  border: 1px solid var(--gray-300);
   border-radius: var(--radius-lg);
   box-shadow: 0 4px 16px rgba(17, 24, 39, 0.08);
   padding: 2rem 1.5rem;

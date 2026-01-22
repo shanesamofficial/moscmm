@@ -167,7 +167,7 @@ const Facilities = () => {
         </div>
       </section>
 
-      <section className="facilities-amenities section">
+      <section className="facilities-amenities section bg-light">
         <div className="container">
           <div className="section-header">
             <span className="facilities-label">Room Types</span>
@@ -188,7 +188,7 @@ const Facilities = () => {
         </div>
       </section>
 
-      <section className="equipment-section section">
+      <section className="equipment-section section bg-light">
         <div className="container">
           <div className="section-header">
             <span className="facilities-label">Equipment</span>
