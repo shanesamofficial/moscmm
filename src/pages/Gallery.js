@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
+import SEO from '../components/SEO';
 import { Link } from 'react-router-dom';
-import { 
+import {
   Camera,
   X,
   ChevronLeft,
@@ -143,6 +144,11 @@ const Gallery = () => {
 
   return (
     <div className="gallery-page">
+      <SEO
+        title="Photo Gallery | Hospital & Camps"
+        description="Explore photos of MOSCMM Kariambady Eye Hospital's facilities, surgeries, eye camps, and community outreach events."
+        url="/gallery"
+      />
       {/* Page Header */}
       <section className="page-header">
         <div className="page-header__overlay"></div>
@@ -166,8 +172,8 @@ const Gallery = () => {
             <span className="gallery-label">Our Photo Gallery</span>
             <h2 className="section-title">Glimpses of Our Work</h2>
             <p className="section-subtitle">
-              Browse through photos of our hospital facilities, community eye camps, 
-              surgeries, and outreach programs that showcase our commitment to 
+              Browse through photos of our hospital facilities, community eye camps,
+              surgeries, and outreach programs that showcase our commitment to
               eye care for all.
             </p>
           </div>
@@ -190,8 +196,8 @@ const Gallery = () => {
           {/* Gallery Grid */}
           <div className="gallery-grid">
             {filteredImages.map((image, index) => (
-              <div 
-                key={image.id} 
+              <div
+                key={image.id}
                 className="gallery-item"
                 onClick={() => openLightbox(index)}
               >
@@ -218,8 +224,8 @@ const Gallery = () => {
           <button className="lightbox__close" onClick={closeLightbox}>
             <X size={24} />
           </button>
-          <button 
-            className="lightbox__nav lightbox__nav--prev" 
+          <button
+            className="lightbox__nav lightbox__nav--prev"
             onClick={(e) => { e.stopPropagation(); navigateImage('prev'); }}
           >
             <ChevronLeft size={32} />
@@ -231,8 +237,8 @@ const Gallery = () => {
               <p>{filteredImages[currentImage].description}</p>
             </div>
           </div>
-          <button 
-            className="lightbox__nav lightbox__nav--next" 
+          <button
+            className="lightbox__nav lightbox__nav--next"
             onClick={(e) => { e.stopPropagation(); navigateImage('next'); }}
           >
             <ChevronRight size={32} />
@@ -249,7 +255,7 @@ const Gallery = () => {
           <div className="gallery-cta__content">
             <h2>Visit Our Hospital</h2>
             <p>
-              Experience our world-class eye care services firsthand. 
+              Experience our world-class eye care services firsthand.
               Schedule a visit or book an appointment today.
             </p>
             <div className="gallery-cta__buttons">

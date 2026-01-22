@@ -1,11 +1,12 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import SEO from '../components/SEO';
 import { Link } from 'react-router-dom';
-import { 
-  Heart, 
-  Target, 
-  Eye, 
-  Users, 
-  Award, 
+import {
+  Heart,
+  Target,
+  Eye,
+  Users,
+  Award,
   Calendar,
   ArrowRight,
   CheckCircle,
@@ -96,6 +97,11 @@ const About = () => {
 
   return (
     <div className="about-page">
+      <SEO
+        title="About Us"
+        description="Learn about MOSCMM Kariambady Eye Hospital's history, mission, and our commitment to charitable eye care for tribal and rural communities in Wayanad."
+        url="/about"
+      />
       {/* Page Header */}
       <section className="page-header">
         <div className="page-header__overlay"></div>
@@ -134,8 +140,8 @@ const About = () => {
               </p>
             </div>
             <div className="about-intro__image">
-              <img 
-                src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=600&h=700&fit=crop" 
+              <img
+                src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=600&h=700&fit=crop"
                 alt="MOSCMM Kariambady Eye Hospital Building"
               />
               <div className="about-intro__badge">
@@ -182,9 +188,9 @@ const About = () => {
               </div>
               <h3>Our Mission</h3>
               <p>
-                To provide accessible, affordable, and quality eye care services to all members 
-                of society, with special emphasis on the tribal and rural communities of Wayanad, 
-                upholding the values of compassion, dignity, and service as inspired by the 
+                To provide accessible, affordable, and quality eye care services to all members
+                of society, with special emphasis on the tribal and rural communities of Wayanad,
+                upholding the values of compassion, dignity, and service as inspired by the
                 healing ministry of Jesus Christ.
               </p>
               <ul>
@@ -200,9 +206,9 @@ const About = () => {
               </div>
               <h3>Our Vision</h3>
               <p>
-                To be a center of excellence in eye care that serves as a beacon of hope for 
-                the underserved, ensuring that no one in our community suffers from preventable 
-                or treatable blindness, while spreading the light of Christ's love through 
+                To be a center of excellence in eye care that serves as a beacon of hope for
+                the underserved, ensuring that no one in our community suffers from preventable
+                or treatable blindness, while spreading the light of Christ's love through
                 our healing ministry.
               </p>
               <ul>
@@ -246,7 +252,7 @@ const About = () => {
               </p>
             </div>
             <div className="church-section__image">
-              <img 
+              <img
                 src={healingBlindImg}
                 alt="Our Foundation"
               />
@@ -325,13 +331,13 @@ const About = () => {
         <div className="container">
           <div className="community-section__grid">
             <div className="community-section__images">
-              <img 
+              <img
                 src={eyeCampImg}
                 alt="Community eye camp"
                 className="community-section__image community-section__image--1"
               />
-              <img 
-                src="https://images.unsplash.com/photo-1582719471137-c3967ffb1c42?w=400&h=300&fit=crop" 
+              <img
+                src="https://images.unsplash.com/photo-1582719471137-c3967ffb1c42?w=400&h=300&fit=crop"
                 alt="Tribal community healthcare"
                 className="community-section__image community-section__image--2"
               />
@@ -340,9 +346,9 @@ const About = () => {
               <span className="community-section__label">Community Focus</span>
               <h2>Serving the Tribal & Rural Communities</h2>
               <p>
-                Wayanad is home to several tribal communities including the Paniyas, Kurichyas, 
-                Kurumas, Adiyans, and Kattunaikkas. These communities face unique healthcare 
-                challenges due to their remote locations, economic constraints, and sometimes, 
+                Wayanad is home to several tribal communities including the Paniyas, Kurichyas,
+                Kurumas, Adiyans, and Kattunaikkas. These communities face unique healthcare
+                challenges due to their remote locations, economic constraints, and sometimes,
                 limited awareness about eye health.
               </p>
               <p>
@@ -381,7 +387,7 @@ const About = () => {
           <div className="about-cta__content">
             <h2>Join Us in Our Mission</h2>
             <p>
-              Whether you need eye care services or wish to support our charitable work, 
+              Whether you need eye care services or wish to support our charitable work,
               we welcome you to be part of our mission to bring sight and hope to those in need.
             </p>
             <div className="about-cta__buttons">

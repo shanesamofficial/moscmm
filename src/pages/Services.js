@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import SEO from '../components/SEO';
 import { Link } from 'react-router-dom';
 import {
   Activity,
@@ -177,7 +178,12 @@ const Services = () => {
 
   return (
     <div className="services-page">
-      <section className="page-header">
+      <SEO
+        title="Our Treatments & Services"
+        description="Comprehensive eye care services including cataract surgery, glaucoma treatment, pediatric ophthalmology, and retina care at MOSCMM Kariambady."
+        url="/services"
+      />
+      <div className="services-hero">
         <div className="page-header__overlay"></div>
         <div className="container">
           <div className="page-header__content">
@@ -190,7 +196,7 @@ const Services = () => {
             </nav>
           </div>
         </div>
-      </section>
+      </div>
 
       <section className="services-overview section">
         <div className="container">

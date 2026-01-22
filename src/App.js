@@ -11,6 +11,8 @@ import Gallery from './pages/Gallery';
 import Facilities from './pages/Facilities';
 import Testimonials from './pages/Testimonials';
 import Contact from './pages/Contact';
+import BlogList from './pages/BlogList';
+import BlogPost from './pages/BlogPost';
 import ScrollToTop from './components/ScrollToTop';
 import InitialLoader from './components/InitialLoader';
 import ScrollProgressBar from './components/ScrollProgressBar';
@@ -109,6 +111,8 @@ function App() {
           <Route path="/facilities" element={<Facilities />} />
           <Route path="/testimonials" element={<Testimonials />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/blog" element={<BlogList />} />
+          <Route path="/blog/:id" element={<BlogPost />} />
         </Routes>
       </main>
       <Footer />

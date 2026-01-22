@@ -1,7 +1,8 @@
 import React from 'react';
+import SEO from '../components/SEO';
 import { Link } from 'react-router-dom';
-import { 
-  Star, 
+import {
+  Star,
   Quote,
   Calendar,
   ArrowRight
@@ -144,6 +145,11 @@ const Testimonials = () => {
 
   return (
     <div className="testimonials-page">
+      <SEO
+        title="Patient Testimonials | Success Stories"
+        description="Read inspiring stories from patients who have received sight-saving treatments at MOSCMM Kariambady Eye Hospital."
+        url="/testimonials"
+      />
       {/* Page Header */}
       <section className="page-header">
         <div className="page-header__overlay"></div>
@@ -181,7 +187,7 @@ const Testimonials = () => {
             <span className="testimonials-label">Patient Stories</span>
             <h2 className="section-title">What Our Patients Say</h2>
             <p className="section-subtitle">
-              Every testimonial represents a life touched by our care. These stories inspire 
+              Every testimonial represents a life touched by our care. These stories inspire
               us to continue our mission of bringing sight and hope to those in need.
             </p>
           </div>
@@ -226,8 +232,8 @@ const Testimonials = () => {
             <div className="share-story__text">
               <h2>Share Your Story</h2>
               <p>
-                Have you or a loved one received care at MOSCMM Kariambady Eye Hospital? 
-                We would love to hear about your experience. Your story could inspire others 
+                Have you or a loved one received care at MOSCMM Kariambady Eye Hospital?
+                We would love to hear about your experience. Your story could inspire others
                 to seek the care they need.
               </p>
               <ul>
@@ -253,8 +259,8 @@ const Testimonials = () => {
                 </div>
                 <div className="form-group">
                   <label className="form-label">Your Experience</label>
-                  <textarea 
-                    className="form-textarea" 
+                  <textarea
+                    className="form-textarea"
                     placeholder="Share your experience with us..."
                     rows="4"
                   ></textarea>
@@ -274,7 +280,7 @@ const Testimonials = () => {
           <div className="testimonials-cta__content">
             <h2>Experience Our Compassionate Care</h2>
             <p>
-              Join thousands of satisfied patients who have trusted MOSCMM Kariambady 
+              Join thousands of satisfied patients who have trusted MOSCMM Kariambady
               Eye Hospital with their vision. Schedule your appointment today.
             </p>
             <div className="testimonials-cta__buttons">

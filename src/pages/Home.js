@@ -1,9 +1,9 @@
 import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { 
-  Eye, 
-  Heart, 
-  Users, 
+import {
+  Eye,
+  Heart,
+  Users,
   Calendar,
   Phone,
   ArrowRight,
@@ -18,6 +18,7 @@ import {
   Building
 } from 'lucide-react';
 import './Home.css';
+import SEO from '../components/SEO';
 
 import drRajan from '../assets/drrajan.webp';
 import drAparna from '../assets/Aparna R.jpg';
@@ -257,6 +258,12 @@ const Home = () => {
 
   return (
     <div className="home">
+      <SEO
+        title="Best Eye Hospital in Wayanad"
+        description="MOSCMM Kariambady Eye Hospital offers affordable, high-quality eye care in Wayanad. Specialized in cataract surgery, glaucoma, and retina treatments."
+        keywords="eye hospital wayanad, cataract surgery, ophthalmologist, eye doctor, charitable hospital"
+        url="/"
+      />
       {/* Hero Section */}
       <section
         className="hero hero-carousel"
@@ -382,7 +389,7 @@ const Home = () => {
           <div className="about-preview__grid">
             <div className="about-preview__image">
               <div className="about-preview__image-main">
-                <img 
+                <img
                   src={moscImage}
                   alt="MOSCMM Kariambady Eye Hospital"
                 />
@@ -398,15 +405,15 @@ const Home = () => {
                 <h2 className="section-title">Bringing Light to Lives Through Compassionate Care</h2>
               </div>
               <p>
-                MOSCMM Kariambady Eye Hospital was established under the Malankara Orthodox 
-                Syrian Church Medical Mission with a vision to provide accessible, quality 
+                MOSCMM Kariambady Eye Hospital was established under the Malankara Orthodox
+                Syrian Church Medical Mission with a vision to provide accessible, quality
                 eye care to the underserved tribal and rural populations of Wayanad district.
               </p>
               <p>
-                Located in the heart of Wayanad, our hospital serves as a beacon of hope for 
-                thousands who would otherwise have limited access to specialized eye care. 
-                Our mission is rooted in the Christian values of compassion, service, and 
-                healing, ensuring that financial constraints never prevent anyone from 
+                Located in the heart of Wayanad, our hospital serves as a beacon of hope for
+                thousands who would otherwise have limited access to specialized eye care.
+                Our mission is rooted in the Christian values of compassion, service, and
+                healing, ensuring that financial constraints never prevent anyone from
                 receiving the care they deserve.
               </p>
               <Link to="/about" className="btn btn-primary">
@@ -440,7 +447,7 @@ const Home = () => {
             <span className="services-preview__label">Treatments</span>
             <h2 className="section-title">Comprehensive Eye Care Services</h2>
             <p className="section-subtitle">
-              We offer a complete range of eye care services, from routine examinations 
+              We offer a complete range of eye care services, from routine examinations
               to advanced surgical procedures, all delivered with compassion and expertise.
             </p>
           </div>
@@ -472,8 +479,8 @@ const Home = () => {
           <div className="mission-banner__content">
             <h2>Our Mission</h2>
             <p>
-              "To provide accessible, affordable, and quality eye care services to all, 
-              especially the tribal and rural communities, upholding the values of 
+              "To provide accessible, affordable, and quality eye care services to all,
+              especially the tribal and rural communities, upholding the values of
               compassion, dignity, and service as inspired by the healing ministry of Christ."
             </p>
             <div className="mission-banner__org">
@@ -491,7 +498,7 @@ const Home = () => {
             <span className="doctors-preview__label">Our Team</span>
             <h2 className="section-title">Meet Our Expert Doctors</h2>
             <p className="section-subtitle">
-              Our team of highly qualified and experienced ophthalmologists is dedicated 
+              Our team of highly qualified and experienced ophthalmologists is dedicated
               to providing the best possible care for your eyes.
             </p>
           </div>
@@ -614,7 +621,7 @@ const Home = () => {
             <div className="cta-section__text">
               <h2>Ready to Take Care of Your Eyes?</h2>
               <p>
-                Schedule an appointment with our expert ophthalmologists today. 
+                Schedule an appointment with our expert ophthalmologists today.
                 Early detection and treatment can save your vision.
               </p>
             </div>

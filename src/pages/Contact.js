@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
+import SEO from '../components/SEO';
 import { Link } from 'react-router-dom';
-import { 
-  MapPin, 
-  Phone, 
-  Mail, 
-  Clock, 
+import {
+  MapPin,
+  Phone,
+  Mail,
+  Clock,
   Send,
   Car,
   Bus,
@@ -119,6 +120,11 @@ const Contact = () => {
 
   return (
     <div className="contact-page">
+      <SEO
+        title="Contact Us | Appointments"
+        description="Get in touch with MOSCMM Kariambady Eye Hospital. Find our location, phone numbers, email, and OP timings."
+        url="/contact"
+      />
       {/* Page Header */}
       <section className="page-header">
         <div className="page-header__overlay"></div>
@@ -234,10 +240,10 @@ const Contact = () => {
             <div className="contact-form-container">
               <h2>Send Us a Message</h2>
               <p>
-                Have a question or need assistance? Fill out the form below and we'll 
+                Have a question or need assistance? Fill out the form below and we'll
                 get back to you as soon as possible.
               </p>
-              
+
               <form className="contact-form" onSubmit={handleSubmit}>
                 <div className="form-row">
                   <div className="form-group">
@@ -339,9 +345,9 @@ const Contact = () => {
                     title="MOSCMM Kariambady Eye Hospital Location"
                   ></iframe>
                 </div>
-                <a 
-                  href="https://www.google.com/maps?q=M4JM%2BW8%20Kariampady%2C%20Kerala" 
-                  target="_blank" 
+                <a
+                  href="https://www.google.com/maps?q=M4JM%2BW8%20Kariampady%2C%20Kerala"
+                  target="_blank"
                   rel="noopener noreferrer"
                   className="btn btn-secondary contact-map__directions"
                 >
@@ -387,8 +393,8 @@ const Contact = () => {
               <div className="direction-card__icon" aria-hidden="true"><Car size={28} /></div>
               <h3>By Road</h3>
               <p>
-                From Mananthavady town center, take the Thirunelly Road. The hospital is 
-                located approximately 5 km from Mananthavady. From Kalpetta, it's about 
+                From Mananthavady town center, take the Thirunelly Road. The hospital is
+                located approximately 5 km from Mananthavady. From Kalpetta, it's about
                 30 km via Mananthavady. Well-connected by state highways.
               </p>
             </div>
@@ -396,8 +402,8 @@ const Contact = () => {
               <div className="direction-card__icon" aria-hidden="true"><Bus size={28} /></div>
               <h3>By Bus</h3>
               <p>
-                Regular KSRTC and private buses are available from Kalpetta, Sultan Bathery, 
-                and other major towns to Mananthavady. From Mananthavady bus stand, 
+                Regular KSRTC and private buses are available from Kalpetta, Sultan Bathery,
+                and other major towns to Mananthavady. From Mananthavady bus stand,
                 local buses and auto-rickshaws are available to Kariambady.
               </p>
             </div>
@@ -405,8 +411,8 @@ const Contact = () => {
               <div className="direction-card__icon" aria-hidden="true"><Plane size={28} /></div>
               <h3>Nearest Airport</h3>
               <p>
-                Calicut International Airport (CCJ) is the nearest airport, approximately 
-                100 km away. From the airport, you can hire a taxi or take a bus to 
+                Calicut International Airport (CCJ) is the nearest airport, approximately
+                100 km away. From the airport, you can hire a taxi or take a bus to
                 Mananthavady. The journey takes about 3 hours.
               </p>
             </div>
@@ -414,8 +420,8 @@ const Contact = () => {
               <div className="direction-card__icon" aria-hidden="true"><Train size={28} /></div>
               <h3>Nearest Railway</h3>
               <p>
-                Kozhikode (Calicut) Railway Station is the nearest major railway station, 
-                about 95 km away. Mysore Junction is another option at about 115 km. 
+                Kozhikode (Calicut) Railway Station is the nearest major railway station,
+                about 95 km away. Mysore Junction is another option at about 115 km.
                 Taxis and buses are available from both stations.
               </p>
             </div>
@@ -429,7 +435,7 @@ const Contact = () => {
           <div className="contact-cta__content">
             <h2>Need Immediate Assistance?</h2>
             <p>
-              Our team is ready to help you with appointments, directions, or any 
+              Our team is ready to help you with appointments, directions, or any
               other queries. Don't hesitate to reach out.
             </p>
             <div className="contact-cta__buttons">

@@ -31,6 +31,7 @@ const Header = () => {
     { to: '/doctors', label: 'Panel Of Doctors' },
     { to: '/facilities', label: 'Facilities' },
     { to: '/gallery', label: 'Gallery' },
+    { to: '/blog', label: 'Blog' },
     { to: '/contact', label: 'Contact Us' }
   ];
 

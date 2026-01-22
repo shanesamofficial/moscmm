@@ -1,8 +1,9 @@
 import React from 'react';
+import SEO from '../components/SEO';
 import { Link } from 'react-router-dom';
-import { 
-  Calendar, 
-  GraduationCap, 
+import {
+  Calendar,
+  GraduationCap,
   Award,
   Phone,
   ArrowRight
@@ -76,6 +77,11 @@ const Doctors = () => {
 
   return (
     <div className="doctors-page">
+      <SEO
+        title="Our Doctors | Medical Team"
+        description="Meet the expert ophthalmologists at MOSCMM Kariambady Eye Hospital. Experienced doctors dedicated to providing the best eye care in Wayanad."
+        url="/doctors"
+      />
       {/* Page Header */}
       <section className="page-header">
         <div className="page-header__overlay"></div>
@@ -99,8 +105,8 @@ const Doctors = () => {
             <span className="doctors-intro__label">Our Medical Team</span>
             <h2 className="section-title">Experienced Specialists Dedicated to Your Eye Health</h2>
             <p className="section-subtitle">
-              Our team of qualified ophthalmologists brings together decades of combined experience 
-              in various eye care specialties. Each doctor is committed to the hospital's mission 
+              Our team of qualified ophthalmologists brings together decades of combined experience
+              in various eye care specialties. Each doctor is committed to the hospital's mission
               of providing compassionate, quality care to all patients.
             </p>
           </div>
@@ -111,8 +117,8 @@ const Doctors = () => {
       <section className="doctors-profiles section bg-light">
         <div className="container">
           {doctors.map((doctor, index) => (
-            <div 
-              key={doctor.id} 
+            <div
+              key={doctor.id}
               className={`doctor-profile ${index % 2 === 1 ? 'doctor-profile--reverse' : ''}`}
             >
               <div className="doctor-profile__image-container">
@@ -129,7 +135,7 @@ const Doctors = () => {
               <div className="doctor-profile__content">
                 <h2 className="doctor-profile__name">{doctor.name}</h2>
                 <p className="doctor-profile__designation">{doctor.designation}</p>
-                
+
                 <div className="doctor-profile__meta">
                   <div className="doctor-profile__meta-item">
                     <GraduationCap size={18} />
@@ -163,7 +169,7 @@ const Doctors = () => {
           <div className="doctors-cta__content">
             <h2>Schedule a Consultation with Our Specialists</h2>
             <p>
-              Our doctors are available for consultations Monday through Saturday. 
+              Our doctors are available for consultations Monday through Saturday.
               Book your appointment today for expert eye care.
             </p>
             <div className="doctors-cta__buttons">

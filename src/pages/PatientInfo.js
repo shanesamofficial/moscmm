@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
+import SEO from '../components/SEO';
 import { Link } from 'react-router-dom';
-import { 
-  Calendar, 
-  Clock, 
-  Phone, 
-  FileText, 
+import {
+  Calendar,
+  Clock,
+  Phone,
+  FileText,
   CreditCard,
   HelpCircle,
   ChevronDown,
@@ -143,6 +144,11 @@ const PatientInfo = () => {
 
   return (
     <div className="patient-info-page">
+      <SEO
+        title="Patient Information | Appointments & Timings"
+        description="Everything you need to know about visiting MOSCMM Kariambady Eye Hospital - Appointments, OP Timings, Insurance, and Admission info."
+        url="/patient-info"
+      />
       {/* Page Header */}
       <section className="page-header">
         <div className="page-header__overlay"></div>
@@ -205,7 +211,7 @@ const PatientInfo = () => {
                   </div>
                 </div>
               )}
-              
+
               <form className="appointment-form" onSubmit={handleSubmit}>
                 <fieldset disabled={isAppointmentFormComingSoon} className="appointment-form__fieldset">
                   <div className="form-row">
@@ -338,8 +344,8 @@ const PatientInfo = () => {
               <div className="appointment-info__card">
                 <h3><MapPin size={20} /> Walk-in Patients</h3>
                 <p>
-                  We welcome walk-in patients during our regular OP hours. 
-                  However, please note that patients with prior appointments 
+                  We welcome walk-in patients during our regular OP hours.
+                  However, please note that patients with prior appointments
                   will be given priority.
                 </p>
               </div>
@@ -503,9 +509,9 @@ const PatientInfo = () => {
               <div className="subsidy-note">
                 <AlertCircle size={20} />
                 <p>
-                  <strong>Subsidized Care Available:</strong> Patients with BPL cards, 
-                  tribal community members, and those facing financial hardship can 
-                  avail subsidized or free treatment. Please speak with our Medical 
+                  <strong>Subsidized Care Available:</strong> Patients with BPL cards,
+                  tribal community members, and those facing financial hardship can
+                  avail subsidized or free treatment. Please speak with our Medical
                   Social Worker for assistance.
                 </p>
               </div>
@@ -525,11 +531,11 @@ const PatientInfo = () => {
           </div>
           <div className="faq-list">
             {faqs.map((faq, index) => (
-              <div 
-                key={index} 
+              <div
+                key={index}
                 className={`faq-item ${activeAccordion === index ? 'faq-item--active' : ''}`}
               >
-                <button 
+                <button
                   className="faq-item__question"
                   onClick={() => toggleAccordion(index)}
                   aria-expanded={activeAccordion === index}

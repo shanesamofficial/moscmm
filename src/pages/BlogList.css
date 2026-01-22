@@ -1,0 +1,121 @@
+.blog-list-page {
+  padding-top: 80px; /* Account for fixed header */
+  background-color: var(--bg-secondary);
+  min-height: 100vh;
+}
+
+.blog-grid {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+@media (min-width: 768px) {
+  .blog-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .blog-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.blog-card {
+  background: white;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  transition: transform var(--transition-base), box-shadow var(--transition-base);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.blog-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-xl);
+}
+
+.blog-card__image-wrapper {
+  position: relative;
+  padding-top: 60%; /* Aspect ratio 16:10 */
+  overflow: hidden;
+}
+
+.blog-card__image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transition-slow);
+}
+
+.blog-card:hover .blog-card__image {
+  transform: scale(1.05);
+}
+
+.blog-card__content {
+  padding: 1.5rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.blog-card__meta {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  margin-bottom: 0.75rem;
+}
+
+.blog-card__category {
+  color: var(--primary-600);
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  letter-spacing: 0.5px;
+}
+
+.blog-card__title {
+  font-size: 1.25rem;
+  line-height: 1.4;
+  margin-bottom: 0.75rem;
+  color: var(--text-primary);
+}
+
+.blog-card__excerpt {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  margin-bottom: 1.5rem;
+  flex: 1;
+}
+
+.blog-card__footer {
+  margin-top: auto;
+  padding-top: 1rem;
+  border-top: 1px solid var(--gray-100);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.blog-card__link {
+  color: var(--primary-600);
+  font-weight: 500;
+  font-size: 0.95rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.blog-card__link:hover {
+  color: var(--primary-700);
+  gap: 0.5rem;
+}

@@ -1,4 +1,5 @@
 import React from 'react';
+import SEO from '../components/SEO';
 import { Link } from 'react-router-dom';
 import {
   Activity,
@@ -35,19 +36,19 @@ import yagLaserImg from '../assets/YAG-Laser.jpg';
 
 const Facilities = () => {
   const roomFacilities = [
-    { 
-      id: 'general-ward-non-ac', 
-      title: 'General Ward (Non-AC)', 
+    {
+      id: 'general-ward-non-ac',
+      title: 'General Ward (Non-AC)',
       description: 'Affordable accommodation option with basic amenities for patients requiring standard care.'
     },
-    { 
-      id: 'single-room-non-ac', 
-      title: 'Single Room (Non-AC)', 
+    {
+      id: 'single-room-non-ac',
+      title: 'Single Room (Non-AC)',
       description: 'Private room offering personal space and comfort without air conditioning.'
     },
-    { 
-      id: 'deluxe-elite-ac', 
-      title: 'Deluxe Room (AC) & Elite Room (AC)', 
+    {
+      id: 'deluxe-elite-ac',
+      title: 'Deluxe Room (AC) & Elite Room (AC)',
       description: 'Premium accommodations with enhanced amenities and air conditioning for a luxurious patient experience.'
     }
   ];
@@ -129,6 +130,11 @@ const Facilities = () => {
 
   return (
     <div className="facilities-page">
+      <SEO
+        title="Hospital Facilities & Equipment"
+        description="Discover our state-of-the-art diagnostic and surgical equipment, patient accommodations, and facilities at MOSCMM Kariambady Eye Hospital."
+        url="/facilities"
+      />
       <section className="page-header">
         <div className="page-header__overlay"></div>
         <div className="container">
