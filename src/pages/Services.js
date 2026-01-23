@@ -183,7 +183,7 @@ const Services = () => {
         description="Comprehensive eye care services including cataract surgery, glaucoma treatment, pediatric ophthalmology, and retina care at MOSCMM Kariambady."
         url="/services"
       />
-      <div className="services-hero">
+      <section className="page-header">
         <div className="page-header__overlay"></div>
         <div className="container">
           <div className="page-header__content">
@@ -196,7 +196,7 @@ const Services = () => {
             </nav>
           </div>
         </div>
-      </div>
+      </section>
 
       <section className="services-overview section">
         <div className="container">

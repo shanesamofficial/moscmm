@@ -250,83 +250,225 @@
   }
 }
 
-/* Mobile Menu */
-.header__mobile-menu {
-  position: absolute;
-  top: 100%;
+/* Mobile Drawer Overlay */
+.header__mobile-overlay {
+  position: fixed;
+  top: 0;
   left: 0;
   right: 0;
-  background: #ffffff;
-  box-shadow: var(--shadow-lg);
-  padding: 1rem;
-  transform: translateY(-8px);
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(4px);
+  z-index: 1250;
   opacity: 0;
   visibility: hidden;
-  pointer-events: none;
-  transition: all var(--transition-base);
-  border-top: 1px solid var(--gray-100);
-  z-index: 1200;
+  transition: all 0.3s ease-in-out;
 }
 
-.header__mobile-menu--open {
-  transform: translateY(0);
+.header__mobile-overlay.open {
   opacity: 1;
   visibility: visible;
-  pointer-events: auto;
 }
 
-@media (min-width: 1024px) {
-  .header__mobile-menu {
-    display: none;
-  }
+/* Mobile Drawer */
+.header__mobile-drawer {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 90%;
+  max-width: 340px;
+  max-height: 85vh;
+  background: #ffffff;
+  z-index: 1300;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+  transform: translate(-50%, -50%) scale(0.9);
+  opacity: 0;
+  visibility: hidden;
+  border-radius: 24px;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.header__mobile-drawer.open {
+  transform: translate(-50%, -50%) scale(1);
+  opacity: 1;
+  visibility: visible;
+}
+
+.header__mobile-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.25rem 1.5rem;
+  border-bottom: 1px solid var(--gray-100);
+}
+
+.header__mobile-brand {
+  display: flex;
+  flex-direction: column;
+}
+
+.header__mobile-brand-title {
+  font-family: var(--font-serif);
+  font-weight: 700;
+  color: var(--primary-800);
+  font-size: 1.15rem;
+  /* Big Title */
+  line-height: 1.2;
+}
+
+.header__mobile-brand-subtitle {
+  font-size: 0.75rem;
+  /* Small Subtitle */
+  color: var(--gray-600);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: 600;
+  margin-bottom: 0.1rem;
+}
+
+.header__close-btn {
+  background: transparent;
+  border: none;
+  color: var(--gray-500);
+  padding: 0.5rem;
+  margin-right: -0.5rem;
+  cursor: pointer;
+  transition: color 0.2s;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.header__close-btn:hover {
+  color: var(--danger-600);
+  background: rgba(220, 38, 38, 0.05);
+}
+
+.header__mobile-content {
+  flex: 1;
+  overflow-y: auto;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
 }
 
 .header__mobile-nav {
   list-style: none;
   padding: 0;
-  margin: 0 0 1rem 0;
+  margin: 0 0 1.5rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
 }
 
 .header__mobile-nav li {
-  border-bottom: 1px solid var(--gray-100);
+  border-bottom: none;
 }
 
 .header__mobile-nav a {
-  display: block;
-  padding: 1rem;
+  display: flex;
+  align-items: center;
+  padding: 0.875rem 1rem;
   color: var(--gray-700);
   font-weight: 500;
-  background: transparent;
-  position: relative;
-  transition: all var(--transition-fast);
+  font-size: 0.95rem;
+  border-radius: 12px;
+  background: #f8fafc;
+  transition: all 0.2s;
+  text-decoration: none;
 }
 
-.header__mobile-nav a:hover,
+.header__mobile-nav a:hover {
+  background: #f1f5f9;
+}
+
 .header__mobile-nav a.active {
-  color: var(--primary-600);
-  background: transparent;
+  color: var(--primary-700);
+  background: rgba(16, 185, 129, 0.1);
+  font-weight: 600;
 }
 
 .header__mobile-nav a::after {
-  content: '';
-  position: absolute;
-  left: 1rem;
-  right: 1rem;
-  bottom: 0.75rem;
-  height: 2px;
-  background: currentColor;
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform var(--transition-fast);
+  display: none;
 }
 
-.header__mobile-nav a:hover::after {
-  transform: scaleX(1);
+/* Nav Item Icon */
+.mobile-nav-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  margin-right: 0.875rem;
+  color: var(--gray-500);
 }
 
-.header__mobile-cta {
-  width: 100%;
+.header__mobile-nav a.active .mobile-nav-icon {
+  color: var(--primary-600);
+}
+
+/* Nav Item Label */
+.mobile-nav-label {
+  flex: 1;
+}
+
+/* Nav Item Chevron */
+.mobile-nav-chevron {
+  color: var(--gray-400);
+  margin-left: auto;
+}
+
+.header__mobile-nav a.active .mobile-nav-chevron {
+  color: var(--primary-500);
+}
+
+.header__mobile-contact {
+  margin-top: auto;
+  padding-top: 1rem;
+  border-top: 1px solid var(--gray-100);
   text-align: center;
+}
+
+.header__mobile-contact-title {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--gray-400);
+  margin-bottom: 0.75rem;
+  font-weight: 600;
+}
+
+.header__mobile-contact-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  align-items: center;
+}
+
+.header__mobile-contact-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  color: var(--gray-600);
+  text-decoration: none;
+  padding: 0.5rem;
+  font-size: 0.85rem;
+  transition: color 0.2s;
+}
+
+.header__mobile-contact-item:hover {
+  color: var(--primary-700);
+}
+
+.mobile-contact-icon {
+  display: flex;
+  align-items: center;
+  color: var(--primary-600);
 }
 
 /* Adjust body padding for fixed header */
@@ -341,10 +483,9 @@ body {
 }
 
 @media (max-width: 767px) {
-  /* Mobile-only: remove the empty gradient strip and keep the top bar as the main navbar row */
   .header__nav {
-    background: transparent;
-    border-bottom: none;
+    display: none;
+    /* Hide the desktop nav strip entirely on mobile */
   }
 
   .header__nav-content {
@@ -356,16 +497,23 @@ body {
   }
 
   .header__brand-img {
-    width: 46px;
-    height: 46px;
+    width: 42px;
+    height: 42px;
   }
 
   .header__brand-subtitle {
+    /* Show subtitle on mobile for consistent branding in top bar, 
+        or keep hidden if space is tight. Let's hide it to match previous behavior 
+        but ensure the newly added drawer has it. */
     display: none;
   }
 
-  /* Mobile-only: header is shorter, reduce fixed offset */
+  /* Reset body padding for mobile since we might want a shorter header */
   body {
-    padding-top: 96px;
+    padding-top: 80px;
+  }
+
+  .header__top {
+    padding: 0.75rem 0;
   }
 }
