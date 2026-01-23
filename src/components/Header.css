@@ -5,7 +5,14 @@
   right: 0;
   z-index: 1000;
   background: transparent;
-  transition: box-shadow var(--transition-base);
+  transition: box-shadow var(--transition-base), top var(--transition-base);
+}
+
+/* Mobile: position header below scroll progress bar (3px) */
+@media (max-width: 767px) {
+  .header {
+    top: 3px;
+  }
 }
 
 .header--scrolled {
@@ -508,12 +515,22 @@ body {
     display: none;
   }
 
-  /* Reset body padding for mobile since we might want a shorter header */
+  /* Remove body padding so header overlaps hero */
   body {
-    padding-top: 80px;
+    padding-top: 0;
   }
 
+  /* Mobile: transparent to white gradient when at top */
   .header__top {
     padding: 0.75rem 0;
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.7) 50%, rgba(255, 255, 255, 0) 100%);
+    border-bottom: none;
+    transition: background 0.3s ease, border-bottom 0.3s ease;
+  }
+
+  /* Mobile: solid white when scrolled */
+  .header--scrolled .header__top {
+    background: #ffffff;
+    border-bottom: 1px solid var(--gray-100);
   }
 }

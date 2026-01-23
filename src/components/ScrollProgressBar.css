@@ -21,3 +21,11 @@
     transition: none;
   }
 }
+
+/* Mobile: ensure progress bar is above the header at very top */
+@media (max-width: 767px) {
+  .scroll-progress {
+    z-index: 9999;
+    background: transparent;
+  }
+}

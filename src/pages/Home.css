@@ -64,11 +64,37 @@
 .hero-carousel__slide {
   position: absolute;
   inset: 0;
-  background-size: cover;
-  background-position: center;
   opacity: 0;
   transform: scale(1.03);
   transition: opacity 700ms ease, transform 1200ms ease;
+}
+
+.hero-carousel__slide-desktop,
+.hero-carousel__slide-mobile {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+}
+
+/* Default: show desktop image */
+.hero-carousel__slide-desktop {
+  display: block;
+}
+
+.hero-carousel__slide-mobile {
+  display: none;
+}
+
+/* Mobile: show mobile image, hide desktop */
+@media (max-width: 767px) {
+  .hero-carousel__slide.has-mobile-image .hero-carousel__slide-desktop {
+    display: none;
+  }
+
+  .hero-carousel__slide.has-mobile-image .hero-carousel__slide-mobile {
+    display: block;
+  }
 }
 
 .hero-carousel__slide.is-active {

@@ -27,6 +27,7 @@ import drVinny from '../assets/Dr.Vinny.webp';
 import drAmrutha from '../assets/Dr.Amrutha.webp';
 import moscImage from '../assets/mosc.webp';
 import heroImage1 from '../assets/hero-1.jpg';
+import heroImage1Mobile from '../assets/hero-1m.jpg';
 
 const Home = () => {
   const doctorsTrackRef = useRef(null);
@@ -72,6 +73,7 @@ const Home = () => {
         highlight: '',
         subtitle: '',
         image: heroImage1,
+        mobileImage: heroImage1Mobile,
         showText: false
       },
       {
@@ -309,10 +311,20 @@ const Home = () => {
         <div className="hero-carousel__slides" aria-hidden="true">
           {heroSlides.map((slide, idx) => (
             <div
-              key={slide.badge}
-              className={`hero-carousel__slide ${idx === activeHeroIndex ? 'is-active' : ''}`}
-              style={{ backgroundImage: `url(${slide.image})` }}
-            />
+              key={slide.badge || idx}
+              className={`hero-carousel__slide ${idx === activeHeroIndex ? 'is-active' : ''} ${slide.mobileImage ? 'has-mobile-image' : ''}`}
+            >
+              <div
+                className="hero-carousel__slide-desktop"
+                style={{ backgroundImage: `url(${slide.image})` }}
+              />
+              {slide.mobileImage && (
+                <div
+                  className="hero-carousel__slide-mobile"
+                  style={{ backgroundImage: `url(${slide.mobileImage})` }}
+                />
+              )}
+            </div>
           ))}
         </div>
 
