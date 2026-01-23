@@ -15,7 +15,12 @@ import {
   Shield,
   Stethoscope
 } from 'lucide-react';
-import pharmacyImage from '../assets/services/pharmacy.svg';
+import pharmacyImg from '../assets/pharmacy.webp';
+import generalImg from '../assets/general.webp';
+import cataractImg from '../assets/cataract.webp';
+import glaucomaImg from '../assets/Glaucoma.webp';
+import retinaImg from '../assets/retina.webp';
+import opticalImg from '../assets/optical.webp';
 import './Services.css';
 
 const Services = () => {
@@ -61,7 +66,8 @@ const Services = () => {
         'Prescription for spectacles',
         'Treatment of eye infections and allergies',
         'Dry eye management'
-      ]
+      ],
+      image: generalImg
     },
     {
       id: 'cataract-surgery',
@@ -76,7 +82,8 @@ const Services = () => {
         'Intraocular lens (IOL) implantation',
         'Pre-operative assessment and counselling',
         'Post-operative care and follow-up'
-      ]
+      ],
+      image: cataractImg
     },
     {
       id: 'glaucoma-services',
@@ -92,7 +99,8 @@ const Services = () => {
         'Medical management',
         'Surgical management (Trabeculectomy)',
         'Yag Laser Iridotomy'
-      ]
+      ],
+      image: glaucomaImg
     },
     {
       id: 'retina-services',
@@ -106,7 +114,8 @@ const Services = () => {
         'Diabetic retinopathy screening and follow-up',
         'Fundus evaluation and counselling',
         'Treatment planning and referrals when needed'
-      ]
+      ],
+      image: retinaImg
     },
     {
       id: 'lacrimal-system',
@@ -162,7 +171,8 @@ const Services = () => {
       shortDesc: 'Spectacle dispensing support at the hospital.',
       fullDesc: `We have an optical dispensary to support patients who need spectacles after
         refraction and evaluation.`,
-      features: ['Spectacle guidance and dispensing support']
+      features: ['Spectacle guidance and dispensing support'],
+      image: opticalImg
     },
     {
       id: 'pharmacy',
@@ -172,7 +182,7 @@ const Services = () => {
       fullDesc: `A pharmacy facility is available to support patients with prescribed medicines
         as part of their treatment and follow-up care.`,
       features: ['On-site pharmacy facility'],
-      image: pharmacyImage
+      image: pharmacyImg
     }
   ];
 

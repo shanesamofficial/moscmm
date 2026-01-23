@@ -20,6 +20,7 @@ import marPachomiosImg from '../assets/H.G.GEEVARGHESE MAR PACHOMIOS.webp';
 import abrahamMathewImg from '../assets/Rev. Abraham Mathew Cor-Episcopa Adayakattu.webp';
 import thomasUzhunnungalImg from '../assets/Thomas M. Uzhunnungal.webp';
 import officerPlaceholderImg from '../assets/officer-placeholder.svg';
+import drRajanImg from '../assets/drrajan.webp';
 
 import healingBlindImg from '../assets/healing-blind.webp';
 
@@ -63,6 +64,12 @@ const About = () => {
       role: 'Treasurer',
       name: 'Thomas M. Uzhunnungal',
       image: thomasUzhunnungalImg
+    },
+    {
+      role: 'Director',
+      name: 'Dr. Rajan Cyriac',
+      note: 'Medical Director & Chief Consultant',
+      image: drRajanImg
     }
   ];
 
@@ -199,8 +206,8 @@ const About = () => {
           <div className="officers-row-header">
             <h3>Administration</h3>
           </div>
-          <div className="officers-row officers-row--2">
-            {officers.filter(o => o.role === 'Secretary' || o.role === 'Treasurer').map((officer) => (
+          <div className="officers-row officers-row--3">
+            {officers.filter(o => o.role === 'Secretary' || o.role === 'Treasurer' || o.role === 'Director').map((officer) => (
               <div key={`${officer.role}-${officer.name}`} className="officer-card">
                 <div className="officer-card__image">
                   <img src={officer.image} alt={officer.name} loading="lazy" />
