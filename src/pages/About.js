@@ -161,8 +161,46 @@ const About = () => {
             <h2 className="section-title">OFFICERS</h2>
           </div>
 
-          <div className="officers-grid">
-            {officers.map((officer) => (
+          {/* Row 1: President & Ex-officio Vice President */}
+          <div className="officers-row officers-row--2">
+            {officers.filter(o => o.role === 'President & Patron' || o.role === 'Ex-officio Vice President').map((officer) => (
+              <div key={`${officer.role}-${officer.name}`} className="officer-card">
+                <div className="officer-card__image">
+                  <img src={officer.image} alt={officer.name} loading="lazy" />
+                </div>
+                <div className="officer-card__content">
+                  <div className="officer-card__role">{officer.role}</div>
+                  <div className="officer-card__name">{officer.name}</div>
+                  {officer.note ? <div className="officer-card__note">{officer.note}</div> : null}
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Row 2: Vice Presidents */}
+          <div className="officers-row-header">
+            <h3>Vice Presidents</h3>
+          </div>
+          <div className="officers-row officers-row--3">
+            {officers.filter(o => o.role === 'Vice President').map((officer) => (
+              <div key={`${officer.role}-${officer.name}`} className="officer-card">
+                <div className="officer-card__image">
+                  <img src={officer.image} alt={officer.name} loading="lazy" />
+                </div>
+                <div className="officer-card__content">
+                  <div className="officer-card__name">{officer.name}</div>
+                  {officer.note ? <div className="officer-card__note">{officer.note}</div> : null}
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Row 3: Secretary & Treasurer */}
+          <div className="officers-row-header">
+            <h3>Administration</h3>
+          </div>
+          <div className="officers-row officers-row--2">
+            {officers.filter(o => o.role === 'Secretary' || o.role === 'Treasurer').map((officer) => (
               <div key={`${officer.role}-${officer.name}`} className="officer-card">
                 <div className="officer-card__image">
                   <img src={officer.image} alt={officer.name} loading="lazy" />

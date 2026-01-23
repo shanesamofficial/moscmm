@@ -132,6 +132,37 @@ const Home = () => {
     return () => window.clearInterval(id);
   }, [heroSlides.length, isHeroPaused]);
 
+  // Touch swipe support for mobile
+  const heroTouchRef = useRef({ startX: 0, startY: 0, isDragging: false });
+
+  const handleHeroTouchStart = useCallback((e) => {
+    heroTouchRef.current = {
+      startX: e.touches[0].clientX,
+      startY: e.touches[0].clientY,
+      isDragging: true
+    };
+  }, []);
+
+  const handleHeroTouchEnd = useCallback((e) => {
+    if (!heroTouchRef.current.isDragging) return;
+
+    const endX = e.changedTouches[0].clientX;
+    const endY = e.changedTouches[0].clientY;
+    const diffX = heroTouchRef.current.startX - endX;
+    const diffY = Math.abs(heroTouchRef.current.startY - endY);
+
+    // Only trigger if horizontal swipe is significant and more than vertical
+    if (Math.abs(diffX) > 50 && Math.abs(diffX) > diffY) {
+      if (diffX > 0) {
+        nextHeroSlide(); // Swipe left = next
+      } else {
+        prevHeroSlide(); // Swipe right = prev
+      }
+    }
+
+    heroTouchRef.current.isDragging = false;
+  }, [nextHeroSlide, prevHeroSlide]);
+
   const activeHero = heroSlides[activeHeroIndex];
 
   const previewDoctors = [
@@ -271,6 +302,8 @@ const Home = () => {
         onMouseLeave={() => setIsHeroPaused(false)}
         onFocusCapture={() => setIsHeroPaused(true)}
         onBlurCapture={() => setIsHeroPaused(false)}
+        onTouchStart={handleHeroTouchStart}
+        onTouchEnd={handleHeroTouchEnd}
         aria-label="Homepage hero carousel"
       >
         <div className="hero-carousel__slides" aria-hidden="true">

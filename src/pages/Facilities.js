@@ -24,15 +24,16 @@ import {
 import './Facilities.css';
 
 import ascanImg from '../assets/ascan.webp';
-import refractoKeratometerImg from '../assets/computerized auto kerato meter.jpg';
-import fieldAnalyserImg from '../assets/Computerized filed analyser.jpg';
-import diodeGreenLaserImg from '../assets/diode green laser.jpg';
-import fundusCameraImg from '../assets/fundus camera.jpg';
+import refractoKeratometerImg from '../assets/computerized auto kerato meter.webp';
+import fieldAnalyserImg from '../assets/Computerized filed analyser.webp';
+import diodeGreenLaserImg from '../assets/diode green laser.webp';
+import fundusCameraImg from '../assets/fundus camera.webp';
 import operatingMicroscopeImg from '../assets/Operating microscope.webp';
-import phacoemulsificationImg from '../assets/phacoemulsification.jpg';
-import slitLampImg from '../assets/slit lamp microscope.jpg';
+import phacoemulsificationImg from '../assets/phacoemulsification.webp';
+import slitLampImg from '../assets/slit lamp microscope.webp';
 import tonometryImg from '../assets/tonometry.jpg';
-import yagLaserImg from '../assets/YAG-Laser.jpg';
+import yagLaserImg from '../assets/YAG-Laser.webp';
+import topconTrk2pImg from '../assets/Topcon TRK-2P.webp';
 
 const Facilities = () => {
   const roomFacilities = [
@@ -48,7 +49,7 @@ const Facilities = () => {
     },
     {
       id: 'deluxe-elite-ac',
-      title: 'Deluxe Room (AC) & Elite Room (AC)',
+      title: 'Deluxe Room (AC)',
       description: 'Premium accommodations with enhanced amenities and air conditioning for a luxurious patient experience.'
     }
   ];
@@ -80,9 +81,13 @@ const Facilities = () => {
     },
     {
       id: 'slit-lamp-microscope',
-      title: 'Slit lamp microscope',
+      title: 'Slit Lamp equipped with Applanation Tonometer',
       image: slitLampImg,
-      features: ['Detailed examination of cornea, lens, and anterior segment', 'Essential for routine eye evaluation']
+      features: [
+        'Detailed examination of cornea, lens, and anterior segment',
+        'Essential for routine eye evaluation',
+        'Measures intraocular pressure (IOP) for glaucoma screening'
+      ]
     },
     {
       id: 'operating-microscope',
@@ -121,10 +126,14 @@ const Facilities = () => {
       features: ['Modern cataract surgery technology', 'Small-incision, efficient lens removal']
     },
     {
-      id: 'applanation-tono-meter',
-      title: 'Applanation Tono Meter',
-      image: tonometryImg,
-      features: ['Measures intraocular pressure (IOP)', 'Core test for glaucoma screening']
+      id: 'topcon-trk-2p',
+      title: 'Topcon TRK-2P (4-in-1 Diagnostic Station)',
+      image: refractoKeratometerImg,
+      features: [
+        'Computerized Auto Refracto + Kerato Meter: Objective refraction and corneal curvature measurement',
+        'Non-Contact Tonometer: Air puff IOP measurement for glaucoma screening',
+        'Pachymeter: Corneal thickness measurement for accurate pressure readings'
+      ]
     }
   ];
 

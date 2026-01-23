@@ -142,29 +142,54 @@
   text-align: center;
 }
 
-@media (min-width: 768px) {
-  .officers-section .section-header {
-    text-align: left;
-  }
-}
-
-/* Officers */
-.officers-grid {
+/* Officers Rows */
+.officers-row {
   display: grid;
   grid-template-columns: 1fr;
   gap: 1.25rem;
+  margin-bottom: 2rem;
+}
+
+.officers-row--2 {
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.officers-row--3 {
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 @media (min-width: 640px) {
-  .officers-grid {
+  .officers-row--2 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .officers-row--3 {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
 @media (min-width: 1024px) {
-  .officers-grid {
+  .officers-row--3 {
     grid-template-columns: repeat(3, 1fr);
   }
+}
+
+.officers-row-header {
+  text-align: center;
+  margin-top: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.officers-row-header h3 {
+  font-size: 1.25rem;
+  color: var(--primary-700);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 700;
 }
 
 .officer-card {
@@ -434,6 +459,7 @@
 }
 
 @media (max-width: 767px) {
+
   .timeline__item--left,
   .timeline__item--right {
     left: 0;
@@ -532,7 +558,7 @@
   margin-bottom: 1.5rem;
 }
 
-.community-section__content > p {
+.community-section__content>p {
   color: var(--text-secondary);
   line-height: 1.8;
 }
