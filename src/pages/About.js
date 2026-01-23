@@ -20,9 +20,12 @@ import marPachomiosImg from '../assets/H.G.GEEVARGHESE MAR PACHOMIOS.webp';
 import abrahamMathewImg from '../assets/Rev. Abraham Mathew Cor-Episcopa Adayakattu.webp';
 import thomasUzhunnungalImg from '../assets/Thomas M. Uzhunnungal.webp';
 import officerPlaceholderImg from '../assets/officer-placeholder.svg';
-import drRajanImg from '../assets/drrajan.webp';
+import drRajanImg from '../assets/drrajang.webp';
+import frGeevargheeseImg from '../assets/Fr. A. D. Geevargheese.webp';
+import peterMasterImg from '../assets/Peter Master.webp';
 
 import healingBlindImg from '../assets/healing-blind.webp';
+import newsImage1 from '../assets/news-1.webp';
 
 import eyeCampImg from '../assets/gallery/eyecamp1.jpg';
 
@@ -48,12 +51,12 @@ const About = () => {
     {
       role: 'Vice President',
       name: 'Rev. Fr. A. D. Geevargheese',
-      image: officerPlaceholderImg
+      image: frGeevargheeseImg
     },
     {
       role: 'Vice President',
       name: 'K. O. Peter Master Kuchupurackal',
-      image: officerPlaceholderImg
+      image: peterMasterImg
     },
     {
       role: 'Secretary',
@@ -148,8 +151,8 @@ const About = () => {
             </div>
             <div className="about-intro__image">
               <img
-                src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=600&h=700&fit=crop"
-                alt="MOSCMM Kariambady Eye Hospital Building"
+                src={newsImage1}
+                alt="MOSCMM Kariambady Eye Hospital"
               />
               <div className="about-intro__badge">
                 <span className="about-intro__badge-number">40+</span>

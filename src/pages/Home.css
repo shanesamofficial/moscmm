@@ -4,6 +4,7 @@
     opacity: 0;
     transform: translateY(30px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -45,6 +46,12 @@
   align-items: center;
   background: linear-gradient(135deg, var(--primary-900) 0%, var(--primary-700) 100%);
   color: white;
+}
+
+@media (min-width: 1024px) {
+  .hero {
+    min-height: 70vh;
+  }
 }
 
 /* Hero Carousel Background */
@@ -120,6 +127,7 @@
   justify-content: center;
   gap: 1rem;
 }
+
 .hero-carousel__dots {
   display: inline-flex;
   align-items: center;

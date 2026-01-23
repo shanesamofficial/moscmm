@@ -26,6 +26,7 @@ import drSravani from '../assets/Dr.Sravani S.webp';
 import drVinny from '../assets/Dr.Vinny.webp';
 import drAmrutha from '../assets/Dr.Amrutha.webp';
 import moscImage from '../assets/mosc.webp';
+import heroImage1 from '../assets/hero-1.jpg';
 
 const Home = () => {
   const doctorsTrackRef = useRef(null);
@@ -66,13 +67,12 @@ const Home = () => {
   const heroSlides = useMemo(
     () => [
       {
-        badge: 'Charitable Eye Care Since 1986',
-        title: 'Compassionate Eye Care',
-        highlight: 'for All',
-        subtitle:
-          'MOSCMM Kariambady Eye Hospital provides quality, affordable care for rural and tribal communities across Wayanad—guided by service, dignity, and compassion.',
-        image:
-          'https://images.unsplash.com/photo-1551884170-09fb70a3a2ed?w=1920&h=1080&fit=crop&auto=format&fm=jpg&q=80'
+        badge: '',
+        title: '',
+        highlight: '',
+        subtitle: '',
+        image: heroImage1,
+        showText: false
       },
       {
         badge: 'Modern Diagnostics & Lasers',
@@ -127,7 +127,7 @@ const Home = () => {
 
     const id = window.setInterval(() => {
       setActiveHeroIndex((current) => (current + 1) % heroSlides.length);
-    }, 6500);
+    }, 4000);
 
     return () => window.clearInterval(id);
   }, [heroSlides.length, isHeroPaused]);
@@ -316,39 +316,41 @@ const Home = () => {
           ))}
         </div>
 
-        <div className="hero__overlay"></div>
+        {activeHero.showText !== false && <div className="hero__overlay"></div>}
 
-        <div className="hero__content">
-          <div className="container">
-            <div className="hero__text">
-              <div className="hero__badge">
-                <Heart size={16} />
-                <span>{activeHero.badge}</span>
-              </div>
-              <h1 className="hero__title">
-                {activeHero.title} <span>{activeHero.highlight}</span>
-              </h1>
-              <p className="hero__subtitle">{activeHero.subtitle}</p>
+        {activeHero.showText !== false && (
+          <div className="hero__content">
+            <div className="container">
+              <div className="hero__text">
+                <div className="hero__badge">
+                  <Heart size={16} />
+                  <span>{activeHero.badge}</span>
+                </div>
+                <h1 className="hero__title">
+                  {activeHero.title} <span>{activeHero.highlight}</span>
+                </h1>
+                <p className="hero__subtitle">{activeHero.subtitle}</p>
 
-              <div className="hero__cta">
-                <Link to="/patient-info" className="btn btn-primary btn-lg">
-                  <Calendar size={20} />
-                  Book Appointment
-                </Link>
-                <Link to="/services" className="btn btn-outline btn-lg">
-                  Treatments
-                  <ArrowRight size={20} />
-                </Link>
-              </div>
+                <div className="hero__cta">
+                  <Link to="/patient-info" className="btn btn-primary btn-lg">
+                    <Calendar size={20} />
+                    Book Appointment
+                  </Link>
+                  <Link to="/services" className="btn btn-outline btn-lg">
+                    Treatments
+                    <ArrowRight size={20} />
+                  </Link>
+                </div>
 
-              <div className="hero__contact">
-                <Phone size={18} />
-                <span>Phone: </span>
-                <a href="tel:04936247274">04936 247 274</a>
+                <div className="hero__contact">
+                  <Phone size={18} />
+                  <span>Phone: </span>
+                  <a href="tel:04936247274">04936 247 274</a>
+                </div>
               </div>
             </div>
           </div>
-        </div>
+        )}
 
         <div className="hero-carousel__controls" aria-label="Hero carousel controls">
           <div className="container hero-carousel__controls-inner">
