@@ -5,14 +5,7 @@
   right: 0;
   z-index: 1000;
   background: transparent;
-  transition: box-shadow var(--transition-base), top var(--transition-base);
-}
-
-/* Mobile: position header below scroll progress bar (3px) */
-@media (max-width: 767px) {
-  .header {
-    top: 3px;
-  }
+  transition: box-shadow var(--transition-base);
 }
 
 .header--scrolled {
@@ -522,15 +515,33 @@ body {
 
   /* Mobile: transparent to white gradient when at top */
   .header__top {
-    padding: 0.75rem 0;
+    padding: 1.25rem 0;
+    /* Increased padding */
     background: linear-gradient(to bottom, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.7) 50%, rgba(255, 255, 255, 0) 100%);
     border-bottom: none;
-    transition: background 0.3s ease, border-bottom 0.3s ease;
+    transition: background 0.3s ease;
+    height: 80px;
+    /* Increased height */
+    display: flex;
+    align-items: center;
+  }
+
+  /* Force fixed positioning on mobile to fix user reported issue */
+  .header {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 80px;
+    /* Increased height */
+    transform: translateZ(0);
+    /* Hardware acceleration hint */
+    -webkit-transform: translateZ(0);
   }
 
   /* Mobile: solid white when scrolled */
   .header--scrolled .header__top {
     background: #ffffff;
-    border-bottom: 1px solid var(--gray-100);
   }
 }
