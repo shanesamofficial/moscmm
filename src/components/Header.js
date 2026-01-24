@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { Link, NavLink } from 'react-router-dom';
+import ReactDOM from 'react-dom';
+import { Link, NavLink, useLocation } from 'react-router-dom';
 import {
   Menu, X, Phone, Mail,
   Home, Info, Stethoscope, Users, Building, Image, FileText, Send, ChevronRight
@@ -10,6 +11,8 @@ import './Header.css';
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const location = useLocation();
+  const isHome = location.pathname === '/';
 
   useEffect(() => {
     const handleScroll = () => {
@@ -18,6 +21,29 @@ const Header = () => {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  // Handle body class for home/inner pages styling
+  useEffect(() => {
+    if (isHome) {
+      document.body.classList.add('is-home-page');
+      document.body.classList.remove('is-inner-page');
+    } else {
+      document.body.classList.add('is-inner-page');
+      document.body.classList.remove('is-home-page');
+    }
+  }, [isHome]);
+
+  // Handle body overflow when menu is open
+  useEffect(() => {
+    if (isMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [isMenuOpen]);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -37,6 +63,78 @@ const Header = () => {
     { to: '/blog', label: 'Blog', icon: FileText },
     { to: '/contact', label: 'Contact Us', icon: Send }
   ];
+
+  const mobileMenuNode = (
+    <>
+      <div
+        className={`header__mobile-overlay ${isMenuOpen ? 'open' : ''}`}
+        onClick={closeMenu}
+        aria-hidden="true"
+      />
+
+      <div
+        id="mobile-navigation"
+        className={`header__mobile-drawer ${isMenuOpen ? 'open' : ''}`}
+        aria-hidden={!isMenuOpen}
+      >
+        <div className="header__mobile-header">
+          <div className="header__mobile-brand">
+            <span className="header__mobile-brand-subtitle">MOSCMM</span>
+            <span className="header__mobile-brand-title">Kariambadi Eye Hospital</span>
+          </div>
+          <button
+            className="header__close-btn"
+            onClick={closeMenu}
+            aria-label="Close menu"
+          >
+            <X size={24} />
+          </button>
+        </div>
+
+        <div className="header__mobile-content">
+          <ul className="header__mobile-nav">
+            {navItems.map((item) => {
+              const Icon = item.icon;
+              return (
+                <li key={item.to}>
+                  <NavLink
+                    to={item.to}
+                    end={item.end}
+                    onClick={closeMenu}
+                    className={({ isActive }) => (isActive ? 'active' : '')}
+                  >
+                    <span className="mobile-nav-icon">
+                      <Icon size={20} />
+                    </span>
+                    <span className="mobile-nav-label">{item.label}</span>
+                    <ChevronRight size={16} className="mobile-nav-chevron" />
+                  </NavLink>
+                </li>
+              );
+            })}
+          </ul>
+
+          <div className="header__mobile-contact">
+            <h4 className="header__mobile-contact-title">Contact Us</h4>
+            <div className="header__mobile-contact-list">
+              <a href="tel:04936247274" className="header__mobile-contact-item">
+                <div className="mobile-contact-icon">
+                  <Phone size={18} />
+                </div>
+                <span>04936 247 274</span>
+              </a>
+              <a href="mailto:moscmmkariambady@gmail.com" className="header__mobile-contact-item">
+                <div className="mobile-contact-icon">
+                  <Mail size={18} />
+                </div>
+                <span>mosceyecare@gmail.com</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </>
+  );
 
   return (
     <header className={`header ${isScrolled ? 'header--scrolled' : ''}`}>
@@ -116,75 +214,8 @@ const Header = () => {
 
       </nav>
 
-      {/* Mobile Menu Overlay */}
-      <div
-        className={`header__mobile-overlay ${isMenuOpen ? 'open' : ''}`}
-        onClick={closeMenu}
-        aria-hidden="true"
-      />
-
-      {/* Side Navigation Drawer */}
-      <div
-        id="mobile-navigation"
-        className={`header__mobile-drawer ${isMenuOpen ? 'open' : ''}`}
-        aria-hidden={!isMenuOpen}
-      >
-        <div className="header__mobile-header">
-          <div className="header__mobile-brand">
-            <span className="header__mobile-brand-subtitle">MOSCMM</span>
-            <span className="header__mobile-brand-title">Kariambadi Eye Hospital</span>
-          </div>
-          <button
-            className="header__close-btn"
-            onClick={closeMenu}
-            aria-label="Close menu"
-          >
-            <X size={24} />
-          </button>
-        </div>
-
-        <div className="header__mobile-content">
-          <ul className="header__mobile-nav">
-            {navItems.map((item) => {
-              const Icon = item.icon;
-              return (
-                <li key={item.to}>
-                  <NavLink
-                    to={item.to}
-                    end={item.end}
-                    onClick={closeMenu}
-                    className={({ isActive }) => (isActive ? 'active' : '')}
-                  >
-                    <span className="mobile-nav-icon">
-                      <Icon size={20} />
-                    </span>
-                    <span className="mobile-nav-label">{item.label}</span>
-                    <ChevronRight size={16} className="mobile-nav-chevron" />
-                  </NavLink>
-                </li>
-              );
-            })}
-          </ul>
-
-          <div className="header__mobile-contact">
-            <h4 className="header__mobile-contact-title">Contact Us</h4>
-            <div className="header__mobile-contact-list">
-              <a href="tel:04936247274" className="header__mobile-contact-item">
-                <div className="mobile-contact-icon">
-                  <Phone size={18} />
-                </div>
-                <span>04936 247 274</span>
-              </a>
-              <a href="mailto:moscmmkariambady@gmail.com" className="header__mobile-contact-item">
-                <div className="mobile-contact-icon">
-                  <Mail size={18} />
-                </div>
-                <span>mosceyecare@gmail.com</span>
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
+      {/* Render Mobile Menu via Portal */}
+      {ReactDOM.createPortal(mobileMenuNode, document.body)}
     </header>
   );
 };

@@ -508,20 +508,34 @@ body {
     display: none;
   }
 
-  /* Remove body padding so header overlaps hero */
-  body {
+  /* Remove body padding so header overlaps hero ONLY on Home Page */
+  body.is-home-page {
     padding-top: 0;
   }
 
-  /* Mobile: transparent to white gradient when at top */
-  .header__top {
+  /* For inner pages, add padding so content starts below header */
+  body.is-inner-page {
+    padding-top: 80px;
+  }
+
+  /* Mobile: transparent to white gradient when at top - ONLY for Home Page */
+  body.is-home-page .header__top {
     padding: 1.25rem 0;
-    /* Increased padding */
     background: linear-gradient(to bottom, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.7) 50%, rgba(255, 255, 255, 0) 100%);
     border-bottom: none;
     transition: background 0.3s ease;
     height: 80px;
-    /* Increased height */
+    display: flex;
+    align-items: center;
+  }
+
+  /* Mobile: White background for Inner Pages */
+  body.is-inner-page .header__top {
+    padding: 1.25rem 0;
+    background: #ffffff;
+    border-bottom: 1px solid var(--gray-100);
+    transition: background 0.3s ease;
+    height: 80px;
     display: flex;
     align-items: center;
   }
@@ -534,14 +548,15 @@ body {
     right: 0;
     width: 100%;
     height: 80px;
-    /* Increased height */
     transform: translateZ(0);
-    /* Hardware acceleration hint */
     -webkit-transform: translateZ(0);
   }
 
-  /* Mobile: solid white when scrolled */
-  .header--scrolled .header__top {
+  /* Mobile: solid white when scrolled - applies to both home (overriding gradient) and inner pages */
+  .header--scrolled .header__top,
+  body.is-home-page .header--scrolled .header__top {
     background: #ffffff;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    /* Optional: add shadow on mobile scroll for better visibility */
   }
 }
