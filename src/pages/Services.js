@@ -21,6 +21,7 @@ import cataractImg from '../assets/cataract.webp';
 import glaucomaImg from '../assets/Glaucoma.webp';
 import retinaImg from '../assets/retina.webp';
 import opticalImg from '../assets/optical.webp';
+import squintImg from '../assets/squint-treatment.webp';
 import './Services.css';
 
 const Services = () => {
@@ -142,7 +143,8 @@ const Services = () => {
         'Squint evaluation',
         'Surgery for squint correction',
         'Follow-up and post-operative care'
-      ]
+      ],
+      image: squintImg
     },
     {
       id: 'diagnostic-services',

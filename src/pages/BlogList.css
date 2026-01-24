@@ -1,5 +1,5 @@
 .blog-list-page {
-  padding-top: 80px; /* Account for fixed header */
+  /* padding-top: 80px;  Removed: handled globally by body.is-inner-page */
   background-color: var(--bg-secondary);
   min-height: 100vh;
 }
@@ -41,7 +41,8 @@
 
 .blog-card__image-wrapper {
   position: relative;
-  padding-top: 60%; /* Aspect ratio 16:10 */
+  padding-top: 60%;
+  /* Aspect ratio 16:10 */
   overflow: hidden;
 }
 
