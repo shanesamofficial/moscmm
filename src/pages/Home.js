@@ -283,8 +283,8 @@ const Home = () => {
   ];
 
   const stats = [
-    { number: '100,000+', label: 'Patients Treated', icon: <UserCheck size={24} /> },
-    { number: '20,000+', label: 'Surgeries Performed', icon: <Activity size={24} /> },
+    { number: '15,00,000+', label: 'Patients Treated', icon: <UserCheck size={24} /> },
+    { number: '50,000+', label: 'Surgeries Performed', icon: <Activity size={24} /> },
     { number: '1,000+', label: 'Eye Camps Conducted', icon: <Building size={24} /> },
     { number: '40+', label: 'Years of Service', icon: <Award size={24} /> }
   ];
