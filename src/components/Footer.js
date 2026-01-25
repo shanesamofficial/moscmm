@@ -1,13 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { 
-  Phone, 
-  Mail, 
-  MapPin, 
-  Clock, 
-  Facebook, 
-  Twitter, 
-  Instagram, 
+import {
+  Phone,
+  Mail,
+  MapPin,
+  Clock,
+  Facebook,
+  Twitter,
+  Instagram,
   Youtube,
   Heart
 } from 'lucide-react';
@@ -34,13 +34,13 @@ const Footer = () => {
                   height="44"
                 />
                 <div>
-                  <span className="footer__logo-title">MOSCMM Kariambady</span>
-                  <span className="footer__logo-subtitle">Eye Hospital</span>
+                  <span className="footer__logo-subtitle">MOSCMM</span>
+                  <span className="footer__logo-title">Kariambady Eye Hospital</span>
                 </div>
               </div>
               <p className="footer__about">
-                A charitable eye care institution under the Malankara Orthodox Syrian Church 
-                Medical Mission, dedicated to providing quality eye care services to the tribal 
+                A charitable eye care institution under the Malankara Orthodox Syrian Church
+                Medical Mission, dedicated to providing quality eye care services to the tribal
                 and rural communities of Wayanad, Kerala.
               </p>
               <div className="footer__social">
