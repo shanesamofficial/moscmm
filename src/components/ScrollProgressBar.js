@@ -3,7 +3,26 @@ import './ScrollProgressBar.css';
 
 export default function ScrollProgressBar() {
   const [topOffset, setTopOffset] = useState(0);
+  const [isVisible, setIsVisible] = useState(true);
   const barRef = useRef(null);
+
+  useEffect(() => {
+    const handleScrollVisibility = () => {
+      const scrollY = window.scrollY || window.pageYOffset || 0;
+      // Hide on mobile if scroll is less than 150px
+      const threshold = window.innerWidth <= 768 ? 150 : 0;
+      setIsVisible(scrollY > threshold);
+    };
+
+    window.addEventListener('scroll', handleScrollVisibility, { passive: true });
+    window.addEventListener('resize', handleScrollVisibility);
+    handleScrollVisibility();
+
+    return () => {
+      window.removeEventListener('scroll', handleScrollVisibility);
+      window.removeEventListener('resize', handleScrollVisibility);
+    };
+  }, []);
 
   useEffect(() => {
     let ticking = false;
@@ -68,7 +87,7 @@ export default function ScrollProgressBar() {
   }, []);
 
   return (
-    <div className="scroll-progress" aria-hidden="true" style={{ top: `${topOffset}px` }}>
+    <div className={`scroll-progress ${!isVisible ? 'scroll-progress--hidden' : ''}`} aria-hidden="true" style={{ top: `${topOffset}px` }}>
       <div ref={barRef} className="scroll-progress__bar" />
     </div>
   );
