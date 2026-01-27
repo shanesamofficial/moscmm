@@ -97,7 +97,7 @@ const Contact = () => {
       address: "St.Mary’s Arcade, Rest House Road (S.P.Office Road), Near Civil Station, Kalpetta – 673122",
       phones: [
         { label: 'Phone', display: '04936 247204', value: '04936247204' },
-        { label: 'Mob', display: '9496222991', value: '9496222991' }
+        { label: 'Mob', display: '+91 94962 22991', value: '919496222991' }
       ],
       timings: [
         'Doctor available: Monday, Wednesday, Friday – 3 to 5pm'
@@ -106,13 +106,13 @@ const Contact = () => {
     {
       name: 'Sulthan Bathery Clinic',
       address: 'St. Mary’s Orthodox Cathredal Building, Cheeral Road, Sulthan Bathery - 673592',
-      phones: [{ label: 'Phone', display: '9496222991', value: '9496222991' }],
-      timings: ['Monday to Saturday : 3pm to 5pm']
+      phones: [{ label: 'Phone', display: '+91 97783 22991', value: '919778322991' }],
+      timings: ['Monday to Saturday : 9am to 6pm']
     },
     {
       name: 'Mananthavady Clinic',
       address: 'Valliyoorkkavu Road, Mananthavady Town - 670645',
-      phones: [{ label: 'Phone', display: '9496222991', value: '9496222991' }],
+      phones: [{ label: 'Phone', display: '+91 94009 40274', value: '919400940274' }],
       timings: ['Monday to Saturday : 9am to 6pm']
     }
   ];

@@ -26,7 +26,7 @@ const Doctors = () => {
       specialization: 'Ophthalmology',
       qualifications: 'M.B.B.S., M.S. (Ophthal), D.O.M.S (Ophthal)',
       regNo: 'TCMC-9422',
-      languages: 'Malayalam, English',
+      languages: 'Malayalam, English, Hindi, Kannada, Tamil',
       bio: `Dr. Rajan Cyriac is the Medical Director & Chief Consultant at MOSCMM Kariambady Eye Hospital (Reg.No. TCMC-9422).`
     },
     {
@@ -48,7 +48,7 @@ const Doctors = () => {
       specialization: 'Ophthalmology',
       qualifications: 'M.B.B.S (Hons), M.S. (Ophthal)',
       regNo: 'TCMC-91189',
-      languages: 'Malayalam, English',
+      languages: 'Malayalam, English, Hindi, Telugu',
       bio: `Dr. S. Sravani is a Consultant Ophthalmologist at MOSCMM Kariambady Eye Hospital (Reg.No. TCMC-91189).`
     },
     {

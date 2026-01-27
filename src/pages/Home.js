@@ -100,8 +100,7 @@ const Home = () => {
           'Celebrating 50 years of visionary care and unwavering commitment to the community. Join us as we mark this historic chapter in our journey of service.',
         image: heroImage3,
         hideOverlay: true,
-        theme: 'blue',
-        subtitleColor: '#1e3a8a'
+        theme: 'blue'
       }
     ],
     []
