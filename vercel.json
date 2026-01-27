@@ -1,0 +1,24 @@
+{
+    "rewrites": [
+        {
+            "source": "/",
+            "has": [
+                {
+                    "type": "host",
+                    "value": "admin.kariambadieyehospital.com"
+                }
+            ],
+            "destination": "/admin"
+        },
+        {
+            "source": "/dashboard",
+            "has": [
+                {
+                    "type": "host",
+                    "value": "admin.kariambadieyehospital.com"
+                }
+            ],
+            "destination": "/admin/dashboard"
+        }
+    ]
+}
