@@ -17,6 +17,8 @@ import BlogPost from './pages/BlogPost';
 import ScrollToTop from './components/ScrollToTop';
 import InitialLoader from './components/InitialLoader';
 import ScrollProgressBar from './components/ScrollProgressBar';
+import Login from './pages/admin/Login';
+import Dashboard from './pages/admin/Dashboard';
 
 function App() {
   const [isInitialLoading, setIsInitialLoading] = useState(true);
@@ -115,6 +117,8 @@ function App() {
           <Route path="/contact" element={<Contact />} />
           <Route path="/blog" element={<BlogList />} />
           <Route path="/blog/:slug" element={<BlogPost />} />
+          <Route path="/admin" element={<Login />} />
+          <Route path="/admin/dashboard" element={<Dashboard />} />
         </Routes>
       </main>
       <Footer />

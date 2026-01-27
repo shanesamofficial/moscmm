@@ -1,20 +1,25 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import SEO from '../components/SEO';
 import { Link } from 'react-router-dom';
+import { supabase } from '../lib/supabaseClient';
 import {
   Camera,
   X,
   ChevronLeft,
   ChevronRight,
   Calendar,
-  ArrowRight
+  ArrowRight,
+  Loader2
 } from 'lucide-react';
 import './Gallery.css';
 
 const Gallery = () => {
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const [currentImage, setCurrentImage] = useState(0);
+  const [dynamicImages, setDynamicImages] = useState([]);
+  const [loading, setLoading] = useState(true);
 
+  // 1. Get Local Images (Existing logic)
   const galleryContext = require.context(
     '../assets/gallery',
     false,
@@ -24,7 +29,7 @@ const Gallery = () => {
   const pinnedFirst = ['inau.jpg', 'first.jpg', '3 001.jpg'];
   const collator = new Intl.Collator(undefined, { numeric: true, sensitivity: 'base' });
 
-  const galleryImages = galleryContext
+  const localImages = galleryContext
     .keys()
     .map((key) => {
       const fileName = key.replace(/^\.\//, '');
@@ -79,7 +84,8 @@ const Gallery = () => {
         fileName,
         src: galleryContext(key),
         title: title || baseName,
-        description
+        description,
+        isLocal: true
       };
     })
     .sort((a, b) => {
@@ -101,26 +107,59 @@ const Gallery = () => {
       const aIsVisit = aLower.startsWith('visit') || aLower.startsWith("bava's visit");
       const bIsVisit = bLower.startsWith('visit') || bLower.startsWith("bava's visit");
 
-      // Place visit photos immediately after diode laser
       if (aIsDiode !== bIsDiode) return aIsDiode ? -1 : 1;
-      if (aIsVisit !== bIsVisit) {
-        // Visit group should come right after diode laser, before other images.
-        return aIsVisit ? -1 : 1;
-      }
+      if (aIsVisit !== bIsVisit) return aIsVisit ? -1 : 1;
 
       return collator.compare(a.fileName, b.fileName);
-    })
-    .map((img, idx) => ({
-      id: idx + 1,
+    });
+
+  // 2. Fetch Dynamic Images from Supabase
+  useEffect(() => {
+    const fetchDynamicImages = async () => {
+      setLoading(true);
+      const { data, error } = await supabase
+        .from('gallery')
+        .select('*')
+        .order('created_at', { ascending: false });
+
+      if (!error && data) {
+        // Transform Cloudinary URLs for WebP optimization
+        const optimized = data.map(img => {
+          // Cloudinary f_auto,q_auto for WebP and quality
+          const optimizedUrl = img.url.replace('/upload/', '/upload/f_auto,q_auto/');
+          return {
+            id: `dyn-${img.id}`,
+            src: optimizedUrl,
+            thumb: optimizedUrl.replace('/upload/', '/upload/w_600,c_scale/'),
+            title: img.title,
+            description: '',
+            category: img.category || 'all',
+            isLocal: false
+          };
+        });
+        setDynamicImages(optimized);
+      }
+      setLoading(false);
+    };
+
+    fetchDynamicImages();
+  }, []);
+
+  // 3. Combine All Images
+  const galleryImages = [
+    ...dynamicImages, // New images first
+    ...localImages.map((img, idx) => ({
+      id: `loc-${idx}`,
       src: img.src,
       thumb: img.src,
       title: img.title,
       description: img.description,
-      category: 'all'
-    }));
+      category: 'all',
+      isLocal: true
+    }))
+  ];
 
   const categories = [{ id: 'all', name: 'All Photos' }];
-
   const filteredImages = galleryImages;
 
   const openLightbox = (index) => {

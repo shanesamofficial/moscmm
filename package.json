@@ -4,13 +4,17 @@
   "description": "Official website for MOSCMM Kariambady Eye Hospital - Compassionate Eye Care for All",
   "private": true,
   "dependencies": {
+    "@supabase/supabase-js": "^2.93.1",
+    "cloudinary": "^2.9.0",
     "lucide-react": "^0.294.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-dropzone": "^14.3.8",
     "react-helmet-async": "^2.0.5",
     "react-router-dom": "^6.20.0",
     "react-scripts": "5.0.1",
-    "react-share": "^5.2.2"
+    "react-share": "^5.2.2",
+    "react-toastify": "^11.0.5"
   },
   "scripts": {
     "start": "node ./node_modules/react-scripts/bin/react-scripts.js start",
