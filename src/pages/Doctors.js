@@ -33,12 +33,12 @@ const Doctors = () => {
       id: 2,
       name: 'Dr. Aparna R.',
       image: drAparna,
-      designation: 'Consultant Ophthalmologist',
+      designation: 'Consultant Ophthalmologist & Phaco Surgeon',
       specialization: 'Ophthalmology',
       qualifications: 'M.B.B.S., M.S. (Ophthal), FAEH',
       regNo: 'TCMC-52762',
       languages: 'Malayalam, English',
-      bio: `Dr. Aparna R. is a Consultant Ophthalmologist at MOSCMM Kariambady Eye Hospital (Reg.No. TCMC-52762).`
+      bio: `Dr. Aparna R. is a Consultant Ophthalmologist & Phaco Surgeon at MOSCMM Kariambady Eye Hospital (Reg.No. TCMC-52762).`
     },
     {
       id: 3,

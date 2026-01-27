@@ -32,7 +32,8 @@ const Services = () => {
     { id: 'squint-correction', title: 'Squint Correction' },
     { id: 'probing', title: 'Probing' },
     { id: 'pterygium', title: 'Pterygium' },
-    { id: 'dct', title: 'DCT (Dacryocystectomy)' }
+    { id: 'dct', title: 'DCT (Dacryocystectomy)' },
+    { id: 'diabetic-retinopathy', title: 'Diabetic Retinopathy' }
   ];
 
   const serviceImageById = {

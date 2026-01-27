@@ -176,7 +176,7 @@ const Home = () => {
     },
     {
       name: 'Dr. Aparna R.',
-      designation: 'Consultant Ophthalmologist',
+      designation: 'Consultant Ophthalmologist & Phaco Surgeon',
       qualifications: 'M.B.B.S., M.S. (Ophthal), FAEH',
       image: drAparna
     },

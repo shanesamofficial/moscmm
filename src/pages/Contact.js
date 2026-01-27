@@ -100,21 +100,20 @@ const Contact = () => {
         { label: 'Mob', display: '9496222991', value: '9496222991' }
       ],
       timings: [
-        'Staff available: Monday to Saturday – 9.30am to 5.30pm',
         'Doctor available: Monday, Wednesday, Friday – 3 to 5pm'
       ]
     },
     {
       name: 'Sulthan Bathery Clinic',
-      address: 'Jayagiri building, Opposite Assumption hospital, Sulthan Bathery - 673592',
+      address: 'St. Mary’s Orthodox Cathredal Building, Cheeral Road, Sulthan Bathery - 673592',
       phones: [{ label: 'Phone', display: '9496222991', value: '9496222991' }],
-      timings: ['Tuesday & Saturday : 3pm to 5pm']
+      timings: ['Monday to Saturday : 3pm to 5pm']
     },
     {
       name: 'Mananthavady Clinic',
-      address: 'Near 3G Mobiles',
+      address: 'Valliyoorkkavu Temple Road, Mananthavady - 670645',
       phones: [{ label: 'Phone', display: '9496222991', value: '9496222991' }],
-      timings: ['Wednesday : 9am to 6pm']
+      timings: ['Monday to Saturday : 9am to 6pm']
     }
   ];
 

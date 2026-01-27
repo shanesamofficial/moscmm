@@ -123,6 +123,12 @@ const Header = () => {
                 </div>
                 <span>04936 247 274</span>
               </a>
+              <a href="tel:+91 94962 22991" className="header__mobile-contact-item">
+                <div className="mobile-contact-icon">
+                  <Phone size={18} />
+                </div>
+                <span>94962 22991</span>
+              </a>
               <a href="mailto:moscmmkariambady@gmail.com" className="header__mobile-contact-item">
                 <div className="mobile-contact-icon">
                   <Mail size={18} />
@@ -164,6 +170,15 @@ const Header = () => {
                 <span className="header__top-text">
                   <span className="header__top-label">Appointment</span>
                   <span className="header__top-value">04936 247 274</span>
+                </span>
+              </a>
+              <a href="tel:9496222991" className="header__top-item">
+                <span className="header__top-icon" aria-hidden="true">
+                  <Phone size={16} />
+                </span>
+                <span className="header__top-text">
+                  <span className="header__top-label">Mobile</span>
+                  <span className="header__top-value">94962 22991</span>
                 </span>
               </a>
               <a href="mailto:moscmmkariambady@gmail.com" className="header__top-item">
