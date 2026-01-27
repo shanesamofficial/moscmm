@@ -16,6 +16,10 @@ const Dashboard = () => {
     const navigate = useNavigate();
 
     useEffect(() => {
+        document.title = "Admin Dashboard | Kariambady Eye Hospital";
+    }, []);
+
+    useEffect(() => {
         supabase.auth.getSession().then(({ data: { session } }) => {
             setSession(session);
             if (!session) navigate('/admin');

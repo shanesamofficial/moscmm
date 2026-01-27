@@ -10,6 +10,10 @@ const Login = () => {
     const [error, setError] = useState(null);
     const navigate = useNavigate();
 
+    React.useEffect(() => {
+        document.title = "Admin Login | Kariambady Eye Hospital";
+    }, []);
+
     const handleLogin = async (e) => {
         e.preventDefault();
         setLoading(true);
