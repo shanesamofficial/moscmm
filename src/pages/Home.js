@@ -28,6 +28,9 @@ import drAmrutha from '../assets/Dr.Amrutha.webp';
 import moscImage from '../assets/mosc.webp';
 import heroImage1 from '../assets/hero-1.jpg';
 import heroImage1Mobile from '../assets/hero-1m.jpg';
+import heroImage2 from '../assets/hero-2.webp';
+import heroImage2Mobile from '../assets/hero-2m.webp';
+import heroImage3 from '../assets/hero-3.webp';
 
 const Home = () => {
   const doctorsTrackRef = useRef(null);
@@ -68,13 +71,15 @@ const Home = () => {
   const heroSlides = useMemo(
     () => [
       {
-        badge: '',
-        title: '',
-        highlight: '',
-        subtitle: '',
+        badge: 'Modern Diagnostics & Lasers',
+        title: 'Accurate Diagnosis',
+        highlight: 'Better Vision',
+        subtitle:
+          'From detailed eye examinations to advanced diagnostics, we focus on clear evaluation and confident treatment plans—so you get the right care at the right time.',
         image: heroImage1,
         mobileImage: heroImage1Mobile,
-        showText: false
+        hideOverlay: true,
+        ghostText: true
       },
       {
         badge: 'Modern Diagnostics & Lasers',
@@ -82,17 +87,21 @@ const Home = () => {
         highlight: 'Better Vision',
         subtitle:
           'From detailed eye examinations to advanced diagnostics, we focus on clear evaluation and confident treatment plans—so you get the right care at the right time.',
-        image:
-          'https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=1920&h=1080&fit=crop&auto=format&fm=jpg&q=80'
+        image: heroImage2,
+        mobileImage: heroImage2Mobile,
+        hideOverlay: true,
+        theme: 'blue'
       },
       {
-        badge: 'Surgery, Care & Follow-up',
-        title: 'Trusted Treatment',
-        highlight: 'Close to Home',
+        badge: 'Milestone Celebration',
+        title: 'Golden Jubilee',
+        highlight: 'Inauguration',
         subtitle:
-          'Our team supports you through consultation, procedures, and follow-up—with patient-first care designed to be accessible, safe, and reliable.',
-        image:
-          'https://images.unsplash.com/photo-1559757175-5700dde675bc?w=1920&h=1080&fit=crop&auto=format&fm=jpg&q=80'
+          'Celebrating 50 years of visionary care and unwavering commitment to the community. Join us as we mark this historic chapter in our journey of service.',
+        image: heroImage3,
+        hideOverlay: true,
+        theme: 'blue',
+        subtitleColor: '#1e3a8a'
       }
     ],
     []
@@ -299,7 +308,7 @@ const Home = () => {
       />
       {/* Hero Section */}
       <section
-        className="hero hero-carousel"
+        className={`hero hero-carousel ${activeHero.theme === 'blue' ? 'hero--blue-theme' : ''}`}
         onMouseEnter={() => setIsHeroPaused(true)}
         onMouseLeave={() => setIsHeroPaused(false)}
         onFocusCapture={() => setIsHeroPaused(true)}
@@ -328,10 +337,17 @@ const Home = () => {
           ))}
         </div>
 
-        {activeHero.showText !== false && <div className="hero__overlay"></div>}
+        {activeHero.showText !== false && !activeHero.hideOverlay && <div className="hero__overlay"></div>}
 
         {activeHero.showText !== false && (
-          <div className="hero__content">
+          <div
+            className="hero__content"
+            style={
+              activeHero.ghostText
+                ? { opacity: 0, pointerEvents: 'none', userSelect: 'none' }
+                : undefined
+            }
+          >
             <div className="container">
               <div className="hero__text">
                 <div className="hero__badge">
@@ -341,7 +357,9 @@ const Home = () => {
                 <h1 className="hero__title">
                   {activeHero.title} <span>{activeHero.highlight}</span>
                 </h1>
-                <p className="hero__subtitle">{activeHero.subtitle}</p>
+                <p className="hero__subtitle" style={activeHero.subtitleColor ? { color: activeHero.subtitleColor } : undefined}>
+                  {activeHero.subtitle}
+                </p>
 
                 <div className="hero__cta">
                   <Link to="/patient-info" className="btn btn-primary btn-lg">

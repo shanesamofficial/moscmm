@@ -965,3 +965,69 @@
     justify-content: flex-end;
   }
 }
+/* Blue theme overrides */
+.hero--blue-theme {
+    color: var(--primary-900);
+}
+
+.hero--blue-theme .hero__title {
+    color: var(--primary-900);
+}
+
+.hero--blue-theme .hero__title span {
+    color: var(--primary-600);
+}
+
+.hero--blue-theme .hero__subtitle {
+    color: var(--text-secondary);
+}
+
+.hero--blue-theme .hero__badge {
+    background: rgba(37, 99, 235, 0.1);
+    color: var(--primary-700);
+    backdrop-filter: none;
+    border: 1px solid rgba(37, 99, 235, 0.2);
+}
+
+.hero--blue-theme .hero__contact {
+    color: var(--text-secondary);
+}
+
+.hero--blue-theme .hero__contact a {
+    color: var(--primary-700);
+}
+
+.hero--blue-theme .btn-outline {
+    border-color: var(--primary-600);
+    color: var(--primary-700);
+}
+
+.hero--blue-theme .btn-outline:hover {
+    background-color: var(--primary-600);
+    color: white;
+}
+
+.hero--blue-theme .hero-carousel__dot {
+    background: rgba(37, 99, 235, 0.3);
+    border-color: rgba(37, 99, 235, 0.4);
+}
+
+.hero--blue-theme .hero-carousel__dot.is-active {
+    background: var(--primary-600);
+}
+
+.hero--blue-theme .hero-carousel__nav {
+    background: rgba(255, 255, 255, 0.8);
+    color: var(--primary-700);
+    border-color: rgba(37, 99, 235, 0.3);
+}
+
+.hero--blue-theme .hero-carousel__nav:hover {
+    background: white;
+    box-shadow: var(--shadow-xl);
+}
+
+.hero--blue-theme .hero-carousel__dots {
+    background: rgba(255, 255, 255, 0.8);
+    border-color: rgba(37, 99, 235, 0.2);
+}

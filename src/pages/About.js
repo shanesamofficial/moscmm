@@ -19,10 +19,10 @@ import marBarnabasImg from '../assets/H.G.DR.GEEVARGHESE MAR BARNABAS  .webp';
 import marPachomiosImg from '../assets/H.G.GEEVARGHESE MAR PACHOMIOS.webp';
 import abrahamMathewImg from '../assets/Rev. Abraham Mathew Cor-Episcopa Adayakattu.webp';
 import thomasUzhunnungalImg from '../assets/Thomas M. Uzhunnungal.webp';
-import officerPlaceholderImg from '../assets/officer-placeholder.svg';
 import drRajanImg from '../assets/drrajang.webp';
 import frGeevargheeseImg from '../assets/Fr. A. D. Geevargheese.webp';
 import peterMasterImg from '../assets/Peter Master.webp';
+import profVargheseImg from '../assets/profvarghese.webp';
 
 import healingBlindImg from '../assets/healing-blind.webp';
 import newsImage1 from '../assets/news-1.webp';
@@ -57,6 +57,11 @@ const About = () => {
       role: 'Vice President',
       name: 'K. O. Peter Master Kuchupurackal',
       image: peterMasterImg
+    },
+    {
+      role: 'Vice President',
+      name: 'Prof. Varghese Mathew',
+      image: profVargheseImg
     },
     {
       role: 'Secretary',
@@ -191,7 +196,7 @@ const About = () => {
           <div className="officers-row-header">
             <h3>Vice Presidents</h3>
           </div>
-          <div className="officers-row officers-row--3">
+          <div className="officers-row officers-row--4">
             {officers.filter(o => o.role === 'Vice President').map((officer) => (
               <div key={`${officer.role}-${officer.name}`} className="officer-card">
                 <div className="officer-card__image">

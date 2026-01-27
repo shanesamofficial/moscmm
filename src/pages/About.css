@@ -162,6 +162,12 @@
   margin-right: auto;
 }
 
+.officers-row--4 {
+  max-width: 1280px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 @media (min-width: 640px) {
   .officers-row--2 {
     grid-template-columns: repeat(2, 1fr);
@@ -170,11 +176,19 @@
   .officers-row--3 {
     grid-template-columns: repeat(2, 1fr);
   }
+
+  .officers-row--4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 @media (min-width: 1024px) {
   .officers-row--3 {
     grid-template-columns: repeat(3, 1fr);
+  }
+
+  .officers-row--4 {
+    grid-template-columns: repeat(4, 1fr);
   }
 }
 
