@@ -94,22 +94,6 @@ function App() {
     };
   }, [isInitialLoading]);
 
-  const isAdminSubdomain = window.location.hostname === 'admin.kariambadieyehospital.com' || window.location.hostname.startsWith('admin.');
-
-  if (isAdminSubdomain) {
-    return (
-      <div className="App admin-portal">
-        <ScrollToTop />
-        <main className="main-content">
-          <Routes>
-            <Route path="/" element={<Login />} />
-            <Route path="/dashboard" element={<Dashboard />} />
-            <Route path="*" element={<Login />} />
-          </Routes>
-        </main>
-      </div>
-    );
-  }
 
   return (
     <div className="App">
