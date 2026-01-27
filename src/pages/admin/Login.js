@@ -12,7 +12,16 @@ const Login = () => {
 
     React.useEffect(() => {
         document.title = "Admin Login | Kariambady Eye Hospital";
-    }, []);
+
+        // Check if session exists (cache system)
+        const checkSession = async () => {
+            const { data: { session } } = await supabase.auth.getSession();
+            if (session) {
+                navigate('/admin/dashboard');
+            }
+        };
+        checkSession();
+    }, [navigate]);
 
     const handleLogin = async (e) => {
         e.preventDefault();
