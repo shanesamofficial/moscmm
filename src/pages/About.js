@@ -101,7 +101,7 @@ const About = () => {
 
   const milestones = [
     { year: '17 Jan 1986', title: 'Peripheral Eye Hospital Began', description: 'The Peripheral Eye Hospital was started at Kariambady on behalf of MOSC Medical College, Kolenchery in association with Malabar Diocese Medical Mission Kariambadi.' },
-    { year: '1 Jan 1990', title: 'MOSC Medical Mission Established', description: 'MOSC Medical Mission was established on 1 January 1990, strengthening the foundation for continued charitable eye care services.' },
+    { year: '1 Jan 1990', title: 'MOSC Medical Mission Established', description: 'MOSC Medical Mission was established on 1st January 1990, strengthening the foundation for continued charitable eye care services.' },
     { year: 'Today', title: 'Modern Facilities', description: 'Developed into a leading eye hospital in Wayanad with almost all modern facilities, serving rural and tribal communities through decades of continuous service.' }
   ];
 

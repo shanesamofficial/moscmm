@@ -111,7 +111,7 @@ const Contact = () => {
     },
     {
       name: 'Mananthavady Clinic',
-      address: 'Valliyoorkkavu Road, Mananthavady - 670645',
+      address: 'Valliyoorkkavu Road, Mananthavady Town - 670645',
       phones: [{ label: 'Phone', display: '9496222991', value: '9496222991' }],
       timings: ['Monday to Saturday : 9am to 6pm']
     }
