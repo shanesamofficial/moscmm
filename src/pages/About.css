@@ -150,6 +150,12 @@
   margin-bottom: 2rem;
 }
 
+.officers-row--1 {
+  max-width: 350px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .officers-row--2 {
   max-width: 700px;
   margin-left: auto;
@@ -577,19 +583,20 @@
   }
 }
 
-.community-section__images {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 1rem;
+.community-section__image-container {
+  width: 100%;
 }
 
 .community-section__image {
-  border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-lg);
+  width: 100%;
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-xl);
+  display: block;
 }
 
-.community-section__image--1 {
-  transform: translateY(1rem);
+.community-section__image--full {
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
 }
 
 .community-section__content h2 {

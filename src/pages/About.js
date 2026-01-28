@@ -30,11 +30,13 @@ import mathaiNooranalImg from '../assets/Rev. Fr. Mathai Nooranal.webp';
 import josephKattakayamImg from '../assets/Rev. Fr. Joseph Kattakayam.webp';
 import pailyNjarakkattilImg from '../assets/N. P. Paily Njarakkattil.webp';
 import babuVargheseImg from '../assets/Dr. Babu Varghese Maamala.webp';
+import mathewEdayakattuImg from '../assets/Mathew Edayakattu.webp';
 
 import healingBlindImg from '../assets/healing-blind.webp';
 import newsImage1 from '../assets/news-1.webp';
 
 import eyeCampImg from '../assets/gallery/eyecamp1.jpg';
+import jesusImg from '../assets/jesus-h.webp';
 
 const About = () => {
   const officers = [
@@ -96,7 +98,7 @@ const About = () => {
     },
     {
       role: 'Former Vice President',
-      name: 'Rev. Fr. Mathai Nooranad',
+      name: 'Rev. Fr. Mathai Nooranal',
       image: mathaiNooranalImg
     },
     {
@@ -123,6 +125,14 @@ const About = () => {
       role: 'Former Vice President',
       name: 'Dr. Babu Varghese Maamala',
       image: babuVargheseImg
+    }
+  ];
+
+  const operationsOfficers = [
+    {
+      role: 'Project Manager',
+      name: 'Mathew Edayakattu',
+      image: mathewEdayakattuImg
     }
   ];
 
@@ -262,6 +272,25 @@ const About = () => {
           </div>
           <div className="officers-row officers-row--3">
             {officers.filter(o => o.role === 'Secretary' || o.role === 'Treasurer' || o.role === 'Director').map((officer) => (
+              <div key={`${officer.role}-${officer.name}`} className="officer-card">
+                <div className="officer-card__image">
+                  <img src={officer.image} alt={officer.name} loading="lazy" />
+                </div>
+                <div className="officer-card__content">
+                  <div className="officer-card__role">{officer.role}</div>
+                  <div className="officer-card__name">{officer.name}</div>
+                  {officer.note ? <div className="officer-card__note">{officer.note}</div> : null}
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Row 4: Operations */}
+          <div className="officers-row-header">
+            <h3>Operations</h3>
+          </div>
+          <div className="officers-row officers-row--1">
+            {operationsOfficers.map((officer) => (
               <div key={`${officer.role}-${officer.name}`} className="officer-card">
                 <div className="officer-card__image">
                   <img src={officer.image} alt={officer.name} loading="lazy" />
@@ -448,16 +477,11 @@ const About = () => {
       <section className="community-section section bg-light">
         <div className="container">
           <div className="community-section__grid">
-            <div className="community-section__images">
+            <div className="community-section__image-container">
               <img
-                src={eyeCampImg}
-                alt="Community eye camp"
-                className="community-section__image community-section__image--1"
-              />
-              <img
-                src="https://images.unsplash.com/photo-1582719471137-c3967ffb1c42?w=400&h=300&fit=crop"
-                alt="Tribal community healthcare"
-                className="community-section__image community-section__image--2"
+                src={jesusImg}
+                alt="Healing ministry"
+                className="community-section__image community-section__image--full"
               />
             </div>
             <div className="community-section__content">
