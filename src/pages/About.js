@@ -23,6 +23,13 @@ import drRajanImg from '../assets/drrajang.webp';
 import frGeevargheeseImg from '../assets/Fr. A. D. Geevargheese.webp';
 import peterMasterImg from '../assets/Peter Master.webp';
 import profVargheseImg from '../assets/profvarghese.webp';
+import drMohanImg from '../assets/Dr. P. A. Mohan.webp';
+import paulosePoomattathilImg from '../assets/Rev. Paulose Poomattathil Corepiscopa.webp';
+import philipRambanImg from '../assets/Rev. K. A. Philip Ramban.webp';
+import mathaiNooranalImg from '../assets/Rev. Fr. Mathai Nooranal.webp';
+import josephKattakayamImg from '../assets/Rev. Fr. Joseph Kattakayam.webp';
+import pailyNjarakkattilImg from '../assets/N. P. Paily Njarakkattil.webp';
+import babuVargheseImg from '../assets/Dr. Babu Varghese Maamala.webp';
 
 import healingBlindImg from '../assets/healing-blind.webp';
 import newsImage1 from '../assets/news-1.webp';
@@ -78,6 +85,44 @@ const About = () => {
       name: 'Dr. Rajan Cyriac',
       note: 'Medical Director & Chief Consultant',
       image: drRajanImg
+    }
+  ];
+
+  const formerOfficers = [
+    {
+      role: 'Former Director',
+      name: 'Dr. P. A. Mohan',
+      image: drMohanImg
+    },
+    {
+      role: 'Former Vice President',
+      name: 'Rev. Fr. Mathai Nooranad',
+      image: mathaiNooranalImg
+    },
+    {
+      role: 'Former Vice President',
+      name: 'Very Rev. Paulose Poomattathil Corepiscopa',
+      image: paulosePoomattathilImg
+    },
+    {
+      role: 'Former Vice President',
+      name: 'Very Rev. K. A. Philip Ramban',
+      image: philipRambanImg
+    },
+    {
+      role: 'Former Vice President',
+      name: 'Shri. N. P. Paily Gnarakkattil',
+      image: pailyNjarakkattilImg
+    },
+    {
+      role: 'Former Vice President',
+      name: 'Rev. Fr. Joseph Kuttakkayam',
+      image: josephKattakayamImg
+    },
+    {
+      role: 'Former Vice President',
+      name: 'Dr. Babu Varghese Maamala',
+      image: babuVargheseImg
     }
   ];
 
@@ -217,6 +262,25 @@ const About = () => {
           </div>
           <div className="officers-row officers-row--3">
             {officers.filter(o => o.role === 'Secretary' || o.role === 'Treasurer' || o.role === 'Director').map((officer) => (
+              <div key={`${officer.role}-${officer.name}`} className="officer-card">
+                <div className="officer-card__image">
+                  <img src={officer.image} alt={officer.name} loading="lazy" />
+                </div>
+                <div className="officer-card__content">
+                  <div className="officer-card__role">{officer.role}</div>
+                  <div className="officer-card__name">{officer.name}</div>
+                  {officer.note ? <div className="officer-card__note">{officer.note}</div> : null}
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Former Leadership Section */}
+          <div className="officers-row-header">
+            <h3>Former Leadership</h3>
+          </div>
+          <div className="officers-row officers-row--7">
+            {formerOfficers.map((officer) => (
               <div key={`${officer.role}-${officer.name}`} className="officer-card">
                 <div className="officer-card__image">
                   <img src={officer.image} alt={officer.name} loading="lazy" />

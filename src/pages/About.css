@@ -168,6 +168,12 @@
   margin-right: auto;
 }
 
+.officers-row--7 {
+  max-width: 1400px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 @media (min-width: 640px) {
   .officers-row--2 {
     grid-template-columns: repeat(2, 1fr);
@@ -189,6 +195,24 @@
 
   .officers-row--4 {
     grid-template-columns: repeat(4, 1fr);
+  }
+
+  .officers-row--7 {
+    grid-template-columns: repeat(7, 1fr);
+    gap: 1rem;
+  }
+
+  /* Reduce font sizes for the compact 7-column layout */
+  .officers-row--7 .officer-card__name {
+    font-size: 0.875rem;
+  }
+
+  .officers-row--7 .officer-card__role {
+    font-size: 0.625rem;
+  }
+
+  .officers-row--7 .officer-card__content {
+    padding: 0.75rem;
   }
 }
 
