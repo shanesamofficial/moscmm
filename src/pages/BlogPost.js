@@ -36,7 +36,7 @@ const BlogPost = () => {
                 title={post.title}
                 description={post.excerpt}
                 keywords="eye care, health blog, ophthalmology"
-                url={`/ blog / ${post.slug} `}
+                url={`/blog/${post.slug}`}
                 image={post.image}
             />
             <ArticleSchema
