@@ -26,6 +26,7 @@ import drAparna from '../assets/Aparna R.jpg';
 import drSravani from '../assets/Dr.Sravani S.webp';
 import drVinny from '../assets/Dr.Vinny.webp';
 import drAmrutha from '../assets/Dr.Amrutha.webp';
+import drKapil from '../assets/Dr. Kapil.webp';
 import moscImage from '../assets/mosc.webp';
 import heroImage1 from '../assets/hero-1.jpg';
 import heroImage1Mobile from '../assets/hero-1m.jpg';
@@ -206,6 +207,12 @@ const Home = () => {
       designation: 'Consultant Ophthalmologist',
       qualifications: 'M.B.B.S., M.S. (Ophthal)',
       image: drAmrutha
+    },
+    {
+      name: 'Dr. Kapil K Barange',
+      designation: 'Consultant Senior Vitreo Retinal Surgeon (Visiting)',
+      qualifications: 'M.B.B.S., M.S. (Ophthal), F.V.R.S',
+      image: drKapil
     }
   ];
 
