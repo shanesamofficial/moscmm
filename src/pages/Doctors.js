@@ -15,6 +15,7 @@ import drAparna from '../assets/Aparna R.jpg';
 import drSravani from '../assets/Dr.Sravani S.webp';
 import drVinny from '../assets/Dr.Vinny.webp';
 import drAmrutha from '../assets/Dr.Amrutha.webp';
+import drKapil from '../assets/Dr. Kapil.webp';
 
 const Doctors = () => {
   const doctors = [
@@ -72,6 +73,17 @@ const Doctors = () => {
       regNo: 'TCMC-71189',
       languages: 'Malayalam, English',
       bio: `Dr. Amrutha P. M. is a Consultant Ophthalmologist at MOSCMM Kariambady Eye Hospital (Reg.No. TCMC-71189).`
+    },
+    {
+      id: 6,
+      name: 'Dr. Kapil K Barange',
+      image: drKapil,
+      designation: 'Consultant Senior Vitreo Retinal Surgeon (Visiting)',
+      specialization: 'Vitreo Retinal Surgery',
+      qualifications: 'M.B.B.S., M.S. (Ophthal), F.V.R.S',
+      regNo: '2006/02/973',
+      languages: 'English, Hindi, Marathi',
+      bio: `Dr. Kapil K Barange is a Visiting Consultant Senior Vitreo Retinal Surgeon. He was formerly a Vitreo Retinal Surgeon at Aravind Eye Hospital.`
     }
   ];
 
