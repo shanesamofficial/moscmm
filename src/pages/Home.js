@@ -1,5 +1,6 @@
 import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 import {
   Eye,
   Heart,
@@ -300,11 +301,31 @@ const Home = () => {
   return (
     <div className="home">
       <SEO
-        title="Best Eye Hospital in Wayanad"
-        description="MOSCMM Kariambady Eye Hospital offers affordable, high-quality eye care in Wayanad. Specialized in cataract surgery, glaucoma, and retina treatments."
+        title="Kariambadi Eye Hospital Wayanad | Best Eye Care & Cataract Surgery"
+        description="MOSC Medical Mission Kariambadi Eye Hospital is a leading charitable eye hospital in Wayanad offering cataract surgery, eye checkups, vision care, and advanced ophthalmology services."
         keywords="eye hospital wayanad, cataract surgery, ophthalmologist, eye doctor, charitable hospital"
         url="/"
+        fullTitleOverride={true}
       />
+      <Helmet>
+        <script type="application/ld+json">
+          {`
+          {
+            "@context": "https://schema.org",
+            "@type": "Hospital",
+            "name": "MOSC Medical Mission Kariambadi Eye Hospital",
+            "url": "https://kariambadieyehospital.com",
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "Kariambadi",
+              "addressRegion": "Kerala",
+              "postalCode": "673591",
+              "addressCountry": "IN"
+            }
+          }
+          `}
+        </script>
+      </Helmet>
       {/* Hero Section */}
       <section
         className={`hero hero-carousel ${activeHero.theme === 'blue' ? 'hero--blue-theme' : ''}`}

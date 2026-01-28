@@ -1,12 +1,12 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
 
-const SEO = ({ title, description, keywords, url, image }) => {
+const SEO = ({ title, description, keywords, url, image, fullTitleOverride }) => {
     const siteTitle = 'MOSCMM Kariambady Eye Hospital';
-    const fullTitle = title ? `${title} | ${siteTitle}` : siteTitle;
-    const siteUrl = 'https://moscmmkariambady.com'; // Replace with actual domain
+    const fullTitle = fullTitleOverride ? title : (title ? `${title} | ${siteTitle}` : siteTitle);
+    const siteUrl = 'https://kariambadieyehospital.com';
     const fullUrl = url ? `${siteUrl}${url}` : siteUrl;
-    const defaultImage = `${siteUrl}/og-image.jpg`; // Ensure you have a default OG image
+    const defaultImage = `${siteUrl}/og-image.jpg`;
 
     return (
         <Helmet>

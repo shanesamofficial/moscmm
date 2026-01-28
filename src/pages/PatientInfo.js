@@ -145,9 +145,10 @@ const PatientInfo = () => {
   return (
     <div className="patient-info-page">
       <SEO
-        title="Patient Information | Appointments & Timings"
-        description="Everything you need to know about visiting MOSCMM Kariambady Eye Hospital - Appointments, OP Timings, Insurance, and Admission info."
+        title="Patient Information | Kariambadi Eye Hospital Wayanad"
+        description="Find important patient information, appointment guidelines, and eye care instructions at MOSC Medical Mission Kariambadi Eye Hospital, Wayanad."
         url="/patient-info"
+        fullTitleOverride={true}
       />
       {/* Page Header */}
       <section className="page-header">

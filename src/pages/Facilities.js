@@ -140,9 +140,10 @@ const Facilities = () => {
   return (
     <div className="facilities-page">
       <SEO
-        title="Hospital Facilities & Equipment"
-        description="Discover our state-of-the-art diagnostic and surgical equipment, patient accommodations, and facilities at MOSCMM Kariambady Eye Hospital."
+        title="Hospital Facilities | Kariambadi Eye Hospital Wayanad"
+        description="Explore modern ophthalmology facilities at MOSC Medical Mission Kariambadi Eye Hospital, Wayanad, equipped for advanced eye diagnosis and treatment."
         url="/facilities"
+        fullTitleOverride={true}
       />
       <section className="page-header">
         <div className="page-header__overlay"></div>

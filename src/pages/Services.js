@@ -192,9 +192,10 @@ const Services = () => {
   return (
     <div className="services-page">
       <SEO
-        title="Our Treatments & Services"
-        description="Comprehensive eye care services including cataract surgery, glaucoma treatment, pediatric ophthalmology, and retina care at MOSCMM Kariambady."
+        title="Eye Care Services in Wayanad | Kariambadi Eye Hospital"
+        description="Kariambadi Eye Hospital in Wayanad offers comprehensive eye care services including cataract surgery, glaucoma treatment, retina care, vision correction, and eye checkups."
         url="/services"
+        fullTitleOverride={true}
       />
       <section className="page-header">
         <div className="page-header__overlay"></div>

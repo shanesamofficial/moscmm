@@ -146,9 +146,10 @@ const Testimonials = () => {
   return (
     <div className="testimonials-page">
       <SEO
-        title="Patient Testimonials | Success Stories"
-        description="Read inspiring stories from patients who have received sight-saving treatments at MOSCMM Kariambady Eye Hospital."
+        title="Patient Testimonials | Kariambadi Eye Hospital Wayanad"
+        description="Read patient testimonials and reviews about eye treatment and care at MOSC Medical Mission Kariambadi Eye Hospital, Wayanad."
         url="/testimonials"
+        fullTitleOverride={true}
       />
       {/* Page Header */}
       <section className="page-header">

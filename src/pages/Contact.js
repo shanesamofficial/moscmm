@@ -120,9 +120,10 @@ const Contact = () => {
   return (
     <div className="contact-page">
       <SEO
-        title="Contact Us | Appointments"
-        description="Get in touch with MOSCMM Kariambady Eye Hospital. Find our location, phone numbers, email, and OP timings."
+        title="Contact Kariambadi Eye Hospital | Eye Hospital in Wayanad"
+        description="Contact MOSC Medical Mission Kariambadi Eye Hospital in Wayanad for appointments, eye checkups, and treatment. Get directions, phone number, and hospital details."
         url="/contact"
+        fullTitleOverride={true}
       />
       {/* Page Header */}
       <section className="page-header">

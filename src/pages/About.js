@@ -113,9 +113,10 @@ const About = () => {
   return (
     <div className="about-page">
       <SEO
-        title="About Us"
-        description="Learn about MOSCMM Kariambady Eye Hospital's history, mission, and our commitment to charitable eye care for tribal and rural communities in Wayanad."
+        title="About Us | MOSC Medical Mission Kariambadi Eye Hospital Wayanad"
+        description="Established in 1986, MOSC Medical Mission Kariambadi Eye Hospital is a charitable eye hospital in Wayanad run by the Malankara Orthodox Syrian Church, dedicated to affordable eye care."
         url="/about"
+        fullTitleOverride={true}
       />
       {/* Page Header */}
       <section className="page-header">

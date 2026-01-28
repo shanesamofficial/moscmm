@@ -78,9 +78,10 @@ const Doctors = () => {
   return (
     <div className="doctors-page">
       <SEO
-        title="Our Doctors | Medical Team"
-        description="Meet the expert ophthalmologists at MOSCMM Kariambady Eye Hospital. Experienced doctors dedicated to providing the best eye care in Wayanad."
+        title="Eye Doctors in Wayanad | Ophthalmologists at Kariambadi Eye Hospital"
+        description="Meet experienced ophthalmologists and eye specialists at MOSC Medical Mission Kariambadi Eye Hospital, Wayanad, providing expert eye care and treatment."
         url="/doctors"
+        fullTitleOverride={true}
       />
       {/* Page Header */}
       <section className="page-header">

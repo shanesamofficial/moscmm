@@ -184,9 +184,10 @@ const Gallery = () => {
   return (
     <div className="gallery-page">
       <SEO
-        title="Photo Gallery | Hospital & Camps"
-        description="Explore photos of MOSCMM Kariambady Eye Hospital's facilities, surgeries, eye camps, and community outreach events."
+        title="Hospital Gallery | Kariambadi Eye Hospital Wayanad"
+        description="View photos of MOSC Medical Mission Kariambadi Eye Hospital, its facilities, doctors, and eye care services in Wayanad."
         url="/gallery"
+        fullTitleOverride={true}
       />
       {/* Page Header */}
       <section className="page-header">
