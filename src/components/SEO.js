@@ -4,7 +4,7 @@ import { Helmet } from 'react-helmet-async';
 const SEO = ({ title, description, keywords, url, image, fullTitleOverride }) => {
     const siteTitle = 'MOSCMM Kariambadi Eye Hospital';
     const fullTitle = fullTitleOverride ? title : (title ? `${title} | ${siteTitle}` : siteTitle);
-    const siteUrl = 'https://kariambadieyehospital.com';
+    const siteUrl = 'https://www.kariambadieyehospital.com';
     const fullUrl = url ? `${siteUrl}${url}` : siteUrl;
     const defaultImage = `${siteUrl}/og-image.jpg`;
 

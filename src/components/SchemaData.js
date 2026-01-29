@@ -12,8 +12,8 @@ export const OrganizationSchema = {
     "@type": "Hospital",
     "name": "MOSCMM Kariambadi Eye Hospital",
     "alternateName": "Kariambadi Eye Hospital",
-    "url": "https://kariambadieyehospital.com",
-    "logo": "https://kariambadieyehospital.com/logo.png"
+    "url": "https://www.kariambadieyehospital.com",
+    "logo": "https://www.kariambadieyehospital.com/logo.png"
 };
 
 export const WebsiteSchema = {
@@ -21,7 +21,7 @@ export const WebsiteSchema = {
     "@type": "WebSite",
     "name": "MOSCMM Kariambadi Eye Hospital",
     "alternateName": "Kariambadi Eye Hospital",
-    "url": "https://kariambadieyehospital.com"
+    "url": "https://www.kariambadieyehospital.com"
 };
 
 export const ArticleSchema = ({ title, description, author, date, image, url }) => {
@@ -43,7 +43,7 @@ export const ArticleSchema = ({ title, description, author, date, image, url }) 
             "name": "MOSCMM Kariambady Eye Hospital",
             "logo": {
                 "@type": "ImageObject",
-                "url": "https://kariambadieyehospital.com/logo.png"
+                "url": "https://www.kariambadieyehospital.com/logo.png"
             }
         },
         "datePublished": date, // Ensure format is ISO 8601 if possible, or simple string

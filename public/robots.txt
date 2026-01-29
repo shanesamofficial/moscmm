@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://kariambadieyehospital.com/sitemap.xml
+Sitemap: https://www.kariambadieyehospital.com/sitemap.xml

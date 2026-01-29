@@ -45,7 +45,7 @@ const BlogPost = () => {
                 author={post.author}
                 date={post.date}
                 image={post.image}
-                url={`https://kariambadieyehospital.com/blog/${post.slug}`}
+                url={`https://www.kariambadieyehospital.com/blog/${post.slug}`}
             />
 
             < article className="section" >
@@ -84,7 +84,7 @@ const BlogPost = () => {
                         ></div>
 
                         <ShareButtons
-                            url={`https://kariambadieyehospital.com/blog/${post.slug}`}
+                            url={`https://www.kariambadieyehospital.com/blog/${post.slug}`}
                             title={post.title}
                             description={post.excerpt}
                         />

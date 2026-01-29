@@ -1,4 +1,17 @@
 {
+    "redirects": [
+        {
+            "source": "/:path*",
+            "has": [
+                {
+                    "type": "host",
+                    "value": "kariambadieyehospital.com"
+                }
+            ],
+            "destination": "https://www.kariambadieyehospital.com/:path*",
+            "statusCode": 301
+        }
+    ],
     "rewrites": [
         {
             "source": "/(.*)",
