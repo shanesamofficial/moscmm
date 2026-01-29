@@ -20,6 +20,7 @@ import {
 } from 'lucide-react';
 import './Home.css';
 import SEO from '../components/SEO';
+import { WebsiteSchema, OrganizationSchema } from '../components/SchemaData';
 
 import drRajan from '../assets/drrajan.webp';
 import drAparna from '../assets/Aparna R.jpg';
@@ -308,7 +309,7 @@ const Home = () => {
   return (
     <div className="home">
       <SEO
-        title="Kariambadi Eye Hospital Wayanad | Best Eye Care & Cataract Surgery"
+        title="MOSCMM Kariambadi Eye Hospital | Wayanad"
         description="MOSC Medical Mission Kariambadi Eye Hospital is a leading charitable eye hospital in Wayanad offering cataract surgery, eye checkups, vision care, and advanced ophthalmology services."
         keywords="eye hospital wayanad, cataract surgery, ophthalmologist, eye doctor, charitable hospital"
         url="/"
@@ -316,21 +317,10 @@ const Home = () => {
       />
       <Helmet>
         <script type="application/ld+json">
-          {`
-          {
-            "@context": "https://schema.org",
-            "@type": "Hospital",
-            "name": "MOSC Medical Mission Kariambadi Eye Hospital",
-            "url": "https://kariambadieyehospital.com",
-            "address": {
-              "@type": "PostalAddress",
-              "addressLocality": "Kariambadi",
-              "addressRegion": "Kerala",
-              "postalCode": "673591",
-              "addressCountry": "IN"
-            }
-          }
-          `}
+          {JSON.stringify(WebsiteSchema)}
+        </script>
+        <script type="application/ld+json">
+          {JSON.stringify(OrganizationSchema)}
         </script>
       </Helmet>
       {/* Hero Section */}
@@ -347,7 +337,7 @@ const Home = () => {
         <div className="hero-carousel__slides" aria-hidden="true">
           {heroSlides.map((slide, idx) => (
             <div
-              key={slide.badge || idx}
+              key={idx}
               className={`hero-carousel__slide ${idx === activeHeroIndex ? 'is-active' : ''} ${slide.mobileImage ? 'has-mobile-image' : ''}`}
             >
               <div
@@ -414,7 +404,7 @@ const Home = () => {
             <div className="hero-carousel__dots" role="tablist" aria-label="Choose hero slide">
               {heroSlides.map((slide, idx) => (
                 <button
-                  key={slide.badge}
+                  key={idx}
                   type="button"
                   className={`hero-carousel__dot ${idx === activeHeroIndex ? 'is-active' : ''}`}
                   onClick={() => goToHeroSlide(idx)}

@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
-import { OrganizationSchema } from './components/SchemaData';
+
 import Header from './components/Header';
 import Footer from './components/Footer';
 import Home from './pages/Home';
@@ -104,7 +104,7 @@ function App() {
       </a>
       <ScrollToTop />
       <Header />
-      <OrganizationSchema />
+
       <main className="main-content">
         <Routes>
           <Route path="/" element={<Home />} />

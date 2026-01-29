@@ -1,45 +1,27 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
 
-const SchemaData = ({ type, data }) => {
-    const jsonLd = JSON.stringify(data);
+const SchemaData = ({ data }) => (
+    <Helmet>
+        <script type="application/ld+json">{JSON.stringify(data)}</script>
+    </Helmet>
+);
 
-    return (
-        <Helmet>
-            <script type="application/ld+json">{jsonLd}</script>
-        </Helmet>
-    );
+export const OrganizationSchema = {
+    "@context": "https://schema.org",
+    "@type": "Hospital",
+    "name": "MOSCMM Kariambadi Eye Hospital",
+    "alternateName": "Kariambadi Eye Hospital",
+    "url": "https://kariambadieyehospital.com",
+    "logo": "https://kariambadieyehospital.com/logo.png"
 };
 
-export const OrganizationSchema = () => {
-    const data = {
-        "@context": "https://schema.org",
-        "@type": "MedicalOrganization",
-        "name": "MOSCMM Kariambady Eye Hospital",
-        "url": "https://kariambadieyehospital.com",
-        "logo": "https://kariambadieyehospital.com/logo.png",
-        "description": "Charitable eye hospital in Wayanad providing affordable and high-quality eye care.",
-        "telephone": "+914936247274",
-        "address": {
-            "@type": "PostalAddress",
-            "streetAddress": "Kenichira Karimbadi Rd, Kariampady",
-            "addressLocality": "Meenangadi",
-            "addressRegion": "Kerala",
-            "postalCode": "673591",
-            "addressCountry": "IN"
-        },
-        "geo": {
-            "@type": "GeoCoordinates",
-            "latitude": "11.6666",
-            "longitude": "76.1666"
-        },
-        "medicalSpecialty": ["Ophthalmology"],
-        "sameAs": [
-            "https://www.facebook.com/moscmm.kariambady"
-        ]
-    };
-
-    return <SchemaData type="Organization" data={data} />;
+export const WebsiteSchema = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "MOSCMM Kariambadi Eye Hospital",
+    "alternateName": "Kariambadi Eye Hospital",
+    "url": "https://kariambadieyehospital.com"
 };
 
 export const ArticleSchema = ({ title, description, author, date, image, url }) => {
@@ -68,5 +50,5 @@ export const ArticleSchema = ({ title, description, author, date, image, url }) 
         "description": description
     };
 
-    return <SchemaData type="Article" data={data} />;
+    return <SchemaData data={data} />;
 };
