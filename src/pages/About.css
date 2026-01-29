@@ -732,3 +732,36 @@
   background: white;
   border-color: white;
 }
+
+/* Team Section */
+.team-section {
+  background: white;
+}
+
+.team-section .section-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.team-section__label {
+  display: inline-block;
+  color: var(--primary-600);
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.875rem;
+  letter-spacing: 0.1em;
+  margin-bottom: 0.75rem;
+}
+
+.team-section__image-container {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.team-section__image {
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-xl);
+  display: block;
+}

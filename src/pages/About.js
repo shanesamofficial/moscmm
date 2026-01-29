@@ -37,6 +37,7 @@ import newsImage1 from '../assets/news-1.webp';
 
 import eyeCampImg from '../assets/gallery/eyecamp1.jpg';
 import jesusImg from '../assets/jesus-h.webp';
+import teamImg from '../assets/team.avif';
 
 const About = () => {
   const officers = [
@@ -445,6 +446,27 @@ const About = () => {
                 <p className="value-card__description">{value.description}</p>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Team Section */}
+      <section className="team-section section">
+        <div className="container">
+          <div className="section-header">
+            <span className="team-section__label">Our Team</span>
+            <h2 className="section-title">Our Team</h2>
+            <p className="section-subtitle">
+              Our dedicated team of professionals working together to provide the best eye care services.
+            </p>
+          </div>
+          <div className="team-section__image-container">
+            <img
+              src={teamImg}
+              alt="Kariambady Eye Hospital Team"
+              className="team-section__image"
+              loading="lazy"
+            />
           </div>
         </div>
       </section>
