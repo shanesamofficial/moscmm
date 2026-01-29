@@ -37,7 +37,26 @@ const Contact = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    alert('Thank you for your message! We will get back to you soon.');
+
+    // Construct mailto link
+    const mailtoSubject = formData.subject ? `Enquiry: ${formData.subject}` : 'New Message from Contact Form';
+    const mailtoBody = `
+Name: ${formData.name}
+Email: ${formData.email}
+Phone: ${formData.phone}
+
+Message:
+${formData.message}
+    `.trim();
+
+    const mailtoLink = `mailto:mosceyecare@gmail.com?subject=${encodeURIComponent(mailtoSubject)}&body=${encodeURIComponent(mailtoBody)}`;
+
+    // Open email client
+    window.location.href = mailtoLink;
+
+    // Show confirmation
+    alert('This will open your default email client to send the message. Please click Send in your email application.');
+
     setFormData({
       name: '',
       email: '',
