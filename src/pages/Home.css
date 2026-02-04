@@ -450,7 +450,7 @@
 .about-preview__label,
 .services-preview__label,
 .doctors-preview__label,
-.testimonials-preview__label {
+.facilities-preview__label {
   display: inline-block;
   color: var(--primary-600);
   font-weight: 600;
@@ -850,31 +850,31 @@
   outline-offset: 3px;
 }
 
-/* Testimonials Preview */
-.testimonials-preview__grid {
+/* Facilities Preview */
+.facilities-preview__grid {
   display: grid;
   grid-template-columns: 1fr;
   gap: 2rem;
 }
 
 @media (min-width: 768px) {
-  .testimonials-preview__grid {
+  .facilities-preview__grid {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
-.testimonial-card {
+.facility-card {
   background: white;
   border-radius: var(--radius-lg);
   padding: 2rem;
   box-shadow: var(--shadow-md);
 }
 
-.testimonial-card__content {
+.facility-card__content {
   margin-bottom: 1.5rem;
 }
 
-.testimonial-card__content p {
+.facility-card__content p {
   font-size: 1rem;
   line-height: 1.8;
   color: var(--gray-700);
@@ -885,13 +885,13 @@
   margin: 0;
 }
 
-.testimonial-card__author {
+.facility-card__author {
   display: flex;
   align-items: center;
   gap: 1rem;
 }
 
-.testimonial-card__avatar {
+.facility-card__avatar {
   width: 48px;
   height: 48px;
   background: var(--primary-100);
@@ -904,7 +904,7 @@
   font-size: 1rem;
 }
 
-.testimonial-card__author h4 {
+.facility-card__author h4 {
   font-family: var(--font-sans);
   font-size: 1rem;
   font-weight: 600;
@@ -912,7 +912,7 @@
   color: var(--gray-900);
 }
 
-.testimonial-card__author span {
+.facility-card__author span {
   font-size: 0.875rem;
   color: var(--text-secondary);
 }
@@ -965,69 +965,70 @@
     justify-content: flex-end;
   }
 }
+
 /* Blue theme overrides */
 .hero--blue-theme {
-    color: var(--primary-900);
+  color: var(--primary-900);
 }
 
 .hero--blue-theme .hero__title {
-    color: var(--primary-900);
+  color: var(--primary-900);
 }
 
 .hero--blue-theme .hero__title span {
-    color: var(--primary-600);
+  color: var(--primary-600);
 }
 
 .hero--blue-theme .hero__subtitle {
-    color: var(--text-secondary);
+  color: var(--text-secondary);
 }
 
 .hero--blue-theme .hero__badge {
-    background: rgba(37, 99, 235, 0.1);
-    color: var(--primary-700);
-    backdrop-filter: none;
-    border: 1px solid rgba(37, 99, 235, 0.2);
+  background: rgba(37, 99, 235, 0.1);
+  color: var(--primary-700);
+  backdrop-filter: none;
+  border: 1px solid rgba(37, 99, 235, 0.2);
 }
 
 .hero--blue-theme .hero__contact {
-    color: var(--text-secondary);
+  color: var(--text-secondary);
 }
 
 .hero--blue-theme .hero__contact a {
-    color: var(--primary-700);
+  color: var(--primary-700);
 }
 
 .hero--blue-theme .btn-outline {
-    border-color: var(--primary-600);
-    color: var(--primary-700);
+  border-color: var(--primary-600);
+  color: var(--primary-700);
 }
 
 .hero--blue-theme .btn-outline:hover {
-    background-color: var(--primary-600);
-    color: white;
+  background-color: var(--primary-600);
+  color: white;
 }
 
 .hero--blue-theme .hero-carousel__dot {
-    background: rgba(37, 99, 235, 0.3);
-    border-color: rgba(37, 99, 235, 0.4);
+  background: rgba(37, 99, 235, 0.3);
+  border-color: rgba(37, 99, 235, 0.4);
 }
 
 .hero--blue-theme .hero-carousel__dot.is-active {
-    background: var(--primary-600);
+  background: var(--primary-600);
 }
 
 .hero--blue-theme .hero-carousel__nav {
-    background: rgba(255, 255, 255, 0.8);
-    color: var(--primary-700);
-    border-color: rgba(37, 99, 235, 0.3);
+  background: rgba(255, 255, 255, 0.8);
+  color: var(--primary-700);
+  border-color: rgba(37, 99, 235, 0.3);
 }
 
 .hero--blue-theme .hero-carousel__nav:hover {
-    background: white;
-    box-shadow: var(--shadow-xl);
+  background: white;
+  box-shadow: var(--shadow-xl);
 }
 
 .hero--blue-theme .hero-carousel__dots {
-    background: rgba(255, 255, 255, 0.8);
-    border-color: rgba(37, 99, 235, 0.2);
+  background: rgba(255, 255, 255, 0.8);
+  border-color: rgba(37, 99, 235, 0.2);
 }

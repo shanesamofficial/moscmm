@@ -10,7 +10,6 @@ import Doctors from './pages/Doctors';
 import PatientInfo from './pages/PatientInfo';
 import Gallery from './pages/Gallery';
 import Facilities from './pages/Facilities';
-import Testimonials from './pages/Testimonials';
 import Contact from './pages/Contact';
 import BlogList from './pages/BlogList';
 import BlogPost from './pages/BlogPost';
@@ -114,7 +113,6 @@ function App() {
           <Route path="/patient-info" element={<PatientInfo />} />
           <Route path="/gallery" element={<Gallery />} />
           <Route path="/facilities" element={<Facilities />} />
-          <Route path="/testimonials" element={<Testimonials />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/blog" element={<BlogList />} />
           <Route path="/blog/:slug" element={<BlogPost />} />

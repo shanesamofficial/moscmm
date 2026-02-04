@@ -648,38 +648,38 @@ const Home = () => {
       </section>
 
       {/* Facilities Preview */}
-      <section className="testimonials-preview section bg-accent fade-in-section">
+      <section className="facilities-preview section bg-accent fade-in-section">
         <div className="container">
           <div className="section-header">
-            <span className="testimonials-preview__label">Facilities</span>
+            <span className="facilities-preview__label">Facilities</span>
             <h2 className="section-title">Main Surgeries & Key Equipment</h2>
           </div>
-          <div className="testimonials-preview__grid">
-            <div className="testimonial-card">
-              <div className="testimonial-card__content">
+          <div className="facilities-preview__grid">
+            <div className="facility-card">
+              <div className="facility-card__content">
                 <p>
                   Cataract Surgery, Occuloplasty, Trabeculectomy, Squint correction, Probing,
                   Pterygium, and DCT (Dacryocystectomy).
                 </p>
               </div>
-              <div className="testimonial-card__author">
-                <div className="testimonial-card__avatar">OT</div>
+              <div className="facility-card__author">
+                <div className="facility-card__avatar">OT</div>
                 <div>
                   <h4>Main Surgeries</h4>
                   <span>Comprehensive surgical care</span>
                 </div>
               </div>
             </div>
-            <div className="testimonial-card">
-              <div className="testimonial-card__content">
+            <div className="facility-card">
+              <div className="facility-card__content">
                 <p>
                   Diode green laser, Fundus camera, Slit lamp microscope, Operating microscope,
                   Auto refractometer, Auto keratometer, YAG laser, Field analyser, A-Scan,
                   Phacoemulsification, and Applanation tonometer.
                 </p>
               </div>
-              <div className="testimonial-card__author">
-                <div className="testimonial-card__avatar">EQ</div>
+              <div className="facility-card__author">
+                <div className="facility-card__avatar">EQ</div>
                 <div>
                   <h4>Equipment</h4>
                   <span>Diagnostic & surgical setup</span>
