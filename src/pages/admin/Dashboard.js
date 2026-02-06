@@ -2,7 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { supabase } from '../../lib/supabaseClient';
 import { useNavigate } from 'react-router-dom';
 import ImageUpload from '../../components/admin/ImageUpload';
-import { LogOut, Image as ImageIcon, Trash2, ExternalLink, LayoutDashboard, Settings, Menu, X } from 'lucide-react';
+import BlogManagement from './BlogManagement';
+import { LogOut, Image as ImageIcon, Trash2, ExternalLink, LayoutDashboard, Settings, Menu, X, FileText } from 'lucide-react';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import './Dashboard.css';
@@ -97,6 +98,14 @@ const Dashboard = () => {
                     >
                         <ImageIcon size={20} />
                         <span>Gallery</span>
+                    </button>
+
+                    <button
+                        className={`nav-item ${activeTab === 'blog' ? 'active' : ''}`}
+                        onClick={() => setActiveTab('blog')}
+                    >
+                        <FileText size={20} />
+                        <span>Blog</span>
                     </button>
 
                     <button
@@ -197,6 +206,8 @@ const Dashboard = () => {
                                 </section>
                             </div>
                         </div>
+                    ) : activeTab === 'blog' ? (
+                        <BlogManagement />
                     ) : (
                         <div className="under-construction">
                             <Settings size={48} />

@@ -137,7 +137,6 @@ const PatientInfo = () => {
 
   const insurancePartners = [
     'KASP (Karunya Arogya Suraksha Padhathi)',
-    'Ayushman Bharat PMJAY',
     'ESI (Employee State Insurance)',
     'Star Health Insurance'
   ];

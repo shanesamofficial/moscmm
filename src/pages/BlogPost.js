@@ -1,21 +1,77 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import { ArrowLeft, User, Calendar, Tag } from 'lucide-react';
 import SEO from '../components/SEO';
 import ShareButtons from '../components/ShareButtons';
 import { ArticleSchema } from '../components/SchemaData';
-import { blogPosts } from '../data/blogData';
+import { supabase } from '../lib/supabaseClient';
+import { blogPosts as staticBlogPosts } from '../data/blogData';
 import './BlogPost.css';
 
 const BlogPost = () => {
     const { slug } = useParams();
     const navigate = useNavigate();
-    const post = blogPosts.find(p => p.slug === slug);
+    const [post, setPost] = useState(null);
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
+        const fetchPost = async () => {
+            try {
+                const { data, error } = await supabase
+                    .from('blog_posts')
+                    .select('*')
+                    .eq('slug', slug)
+                    .eq('status', 'published')
+                    .single();
+
+                if (error || !data) {
+                    // Fallback to static data
+                    const staticPost = staticBlogPosts.find(p => p.slug === slug);
+                    if (staticPost) {
+                        setPost(staticPost);
+                    } else {
+                        setPost(null);
+                    }
+                } else {
+                    // Map database fields to component expected format
+                    setPost({
+                        id: data.id,
+                        slug: data.slug,
+                        title: data.title,
+                        excerpt: data.excerpt,
+                        content: data.content,
+                        category: data.category,
+                        author: data.author,
+                        date: new Date(data.published_at || data.created_at).toLocaleDateString('en-US', {
+                            year: 'numeric',
+                            month: 'long',
+                            day: 'numeric'
+                        }),
+                        image: data.featured_image
+                    });
+                }
+            } catch (error) {
+                console.log('Using static blog data as fallback');
+                const staticPost = staticBlogPosts.find(p => p.slug === slug);
+                setPost(staticPost || null);
+            }
+            setLoading(false);
+        };
+
+        fetchPost();
         // Scroll to top when post loads
         window.scrollTo(0, 0);
     }, [slug]);
+
+    if (loading) {
+        return (
+            <div className="blog-post-page">
+                <div className="container section text-center">
+                    <p>Loading...</p>
+                </div>
+            </div>
+        );
+    }
 
     if (!post) {
         return (
@@ -70,13 +126,15 @@ const BlogPost = () => {
                             </div>
                         </header>
 
-                        <div className="blog-post__image-wrapper">
-                            <img
-                                src={post.image}
-                                alt={post.title}
-                                className="blog-post__image"
-                            />
-                        </div>
+                        {post.image && (
+                            <div className="blog-post__image-wrapper">
+                                <img
+                                    src={post.image}
+                                    alt={post.title}
+                                    className="blog-post__image"
+                                />
+                            </div>
+                        )}
 
                         <div
                             className="blog-post__content"
@@ -102,3 +160,4 @@ const BlogPost = () => {
 };
 
 export default BlogPost;
+

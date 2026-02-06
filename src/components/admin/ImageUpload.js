@@ -112,7 +112,7 @@ const ImageUpload = ({ onUploadSuccess }) => {
                 {uploading ? <><Loader2 className="animate-spin" size={18} /> Uploading...</> : 'Save to Gallery'}
             </button>
 
-            <style jsx>{`
+            <style>{`
         .upload-container { display: flex; flex-direction: column; gap: 1.25rem; }
         .admin-form-group { display: flex; flex-direction: column; gap: 0.5rem; }
         .admin-form-group label { font-size: 0.9rem; font-weight: 600; color: #4b5563; }
