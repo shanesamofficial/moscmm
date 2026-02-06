@@ -7,9 +7,9 @@ import { blogPosts as staticBlogPosts } from '../data/blogData';
 import './BlogList.css';
 
 const BlogList = () => {
-    const [posts, setPosts] = useState([]);
+    // Start with static posts immediately so they're visible right away
+    const [posts, setPosts] = useState(staticBlogPosts);
     const [loading, setLoading] = useState(true);
-    const [usingFallback, setUsingFallback] = useState(false);
 
     useEffect(() => {
         const fetchPosts = async () => {
@@ -20,12 +20,10 @@ const BlogList = () => {
                     .eq('status', 'published')
                     .order('published_at', { ascending: false });
 
-                if (error) throw error;
-
-                if (data && data.length > 0) {
+                if (!error && data && data.length > 0) {
                     // Map database fields to component expected format
-                    const mappedPosts = data.map(post => ({
-                        id: post.id,
+                    const dbPosts = data.map(post => ({
+                        id: `db-${post.id}`,
                         slug: post.slug,
                         title: post.title,
                         excerpt: post.excerpt,
@@ -37,18 +35,20 @@ const BlogList = () => {
                             month: 'long',
                             day: 'numeric'
                         }),
-                        image: post.featured_image
+                        image: post.featured_image,
+                        fromDatabase: true
                     }));
-                    setPosts(mappedPosts);
-                } else {
-                    // Fallback to static data if no posts in database
-                    setPosts(staticBlogPosts);
-                    setUsingFallback(true);
+
+                    // Combine DB posts with static posts (DB posts first, then static)
+                    // Filter out static posts that have same slug as DB posts
+                    const dbSlugs = dbPosts.map(p => p.slug);
+                    const filteredStaticPosts = staticBlogPosts.filter(p => !dbSlugs.includes(p.slug));
+                    setPosts([...dbPosts, ...filteredStaticPosts]);
                 }
+                // If no DB posts or error, keep showing static posts (already set as default)
             } catch (error) {
-                console.log('Using static blog data as fallback');
-                setPosts(staticBlogPosts);
-                setUsingFallback(true);
+                console.log('Using static blog data:', error.message);
+                // Keep static posts (already set as default)
             }
             setLoading(false);
         };
