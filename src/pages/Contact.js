@@ -115,7 +115,7 @@ ${formData.message}
       name: 'Kalpetta Clinic',
       address: "St.Mary’s Arcade, Rest House Road (S.P.Office Road), Near Civil Station, Kalpetta – 673122",
       phones: [
-        { label: 'Phone', display: '04936 247204', value: '04936247204' },
+        { label: 'Phone', display: '04936 204274', value: '04936204274' },
         { label: 'Mob', display: '+91 94962 22991', value: '919496222991' }
       ],
       timings: [
